@@ -1,0 +1,75 @@
+UNIVERSITÉ DU QUÉBEC À MONTRÉAL
+
+**DÉTECTEUR DE VULNÉRABILITÉS**
+
+TRAVAIL PRÉSENTÉ À
+
+M. ABDOULAYE BANIRÉ DIALLO
+
+DANS LE CADRE DU COURS
+
+ATELIER - INM5001
+
+PAR
+
+CAROLINE JOLIN - JOLC27579401
+
+MICHEL RHEAULT – RHEM07066804
+
+PHILIPPE LABELLE - LABP270491
+
+SIMON HÉBERT - HEB28058701
+
+LUNDI LE 28 SEPTEMBRE 2015
+
+**Détecteur de vulnérabilité**
+
+Membres de l’équipe :
+
+Caroline Jolin
+
+Michel Rheault
+
+Philippe Labelle
+
+Simon Hébert
+
+*Développer un outil de mesure (évalué de façon statique et dynamique,
+active et passive) de l'écart d'un système par rapport à une image de
+base.  Autrement dit, un outil qui essaie de hacker une machine de
+toutes les façons possibles et qui compare les vulnérabilités qu'il
+trouve à celles qu'il trouve dans un système "modèle".*
+
+Le but du logiciel est d’analyser, de découvrir et de déterminer les
+vulnérabilités entre un ou des systèmes et une image de base.
+
+Cet outil servira notamment aux analystes de sécurité au sein d’une
+entreprise donnée ainsi qu’aux gestionnaires de réseaux.
+
+Nous allons nous limiter aux systèmes d’exploitation Windows, Linux et
+Mac OS, en excluant la gestion des bases de données.
+
+Le produit final consistera d’une part un outil d’analyse automatisé
+permettant de comparer deux systèmes intégrés tout en générant un
+rapport. Et d’autre part, un outil permettant de comparer les
+différences entre les programmes de deux systèmes d’exploitation afin
+d’y repérer des altérations suspectes.
+
+Toutefois, nous ne traiterons pas des systèmes mobiles, et des autres
+systèmes d’exploitation que ceux mentionnées plus haut (Windows, Mac OS,
+Linux).
+
+Le projet sera divisé en trois livrables. Le premier consistant en un
+programme qui permettra de produire un rapport évaluant les différences
+entre deux machines. Le second livrable ajoutera la fonctionnalité
+d’automatisation du programme. Et le dernier et troisième livrable
+consistera en un programme qui sera en mesure de comparer les différents
+programmes exécutables de deux machines afin d’y déceler des anomalies.
+
+Les programmes seront écrits en Python. Ces derniers pourront être
+testés à l’aide de machines virtuelles, soient une machine initiale, et
+une machine vulnérable.
+
+Signature du client
+
+\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_\_
