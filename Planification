@@ -1,0 +1,82 @@
+UNIVERSITÉ DU QUÉBEC À MONTRÉAL
+
+**PLANIFICATION**
+
+(DÉTECTEUR DE VULNÉRABILITÉS)
+
+TRAVAIL PRÉSENTÉ À
+
+M. ABDOULAYE BANIRÉ DIALLO
+
+DANS LE CADRE DU COURS
+
+ATELIER - INM5001
+
+PAR
+
+CAROLINE JOLIN - JOLC27579401
+
+MICHEL RHEAULT – RHEM07066804
+
+PHILIPPE LABELLE - LABP270491
+
+SIMON HÉBERT - HEB28058701
+
+LUNDI LE 28 SEPTEMBRE 2015
+
+**Planification**
+
+Le projet sera codé avec le langage Python. De plus, des programmes déjà
+existants et reconnus en sécurité informatique seront utilisés afin de
+collecter les données permettant à nos programmes de procéder à des
+analyses. Parmi ceux-ci, notons Nmap, Nessus, MBSA, Md5 et Sha1. Aussi,
+nos programmes seront testés dans des machines virtuelles accessibles
+aux laboratoires du pavillon PK et à distance via un compte commun.
+
+Ayant principalement de l’expérience avec Java et C++, tous les membres
+de l’équipe devront approfondir leurs connaissances du langage Python.
+L’apprentissage sera également nécessaire au niveau des programmes
+existants que nous utiliserons, puisque nous ne les avons jamais
+utilisés. Finalement, la sécurité informatique en générale consistera un
+nouveau champ d’études pour tous, et donc nous devrons faire des
+recherches afin de déterminer ce qui est le plus utile et intéressant
+d’intégrer à nos programmes.
+
+Pour le premier sprint, nous allons développer un outil qui permet de
+produit un rapport d’analyse des différences entre deux rapports
+produits par un programme externe.
+
+Le second sprint consistera à ajouter une interface automatisée au
+programme pour qu'il active les programmes externes tels que NMAP ou
+Nessus pour ensuite analyser les résultats et produire un rapport.
+
+Le dernier sprint permettra d’évaluer les différences entre les
+programmes exécutables d’une machine de base, et d’une machine
+vulnérable.
+
+Afin de réaliser notre projet, notre équipe y travaillera de façon
+quotidienne. Tout d’abord, chaque semaine aura lieu une rencontre avec
+notre client soit le mercredi ou le jeudi sur l’heure du midi. Cette
+dernière aura pour but de déterminer ce qui sera fait précisément dans
+la semaine en cours, et ce qui a été fait précédemment. À la suite de
+notre rencontre quotidienne, nous établirons quelles sont les tâches
+devant être réalisées au cours de la semaine en question, et nous les
+attribueront, en temps et lieu, aux membres de l’équipe. Toutefois,
+considérant l’éventualité de difficultés techniques, ces tâches
+resteront interchangeables entre les membres de l’équipe, dans le but
+d’assurer un travail efficace et d’éviter les blocages. Puis, à la fin
+de chacun de nos trois sprints seront présentées les avancées concrètes
+au client, et lui sera remis un programme fonctionnel. Tous les membres
+de l’équipe auront la possibilité de travailler sur le projet quand ils
+le désirent, en respectant les tâches devant être effectuées durant la
+semaine en cours.
+
+Dans l'objectif de partager rapidement l'information entre les
+différents membres de l'équipe, nous utiliserons l’application Slack,
+qui est un outil de messagerie instantanée, et qui permet d’envoyer des
+documents dans une conversation de groupe à laquelle tous les membres
+ont accès. Donc, les autres membres de l’équipe y demeureront
+disponibles pour consultation ou aide. BitBucket sera notre support de
+choix pour envoyer les modifications de code et les différentes versions
+de l'application. Le partage d'information se fera minimalement de façon
+hebdomadaire, mais restera une possibilité en tout temps.
