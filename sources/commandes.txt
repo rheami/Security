@@ -1,0 +1,2 @@
+nmap --iflist
+nmap -sS -sV localhost -o output.txt
