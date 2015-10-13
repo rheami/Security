@@ -1,2 +1,2 @@
-nmap --iflist
-nmap -sS -sV localhost -o output.txt
+nmap -sS -sU -PN -p 1-65535 -oX 'scan-%T-%D.xml' localhost
+
