@@ -1,0 +1,39 @@
+<?xml version="1.0"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 6.47 scan initiated Wed Oct 14 21:22:47 2015 as: nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost -->
+<nmaprun scanner="nmap" args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost" start="1444872167" startstr="Wed Oct 14 21:22:47 2015" version="6.47" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<scaninfo type="udp" protocol="udp" numservices="65535" services="1-65535"/>
+<verbose level="0"/>
+<debugging level="0"/>
+<host starttime="1444872167" endtime="1444872170"><status state="up" reason="user-set" reason_ttl="0"/>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames>
+<hostname name="localhost" type="user"/>
+<hostname name="localhost.localdomain" type="PTR"/>
+</hostnames>
+<ports><extraports state="closed" count="131056">
+<extrareasons reason="resets" count="65529"/>
+<extrareasons reason="port-unreaches" count="65527"/>
+</extraports>
+<port protocol="tcp" portid="80"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="http" method="table" conf="3"/></port>
+<port protocol="tcp" portid="631"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="ipp" method="table" conf="3"/></port>
+<port protocol="tcp" portid="6942"><state state="open" reason="syn-ack" reason_ttl="64"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="tcp" portid="8834"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="tcp" portid="62804"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="tcp" portid="63342"><state state="open" reason="syn-ack" reason_ttl="64"/></port>
+<port protocol="udp" portid="68"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="dhcpc" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="323"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="unknown" method="table" conf="3"/></port>
+<port protocol="udp" portid="5353"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="zeroconf" method="table" conf="3"/></port>
+<port protocol="udp" portid="9738"><state state="open|filtered" reason="no-response" reason_ttl="0"/></port>
+<port protocol="udp" portid="36878"><state state="open|filtered" reason="no-response" reason_ttl="0"/></port>
+<port protocol="udp" portid="59735"><state state="open|filtered" reason="no-response" reason_ttl="0"/></port>
+<port protocol="udp" portid="62804"><state state="open|filtered" reason="no-response" reason_ttl="0"/></port>
+</ports>
+<times srtt="2" rttvar="0" to="100000"/>
+</host>
+<runstats><finished time="1444872170" timestr="Wed Oct 14 21:22:50 2015" elapsed="3.08" summary="Nmap done at Wed Oct 14 21:22:50 2015; 1 IP address (1 host up) scanned in 3.08 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+</runstats>
+</nmaprun>

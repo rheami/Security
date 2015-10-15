@@ -1,13 +1,13 @@
 <?xml version="1.0"?>
 <!DOCTYPE nmaprun>
 <?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
-<!-- Nmap 6.47 scan initiated Tue Oct 13 12:43:46 2015 as: nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml -oG scan-%T-%D.txt localhost -->
-<nmaprun scanner="nmap" args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml -oG scan-%T-%D.txt localhost" start="1444754626" startstr="Tue Oct 13 12:43:46 2015" version="6.47" xmloutputversion="1.04">
+<!-- Nmap 6.47 scan initiated Tue Oct 13 12:40:06 2015 as: nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost -->
+<nmaprun scanner="nmap" args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost" start="1444754406" startstr="Tue Oct 13 12:40:06 2015" version="6.47" xmloutputversion="1.04">
 <scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
 <scaninfo type="udp" protocol="udp" numservices="65535" services="1-65535"/>
 <verbose level="0"/>
 <debugging level="0"/>
-<host starttime="1444754626" endtime="1444754630"><status state="up" reason="user-set" reason_ttl="0"/>
+<host starttime="1444754406" endtime="1444754410"><status state="up" reason="user-set" reason_ttl="0"/>
 <address addr="127.0.0.1" addrtype="ipv4"/>
 <hostnames>
 <hostname name="localhost" type="user"/>
@@ -28,6 +28,6 @@
 </ports>
 <times srtt="6" rttvar="0" to="100000"/>
 </host>
-<runstats><finished time="1444754630" timestr="Tue Oct 13 12:43:50 2015" elapsed="3.53" summary="Nmap done at Tue Oct 13 12:43:50 2015; 1 IP address (1 host up) scanned in 3.53 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
+<runstats><finished time="1444754410" timestr="Tue Oct 13 12:40:10 2015" elapsed="3.49" summary="Nmap done at Tue Oct 13 12:40:10 2015; 1 IP address (1 host up) scanned in 3.49 seconds" exit="success"/><hosts up="1" down="0" total="1"/>
 </runstats>
 </nmaprun>

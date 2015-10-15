@@ -2,6 +2,7 @@
 
 # Unit tests for Ndiff.
 
+
 import subprocess
 import sys
 import unittest
@@ -46,7 +47,6 @@ class scan_test(unittest.TestCase):
         scan.load_from_file("test-scans/simple.xml")
         host = scan.hosts[0]
         self.assertEqual(len(host.ports), 2)
-
     def test_extraports(self):
         scan = Scan()
         scan.load_from_file("test-scans/single.xml")
@@ -763,45 +763,10 @@ def host_apply_diff(host, diff):
             host.script_results[host.script_results.index(sr_a)] = sr_b
     host.script_results.sort()
 
-
 def call_quiet(args, **kwargs):
     """Run a command with subprocess.call and hide its output."""
     return subprocess.call(args, stdout=subprocess.PIPE,
         stderr=subprocess.STDOUT, env={'PYTHONPATH': "."}, **kwargs)
 
-
-class exit_code_test(unittest.TestCase):
-    NDIFF = "./scripts/ndiff"
-
-    def test_exit_equal(self):
-        """Test that the exit code is 0 when the diff is empty."""
-        for format in ("--text", "--xml"):
-            code = call_quiet([self.NDIFF, format,
-                "test-scans/simple.xml", "test-scans/simple.xml"])
-            self.assertEqual(code, 0)
-        # Should be independent of verbosity.
-        for format in ("--text", "--xml"):
-            code = call_quiet([self.NDIFF, "-v", format,
-                "test-scans/simple.xml", "test-scans/simple.xml"])
-            self.assertEqual(code, 0)
-
-    def test_exit_different(self):
-        """Test that the exit code is 1 when the diff is not empty."""
-        for format in ("--text", "--xml"):
-            code = call_quiet([self.NDIFF, format,
-                "test-scans/simple.xml", "test-scans/complex.xml"])
-            self.assertEqual(code, 1)
-
-    def test_exit_error(self):
-        """Test that the exit code is 2 when there is an error."""
-        code = call_quiet([self.NDIFF])
-        self.assertEqual(code, 2)
-        code = call_quiet([self.NDIFF, "test-scans/simple.xml"])
-        self.assertEqual(code, 2)
-        code = call_quiet([self.NDIFF, "test-scans/simple.xml",
-            "test-scans/nonexistent.xml"])
-        self.assertEqual(code, 2)
-        code = call_quiet([self.NDIFF, "--nothing"])
-        self.assertEqual(code, 2)
 
 unittest.main()
