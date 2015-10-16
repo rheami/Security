@@ -5,7 +5,6 @@ import sys
 
 from ndiff import Scan, ScanDiffXML
 
-
 def test_host_number():
     if len(scan_a.hosts) != len(scan_b.hosts):
         print("le nombre de host est différent")
