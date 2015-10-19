@@ -1,4 +1,7 @@
-#!/usr/bin/env python
+#!/usr/bin/env python3
+
+from __future__ import print_function
+from __future__ import absolute_import
 import subprocess
 
 
@@ -15,7 +18,7 @@ class Server(object):
         self.hostname = hostname
 
     def ping(self, ip_addr):
-        print "Pinging %s from %s (%s)" % (ip_addr, self.ip, self.hostname)
+        print("Pinging %s from %s (%s)" % (ip_addr, self.ip, self.hostname))
         #subprocess.call(["nping", ip_addr])
 
 if __name__ == '__main__':
