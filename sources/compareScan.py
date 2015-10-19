@@ -96,15 +96,22 @@ def main():
     #print(xml)
     soup = BeautifulSoup(xml, 'lxml-xml')
     hostdiff = soup.hostdiff
-    mapports = {x.get("portid"): x.get("protocol") for x in hostdiff.findAll('port')}
+    #mapports = {x.get("portid"): x.get("protocol") for x in portdiff.findAll('port')}
     #print(mapports)
-    listport = [x.get("portid") for x in hostdiff.findAll('port')]
-    #print(listport)
+ #   listport = [x for x in hostdiff.findAll('portdiff')]
+  #  print(listport)
 
+#    map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('a') }
+#    port_a = [x for x in hostdiff.findAll('a')]
+#    #map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('port') }
+#    print(port_a)
+#    print(map_a)
+#    port_b = [x for x in hostdiff.findAll('b')]
+ #   print(port_b)
 
-    for port in soup.hostdiff.findAll('port'):
+    for port in hostdiff.findAll('port'):
         print(port.get("portid"), port.get("protocol"), port.state)
-        # print(port)
+    #print(port)
 
     f.close()
 
