@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # coding=utf-8
-
 from __future__ import print_function
-
 from __future__ import absolute_import
 from StringIO import StringIO
 import sys
@@ -98,9 +96,15 @@ def main():
     #print(xml)
     soup = BeautifulSoup(xml, 'lxml-xml')
     hostdiff = soup.hostdiff
-    for porta in hostdiff.findAll('port'):
-        print(porta.get("portid"), porta.get("protocol"))
-        #print(porta)
+    mapports = {x.get("portid"): x.get("protocol") for x in hostdiff.findAll('port')}
+    #print(mapports)
+    listport = [x.get("portid") for x in hostdiff.findAll('port')]
+    #print(listport)
+
+
+    for port in soup.hostdiff.findAll('port'):
+        print(port.get("portid"), port.get("protocol"), port.state)
+        # print(port)
 
     f.close()
 
