@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nmapdiff version="1"><scandiff><a><nmaprun args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost" scanner="nmap" start="1444754406" startstr="Tue Oct 13 12:40:06 2015" version="6.47"/>
+</a><b><nmaprun args="nmap -oX simple.xml -p 22,113 scanme.nmap.org" scanner="nmap" start="1247268210" startstr="Fri Jul 10 19:23:30 2009" version="4.90RC2"/>
+</b><hostdiff>
+<a>
+<host>
+<status state="up"/>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames>
+<hostname name="localhost"/>
+<hostname name="localhost.localdomain"/>
+</hostnames>
+<ports>
+<extraports count="131062" state="closed"/>
+<port portid="68" protocol="udp">
+<state state="open|filtered"/>
+<service name="dhcpc"/>
+</port>
+<port portid="80" protocol="tcp">
+<state state="open"/>
+<service name="http"/>
+</port>
+<port portid="123" protocol="udp">
+<state state="open|filtered"/>
+<service name="ntp"/>
+</port>
+<port portid="323" protocol="udp">
+<state state="open|filtered"/>
+<service name="unknown"/>
+</port>
+<port portid="631" protocol="tcp">
+<state state="open"/>
+<service name="ipp"/>
+</port>
+<port portid="2596" protocol="udp">
+<state state="open|filtered"/>
+</port>
+<port portid="5353" protocol="udp">
+<state state="open|filtered"/>
+<service name="zeroconf"/>
+</port>
+<port portid="48325" protocol="udp">
+<state state="open|filtered"/>
+</port>
+</ports>
+</host>
+</a>
+</hostdiff>
+<hostdiff>
+<b>
+<host>
+<status state="up"/>
+<address addr="64.13.134.52" addrtype="ipv4"/>
+<hostnames>
+<hostname name="scanme.nmap.org"/>
+</hostnames>
+<ports>
+<port portid="22" protocol="tcp">
+<state state="open"/>
+<service name="ssh"/>
+</port>
+<port portid="113" protocol="tcp">
+<state state="closed"/>
+<service name="auth"/>
+</port>
+</ports>
+</host>
+</b>
+</hostdiff>
+</scandiff></nmapdiff>
