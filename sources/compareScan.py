@@ -8,7 +8,7 @@ from StringIO import StringIO
 import sys
 from optparse import OptionParser
 from ndiff import Scan, ScanDiffXML, ScanDiffText, HostDiff
-
+from bs4 import BeautifulSoup
 
 class CompareScan(object):
     def __init__(self, scan_a, scan_b):
@@ -92,17 +92,15 @@ def main():
 
     f = StringIO()
     scan_diff = ScanDiffXML(scan_a, scan_b, f)
+    cost = scan_diff.output()
     xml = f.getvalue()
     #print("---------- xml diff ----------/n")
     #print(xml)
-
-    #scan_diff = ScanDiffText(scan_a, scan_b, f)
-    #txt = f.getvalue()
-
-    #print("---------- xml diff ----------/n")
-    #print(txt)
-
-    cost = scan_diff.output()
+    soup = BeautifulSoup(xml, 'lxml-xml')
+    hostdiff = soup.hostdiff
+    for porta in hostdiff.findAll('port'):
+        print(porta.get("portid"), porta.get("protocol"))
+        #print(porta)
 
     f.close()
 
