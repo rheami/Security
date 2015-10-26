@@ -1,0 +1,18 @@
+nessus:
+
+from browser :
+https://127.0.0.1:8834/
+
+from command line
+View the Current Network Interfaces:
+/opt/nessus/sbin/nessuscli fix --list-interfaces
+
+python library for using the new Nessus REST API.
+https://github.com/tenable/nessrest
+another:
+https://github.com/averagesecurityguy/Nessus6
+
+import ness6rest
+scan = ness6rest.Scanner(url="https://127.0.0.1:8834", login="michel", password="HdN1tsxqF9FH", insecure=True)
+
+
