@@ -13,6 +13,6 @@ another:
 https://github.com/averagesecurityguy/Nessus6
 
 import ness6rest
-scan = ness6rest.Scanner(url="https://127.0.0.1:8834", login="michel", password="HdN1tsxqF9FH", insecure=True)
+scan = ness6rest.Scanner(url="https://127.0.0.1:8834", login="michel", password="toto", insecure=True)
 
 
