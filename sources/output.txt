@@ -1,0 +1,21 @@
+-Nmap 6.47 scan initiated Tue Oct 13 12:40:06 2015 as: nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost
++Nmap 4.90RC2 scan initiated Fri Jul 10 19:23:30 2009 as: nmap -oX simple.xml -p 22,113 scanme.nmap.org
+
+-localhost, localhost.localdomain (127.0.0.1):
+-Host is up.
+-Not shown: 131062 closed ports
+-PORT      STATE         SERVICE  VERSION
+-68/udp    open|filtered dhcpc
+-80/tcp    open          http
+-123/udp   open|filtered ntp
+-323/udp   open|filtered unknown
+-631/tcp   open          ipp
+-2596/udp  open|filtered
+-5353/udp  open|filtered zeroconf
+-48325/udp open|filtered
+
++scanme.nmap.org (64.13.134.52):
++Host is up.
++PORT    STATE  SERVICE VERSION
++22/tcp  open   ssh
++113/tcp closed auth

@@ -35,7 +35,6 @@ def main():
         print(item.get("pluginName"), item.get("port"), item.get("protocol"), item.get("severity"))
 
 
-
 # Catch uncaught exceptions so they can produce an exit code of 2 (EXIT_ERROR),
 # not 1 like they would by default.
 def excepthook(type, value, tb):

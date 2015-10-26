@@ -101,11 +101,11 @@ def main():
  #   listport = [x for x in hostdiff.findAll('portdiff')]
   #  print(listport)
 
-#    map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('a') }
-#    port_a = [x for x in hostdiff.findAll('a')]
-#    #map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('port') }
+    map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('a') }
+    port_a = [x for x in hostdiff.findAll('a')]
+    #map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('port') }
 #    print(port_a)
-#    print(map_a)
+    print(map_a)
 #    port_b = [x for x in hostdiff.findAll('b')]
  #   print(port_b)
 
