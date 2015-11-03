@@ -20,9 +20,8 @@ scan = ness6rest.Scanner(url="https://127.0.0.1:8834",login=user,password=passwo
 # Build policies
 #scan.upload(upload_file="file.audit")
 #scan._policy_add_audit(category="Windows", filename="file.audit")
-scan.policy_add(name="basic", plugins="21156")
+scan.policy_add(name="Nessus Scan Information", plugins="19506") # windows plugins
 
 #Launch scans
-scan.scan_add(targets="192.168.0.101", name="firstscan")
-#scan.scan_add(targets="192.168.0.101", name="web")
+scan.scan_add(targets="172.16.203.128", name="xp") # via vmplayer
 scan.scan_run()

@@ -595,46 +595,6 @@
 <preferenceValues>yes</preferenceValues>
 <selectedValue>yes</selectedValue>
 </item>
-<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
-<pluginId>79357</pluginId>
-<fullName>Microsoft Azure Compliance Checks[file]:Policy file #1 :</fullName>
-<preferenceName>Policy file #1 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
-<pluginId>79357</pluginId>
-<fullName>Microsoft Azure Compliance Checks[file]:Policy file #2 :</fullName>
-<preferenceName>Policy file #2 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
-<pluginId>79357</pluginId>
-<fullName>Microsoft Azure Compliance Checks[file]:Policy file #3 :</fullName>
-<preferenceName>Policy file #3 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
-<pluginId>79357</pluginId>
-<fullName>Microsoft Azure Compliance Checks[file]:Policy file #4 :</fullName>
-<preferenceName>Policy file #4 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
-<pluginId>79357</pluginId>
-<fullName>Microsoft Azure Compliance Checks[file]:Policy file #5 :</fullName>
-<preferenceName>Policy file #5 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
 <item><pluginName>Microsoft Azure Settings</pluginName>
 <pluginId>79358</pluginId>
 <fullName>Microsoft Azure Settings[entry]:Username :</fullName>
@@ -672,6 +632,46 @@
 <fullName>Microsoft Azure Settings[entry]:Subscriptions :</fullName>
 <preferenceName>Subscriptions :</preferenceName>
 <preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
+<pluginId>79357</pluginId>
+<fullName>Microsoft Azure Compliance Checks[file]:Policy file #1 :</fullName>
+<preferenceName>Policy file #1 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
+<pluginId>79357</pluginId>
+<fullName>Microsoft Azure Compliance Checks[file]:Policy file #2 :</fullName>
+<preferenceName>Policy file #2 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
+<pluginId>79357</pluginId>
+<fullName>Microsoft Azure Compliance Checks[file]:Policy file #3 :</fullName>
+<preferenceName>Policy file #3 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
+<pluginId>79357</pluginId>
+<fullName>Microsoft Azure Compliance Checks[file]:Policy file #4 :</fullName>
+<preferenceName>Policy file #4 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Microsoft Azure Compliance Checks</pluginName>
+<pluginId>79357</pluginId>
+<fullName>Microsoft Azure Compliance Checks[file]:Policy file #5 :</fullName>
+<preferenceName>Policy file #5 :</preferenceName>
+<preferenceType>file</preferenceType>
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
@@ -1611,62 +1611,6 @@
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[entry]:GMC Server :</fullName>
-<preferenceName>GMC Server :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[entry]:Port :</fullName>
-<preferenceName>Port :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[entry]:Domain :</fullName>
-<preferenceName>Domain :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[entry]:Username :</fullName>
-<preferenceName>Username :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[password]:Password :</fullName>
-<preferenceName>Password :</preferenceName>
-<preferenceType>password</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[checkbox]:SSL :</fullName>
-<preferenceName>SSL :</preferenceName>
-<preferenceType>checkbox</preferenceType>
-<preferenceValues>yes</preferenceValues>
-<selectedValue>yes</selectedValue>
-</item>
-<item><pluginName>Good MDM Settings</pluginName>
-<pluginId>66963</pluginId>
-<fullName>Good MDM Settings[checkbox]:Verify SSL Certificate :</fullName>
-<preferenceName>Verify SSL Certificate :</preferenceName>
-<preferenceType>checkbox</preferenceType>
-<preferenceValues>no</preferenceValues>
-<selectedValue>no</selectedValue>
-</item>
 <item><pluginName>Global variable settings</pluginName>
 <pluginId>12288</pluginId>
 <fullName>Global variable settings[checkbox]:Probe services on every port</fullName>
@@ -1795,6 +1739,62 @@
 <preferenceValues>no</preferenceValues>
 <selectedValue>no</selectedValue>
 </item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[entry]:GMC Server :</fullName>
+<preferenceName>GMC Server :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[entry]:Port :</fullName>
+<preferenceName>Port :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[entry]:Domain :</fullName>
+<preferenceName>Domain :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[entry]:Username :</fullName>
+<preferenceName>Username :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[password]:Password :</fullName>
+<preferenceName>Password :</preferenceName>
+<preferenceType>password</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[checkbox]:SSL :</fullName>
+<preferenceName>SSL :</preferenceName>
+<preferenceType>checkbox</preferenceType>
+<preferenceValues>yes</preferenceValues>
+<selectedValue>yes</selectedValue>
+</item>
+<item><pluginName>Good MDM Settings</pluginName>
+<pluginId>66963</pluginId>
+<fullName>Good MDM Settings[checkbox]:Verify SSL Certificate :</fullName>
+<preferenceName>Verify SSL Certificate :</preferenceName>
+<preferenceType>checkbox</preferenceType>
+<preferenceValues>no</preferenceValues>
+<selectedValue>no</selectedValue>
+</item>
 <item><pluginName>Hosts File Whitelisted Entries</pluginName>
 <pluginId>73980</pluginId>
 <fullName>Hosts File Whitelisted Entries[file]:Upload file with custom hosts entries :</fullName>
@@ -1866,6 +1866,14 @@
 <preferenceType>file</preferenceType>
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
+</item>
+<item><pluginName>Remote web server screenshot</pluginName>
+<pluginId>59861</pluginId>
+<fullName>Remote web server screenshot[checkbox]:Allow Nessus to connect to the cloud to take a screenshot of the public targets</fullName>
+<preferenceName>Allow Nessus to connect to the cloud to take a screenshot of the public targets</preferenceName>
+<preferenceType>checkbox</preferenceType>
+<preferenceValues>no</preferenceValues>
+<selectedValue>no</selectedValue>
 </item>
 <item><pluginName>HTTP login page</pluginName>
 <pluginId>11149</pluginId>
@@ -1971,14 +1979,6 @@
 <preferenceValues>no</preferenceValues>
 <selectedValue>no</selectedValue>
 </item>
-<item><pluginName>Remote web server screenshot</pluginName>
-<pluginId>59861</pluginId>
-<fullName>Remote web server screenshot[checkbox]:Allow Nessus to connect to the cloud to take a screenshot of the public targets</fullName>
-<preferenceName>Allow Nessus to connect to the cloud to take a screenshot of the public targets</preferenceName>
-<preferenceType>checkbox</preferenceType>
-<preferenceValues>no</preferenceValues>
-<selectedValue>no</selectedValue>
-</item>
 <item><pluginName>Huawei VRP Compliance Checks</pluginName>
 <pluginId>73157</pluginId>
 <fullName>Huawei VRP Compliance Checks[file]:Policy file #1 :</fullName>
@@ -2075,22 +2075,6 @@
 <preferenceValues>no</preferenceValues>
 <selectedValue>no</selectedValue>
 </item>
-<item><pluginName>IBM iSeries Credentials</pluginName>
-<pluginId>57861</pluginId>
-<fullName>IBM iSeries Credentials[entry]:Login :</fullName>
-<preferenceName>Login :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>IBM iSeries Credentials</pluginName>
-<pluginId>57861</pluginId>
-<fullName>IBM iSeries Credentials[password]:Password :</fullName>
-<preferenceName>Password :</preferenceName>
-<preferenceType>password</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
 <item><pluginName>IBM iSeries Compliance Checks</pluginName>
 <pluginId>57860</pluginId>
 <fullName>IBM iSeries Compliance Checks[file]:Policy file #1 :</fullName>
@@ -2128,6 +2112,22 @@
 <fullName>IBM iSeries Compliance Checks[file]:Policy file #5 :</fullName>
 <preferenceName>Policy file #5 :</preferenceName>
 <preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>IBM iSeries Credentials</pluginName>
+<pluginId>57861</pluginId>
+<fullName>IBM iSeries Credentials[entry]:Login :</fullName>
+<preferenceName>Login :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>IBM iSeries Credentials</pluginName>
+<pluginId>57861</pluginId>
+<fullName>IBM iSeries Credentials[password]:Password :</fullName>
+<preferenceName>Password :</preferenceName>
+<preferenceType>password</preferenceType>
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
@@ -2723,46 +2723,6 @@
 <preferenceValues>no</preferenceValues>
 <selectedValue>no</selectedValue>
 </item>
-<item><pluginName>OVAL Linux Compliance Checks</pluginName>
-<pluginId>83188</pluginId>
-<fullName>OVAL Linux Compliance Checks[file]:Policy file #1 :</fullName>
-<preferenceName>Policy file #1 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>OVAL Linux Compliance Checks</pluginName>
-<pluginId>83188</pluginId>
-<fullName>OVAL Linux Compliance Checks[file]:Policy file #2 :</fullName>
-<preferenceName>Policy file #2 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>OVAL Linux Compliance Checks</pluginName>
-<pluginId>83188</pluginId>
-<fullName>OVAL Linux Compliance Checks[file]:Policy file #3 :</fullName>
-<preferenceName>Policy file #3 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>OVAL Linux Compliance Checks</pluginName>
-<pluginId>83188</pluginId>
-<fullName>OVAL Linux Compliance Checks[file]:Policy file #4 :</fullName>
-<preferenceName>Policy file #4 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>OVAL Linux Compliance Checks</pluginName>
-<pluginId>83188</pluginId>
-<fullName>OVAL Linux Compliance Checks[file]:Policy file #5 :</fullName>
-<preferenceName>Policy file #5 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
 <item><pluginName>OVAL Windows Compliance Checks</pluginName>
 <pluginId>83189</pluginId>
 <fullName>OVAL Windows Compliance Checks[file]:Policy file #1 :</fullName>
@@ -2798,6 +2758,46 @@
 <item><pluginName>OVAL Windows Compliance Checks</pluginName>
 <pluginId>83189</pluginId>
 <fullName>OVAL Windows Compliance Checks[file]:Policy file #5 :</fullName>
+<preferenceName>Policy file #5 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>OVAL Linux Compliance Checks</pluginName>
+<pluginId>83188</pluginId>
+<fullName>OVAL Linux Compliance Checks[file]:Policy file #1 :</fullName>
+<preferenceName>Policy file #1 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>OVAL Linux Compliance Checks</pluginName>
+<pluginId>83188</pluginId>
+<fullName>OVAL Linux Compliance Checks[file]:Policy file #2 :</fullName>
+<preferenceName>Policy file #2 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>OVAL Linux Compliance Checks</pluginName>
+<pluginId>83188</pluginId>
+<fullName>OVAL Linux Compliance Checks[file]:Policy file #3 :</fullName>
+<preferenceName>Policy file #3 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>OVAL Linux Compliance Checks</pluginName>
+<pluginId>83188</pluginId>
+<fullName>OVAL Linux Compliance Checks[file]:Policy file #4 :</fullName>
+<preferenceName>Policy file #4 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>OVAL Linux Compliance Checks</pluginName>
+<pluginId>83188</pluginId>
+<fullName>OVAL Linux Compliance Checks[file]:Policy file #5 :</fullName>
 <preferenceName>Policy file #5 :</preferenceName>
 <preferenceType>file</preferenceType>
 <preferenceValues></preferenceValues>
@@ -2883,14 +2883,6 @@
 <preferenceValues>no</preferenceValues>
 <selectedValue>no</selectedValue>
 </item>
-<item><pluginName>Patch Report</pluginName>
-<pluginId>66334</pluginId>
-<fullName>Patch Report[checkbox]:Display the superseded patches in the report</fullName>
-<preferenceName>Display the superseded patches in the report</preferenceName>
-<preferenceType>checkbox</preferenceType>
-<preferenceValues>yes</preferenceValues>
-<selectedValue>yes</selectedValue>
-</item>
 <item><pluginName>PCI DSS compliance</pluginName>
 <pluginId>33929</pluginId>
 <fullName>PCI DSS compliance[checkbox]:Check for PCI-DSS compliance</fullName>
@@ -2898,6 +2890,14 @@
 <preferenceType>checkbox</preferenceType>
 <preferenceValues>no</preferenceValues>
 <selectedValue>no</selectedValue>
+</item>
+<item><pluginName>Patch Report</pluginName>
+<pluginId>66334</pluginId>
+<fullName>Patch Report[checkbox]:Display the superseded patches in the report</fullName>
+<preferenceName>Display the superseded patches in the report</preferenceName>
+<preferenceType>checkbox</preferenceType>
+<preferenceValues>yes</preferenceValues>
+<selectedValue>yes</selectedValue>
 </item>
 <item><pluginName>Ping the remote host</pluginName>
 <pluginId>10180</pluginId>
@@ -3003,6 +3003,46 @@
 <preferenceValues>yes</preferenceValues>
 <selectedValue>yes</selectedValue>
 </item>
+<item><pluginName>Rackspace Compliance Checks</pluginName>
+<pluginId>79356</pluginId>
+<fullName>Rackspace Compliance Checks[file]:Policy file #1 :</fullName>
+<preferenceName>Policy file #1 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Rackspace Compliance Checks</pluginName>
+<pluginId>79356</pluginId>
+<fullName>Rackspace Compliance Checks[file]:Policy file #2 :</fullName>
+<preferenceName>Policy file #2 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Rackspace Compliance Checks</pluginName>
+<pluginId>79356</pluginId>
+<fullName>Rackspace Compliance Checks[file]:Policy file #3 :</fullName>
+<preferenceName>Policy file #3 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Rackspace Compliance Checks</pluginName>
+<pluginId>79356</pluginId>
+<fullName>Rackspace Compliance Checks[file]:Policy file #4 :</fullName>
+<preferenceName>Policy file #4 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Rackspace Compliance Checks</pluginName>
+<pluginId>79356</pluginId>
+<fullName>Rackspace Compliance Checks[file]:Policy file #5 :</fullName>
+<preferenceName>Policy file #5 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
 <item><pluginName>Rackspace Settings</pluginName>
 <pluginId>79355</pluginId>
 <fullName>Rackspace Settings[entry]:Username :</fullName>
@@ -3075,78 +3115,6 @@
 <preferenceValues>yes</preferenceValues>
 <selectedValue>yes</selectedValue>
 </item>
-<item><pluginName>Rackspace Compliance Checks</pluginName>
-<pluginId>79356</pluginId>
-<fullName>Rackspace Compliance Checks[file]:Policy file #1 :</fullName>
-<preferenceName>Policy file #1 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Rackspace Compliance Checks</pluginName>
-<pluginId>79356</pluginId>
-<fullName>Rackspace Compliance Checks[file]:Policy file #2 :</fullName>
-<preferenceName>Policy file #2 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Rackspace Compliance Checks</pluginName>
-<pluginId>79356</pluginId>
-<fullName>Rackspace Compliance Checks[file]:Policy file #3 :</fullName>
-<preferenceName>Policy file #3 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Rackspace Compliance Checks</pluginName>
-<pluginId>79356</pluginId>
-<fullName>Rackspace Compliance Checks[file]:Policy file #4 :</fullName>
-<preferenceName>Policy file #4 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Rackspace Compliance Checks</pluginName>
-<pluginId>79356</pluginId>
-<fullName>Rackspace Compliance Checks[file]:Policy file #5 :</fullName>
-<preferenceName>Policy file #5 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>RHEV Settings</pluginName>
-<pluginId>77089</pluginId>
-<fullName>RHEV Settings[entry]:Username :</fullName>
-<preferenceName>Username :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>RHEV Settings</pluginName>
-<pluginId>77089</pluginId>
-<fullName>RHEV Settings[password]:Password :</fullName>
-<preferenceName>Password :</preferenceName>
-<preferenceType>password</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>RHEV Settings</pluginName>
-<pluginId>77089</pluginId>
-<fullName>RHEV Settings[entry]:Port :</fullName>
-<preferenceName>Port :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues>443</preferenceValues>
-<selectedValue>443</selectedValue>
-</item>
-<item><pluginName>RHEV Settings</pluginName>
-<pluginId>77089</pluginId>
-<fullName>RHEV Settings[checkbox]:Verify SSL Certificate :</fullName>
-<preferenceName>Verify SSL Certificate :</preferenceName>
-<preferenceType>checkbox</preferenceType>
-<preferenceValues>no</preferenceValues>
-<selectedValue>no</selectedValue>
-</item>
 <item><pluginName>RHEV Compliance Checks</pluginName>
 <pluginId>77090</pluginId>
 <fullName>RHEV Compliance Checks[file]:Policy file #1 :</fullName>
@@ -3187,21 +3155,37 @@
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
-<item><pluginName>Salesforce.com Settings</pluginName>
-<pluginId>76710</pluginId>
-<fullName>Salesforce.com Settings[entry]:Username :</fullName>
+<item><pluginName>RHEV Settings</pluginName>
+<pluginId>77089</pluginId>
+<fullName>RHEV Settings[entry]:Username :</fullName>
 <preferenceName>Username :</preferenceName>
 <preferenceType>entry</preferenceType>
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
-<item><pluginName>Salesforce.com Settings</pluginName>
-<pluginId>76710</pluginId>
-<fullName>Salesforce.com Settings[password]:Password :</fullName>
+<item><pluginName>RHEV Settings</pluginName>
+<pluginId>77089</pluginId>
+<fullName>RHEV Settings[password]:Password :</fullName>
 <preferenceName>Password :</preferenceName>
 <preferenceType>password</preferenceType>
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
+</item>
+<item><pluginName>RHEV Settings</pluginName>
+<pluginId>77089</pluginId>
+<fullName>RHEV Settings[entry]:Port :</fullName>
+<preferenceName>Port :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues>443</preferenceValues>
+<selectedValue>443</selectedValue>
+</item>
+<item><pluginName>RHEV Settings</pluginName>
+<pluginId>77089</pluginId>
+<fullName>RHEV Settings[checkbox]:Verify SSL Certificate :</fullName>
+<preferenceName>Verify SSL Certificate :</preferenceName>
+<preferenceType>checkbox</preferenceType>
+<preferenceValues>no</preferenceValues>
+<selectedValue>no</selectedValue>
 </item>
 <item><pluginName>Salesforce.com Compliance Checks</pluginName>
 <pluginId>76711</pluginId>
@@ -3240,6 +3224,22 @@
 <fullName>Salesforce.com Compliance Checks[file]:Policy file #5 :</fullName>
 <preferenceName>Policy file #5 :</preferenceName>
 <preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Salesforce.com Settings</pluginName>
+<pluginId>76710</pluginId>
+<fullName>Salesforce.com Settings[entry]:Username :</fullName>
+<preferenceName>Username :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Salesforce.com Settings</pluginName>
+<pluginId>76710</pluginId>
+<fullName>Salesforce.com Settings[password]:Password :</fullName>
+<preferenceName>Password :</preferenceName>
+<preferenceType>password</preferenceType>
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
@@ -3362,278 +3362,6 @@
 <preferenceType>entry</preferenceType>
 <preferenceValues>16</preferenceValues>
 <selectedValue>16</selectedValue>
-</item>
-<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
-<pluginId>57029</pluginId>
-<fullName>Patch Management: SCCM Server Settings[entry]:SCCM Server :</fullName>
-<preferenceName>SCCM Server :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
-<pluginId>57029</pluginId>
-<fullName>Patch Management: SCCM Server Settings[entry]:SCCM Domain :</fullName>
-<preferenceName>SCCM Domain :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
-<pluginId>57029</pluginId>
-<fullName>Patch Management: SCCM Server Settings[entry]:SCCM Username :</fullName>
-<preferenceName>SCCM Username :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
-<pluginId>57029</pluginId>
-<fullName>Patch Management: SCCM Server Settings[password]:SCCM Password :</fullName>
-<preferenceName>SCCM Password :</preferenceName>
-<preferenceType>password</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #1 :</fullName>
-<preferenceName>SCAP File (zip) #1 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #1 :</fullName>
-<preferenceName>SCAP Version #1 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>1.2;1.1;1.0</preferenceValues>
-<selectedValue>1.2;1.1;1.0</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #1 :</fullName>
-<preferenceName>SCAP Data Stream ID (1.2 only) #1 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #1 :</fullName>
-<preferenceName>SCAP Benchmark ID #1 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #1 :</fullName>
-<preferenceName>SCAP Profile ID #1 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #1 :</fullName>
-<preferenceName>OVAL Result Type #1 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
-<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #2 :</fullName>
-<preferenceName>SCAP File (zip) #2 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #2 :</fullName>
-<preferenceName>SCAP Version #2 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>1.2;1.1;1.0</preferenceValues>
-<selectedValue>1.2;1.1;1.0</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #2 :</fullName>
-<preferenceName>SCAP Data Stream ID (1.2 only) #2 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #2 :</fullName>
-<preferenceName>SCAP Benchmark ID #2 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #2 :</fullName>
-<preferenceName>SCAP Profile ID #2 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #2 :</fullName>
-<preferenceName>OVAL Result Type #2 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
-<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #3 :</fullName>
-<preferenceName>SCAP File (zip) #3 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #3 :</fullName>
-<preferenceName>SCAP Version #3 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>1.2;1.1;1.0</preferenceValues>
-<selectedValue>1.2;1.1;1.0</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #3 :</fullName>
-<preferenceName>SCAP Data Stream ID (1.2 only) #3 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #3 :</fullName>
-<preferenceName>SCAP Benchmark ID #3 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #3 :</fullName>
-<preferenceName>SCAP Profile ID #3 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #3 :</fullName>
-<preferenceName>OVAL Result Type #3 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
-<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #4 :</fullName>
-<preferenceName>SCAP File (zip) #4 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #4 :</fullName>
-<preferenceName>SCAP Version #4 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>1.2;1.1;1.0</preferenceValues>
-<selectedValue>1.2;1.1;1.0</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #4 :</fullName>
-<preferenceName>SCAP Data Stream ID (1.2 only) #4 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #4 :</fullName>
-<preferenceName>SCAP Benchmark ID #4 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #4 :</fullName>
-<preferenceName>SCAP Profile ID #4 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #4 :</fullName>
-<preferenceName>OVAL Result Type #4 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
-<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #5 :</fullName>
-<preferenceName>SCAP File (zip) #5 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #5 :</fullName>
-<preferenceName>SCAP Version #5 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>1.2;1.1;1.0</preferenceValues>
-<selectedValue>1.2;1.1;1.0</selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #5 :</fullName>
-<preferenceName>SCAP Data Stream ID (1.2 only) #5 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #5 :</fullName>
-<preferenceName>SCAP Benchmark ID #5 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #5 :</fullName>
-<preferenceName>SCAP Profile ID #5 :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>SCAP Linux Compliance Checks</pluginName>
-<pluginId>66757</pluginId>
-<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #5 :</fullName>
-<preferenceName>OVAL Result Type #5 :</preferenceName>
-<preferenceType>radio</preferenceType>
-<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
-<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
 </item>
 <item><pluginName>SCAP Windows Compliance Checks</pluginName>
 <pluginId>66756</pluginId>
@@ -3875,21 +3603,285 @@
 <preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
 <selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
 </item>
-<item><pluginName>SMB Use Host SID to Enumerate Local Users</pluginName>
-<pluginId>10860</pluginId>
-<fullName>SMB Use Host SID to Enumerate Local Users[entry]:Start UID :</fullName>
-<preferenceName>Start UID :</preferenceName>
-<preferenceType>entry</preferenceType>
-<preferenceValues>1000</preferenceValues>
-<selectedValue>1000</selectedValue>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #1 :</fullName>
+<preferenceName>SCAP File (zip) #1 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
 </item>
-<item><pluginName>SMB Use Host SID to Enumerate Local Users</pluginName>
-<pluginId>10860</pluginId>
-<fullName>SMB Use Host SID to Enumerate Local Users[entry]:End UID :</fullName>
-<preferenceName>End UID :</preferenceName>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #1 :</fullName>
+<preferenceName>SCAP Version #1 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>1.2;1.1;1.0</preferenceValues>
+<selectedValue>1.2;1.1;1.0</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #1 :</fullName>
+<preferenceName>SCAP Data Stream ID (1.2 only) #1 :</preferenceName>
 <preferenceType>entry</preferenceType>
-<preferenceValues>1200</preferenceValues>
-<selectedValue>1200</selectedValue>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #1 :</fullName>
+<preferenceName>SCAP Benchmark ID #1 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #1 :</fullName>
+<preferenceName>SCAP Profile ID #1 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #1 :</fullName>
+<preferenceName>OVAL Result Type #1 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
+<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #2 :</fullName>
+<preferenceName>SCAP File (zip) #2 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #2 :</fullName>
+<preferenceName>SCAP Version #2 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>1.2;1.1;1.0</preferenceValues>
+<selectedValue>1.2;1.1;1.0</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #2 :</fullName>
+<preferenceName>SCAP Data Stream ID (1.2 only) #2 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #2 :</fullName>
+<preferenceName>SCAP Benchmark ID #2 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #2 :</fullName>
+<preferenceName>SCAP Profile ID #2 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #2 :</fullName>
+<preferenceName>OVAL Result Type #2 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
+<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #3 :</fullName>
+<preferenceName>SCAP File (zip) #3 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #3 :</fullName>
+<preferenceName>SCAP Version #3 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>1.2;1.1;1.0</preferenceValues>
+<selectedValue>1.2;1.1;1.0</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #3 :</fullName>
+<preferenceName>SCAP Data Stream ID (1.2 only) #3 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #3 :</fullName>
+<preferenceName>SCAP Benchmark ID #3 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #3 :</fullName>
+<preferenceName>SCAP Profile ID #3 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #3 :</fullName>
+<preferenceName>OVAL Result Type #3 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
+<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #4 :</fullName>
+<preferenceName>SCAP File (zip) #4 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #4 :</fullName>
+<preferenceName>SCAP Version #4 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>1.2;1.1;1.0</preferenceValues>
+<selectedValue>1.2;1.1;1.0</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #4 :</fullName>
+<preferenceName>SCAP Data Stream ID (1.2 only) #4 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #4 :</fullName>
+<preferenceName>SCAP Benchmark ID #4 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #4 :</fullName>
+<preferenceName>SCAP Profile ID #4 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #4 :</fullName>
+<preferenceName>OVAL Result Type #4 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
+<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[file]:SCAP File (zip) #5 :</fullName>
+<preferenceName>SCAP File (zip) #5 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:SCAP Version #5 :</fullName>
+<preferenceName>SCAP Version #5 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>1.2;1.1;1.0</preferenceValues>
+<selectedValue>1.2;1.1;1.0</selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Data Stream ID (1.2 only) #5 :</fullName>
+<preferenceName>SCAP Data Stream ID (1.2 only) #5 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Benchmark ID #5 :</fullName>
+<preferenceName>SCAP Benchmark ID #5 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[entry]:SCAP Profile ID #5 :</fullName>
+<preferenceName>SCAP Profile ID #5 :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SCAP Linux Compliance Checks</pluginName>
+<pluginId>66757</pluginId>
+<fullName>SCAP Linux Compliance Checks[radio]:OVAL Result Type #5 :</fullName>
+<preferenceName>OVAL Result Type #5 :</preferenceName>
+<preferenceType>radio</preferenceType>
+<preferenceValues>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</preferenceValues>
+<selectedValue>Full results w/ system characteristics;Full results w/o system characteristics;Thin results</selectedValue>
+</item>
+<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
+<pluginId>57029</pluginId>
+<fullName>Patch Management: SCCM Server Settings[entry]:SCCM Server :</fullName>
+<preferenceName>SCCM Server :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
+<pluginId>57029</pluginId>
+<fullName>Patch Management: SCCM Server Settings[entry]:SCCM Domain :</fullName>
+<preferenceName>SCCM Domain :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
+<pluginId>57029</pluginId>
+<fullName>Patch Management: SCCM Server Settings[entry]:SCCM Username :</fullName>
+<preferenceName>SCCM Username :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Patch Management: SCCM Server Settings</pluginName>
+<pluginId>57029</pluginId>
+<fullName>Patch Management: SCCM Server Settings[password]:SCCM Password :</fullName>
+<preferenceName>SCCM Password :</preferenceName>
+<preferenceType>password</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>SMB Scope</pluginName>
+<pluginId>10917</pluginId>
+<fullName>SMB Scope[checkbox]:Request information about the domain</fullName>
+<preferenceName>Request information about the domain</preferenceName>
+<preferenceType>checkbox</preferenceType>
+<preferenceValues>yes</preferenceValues>
+<selectedValue>yes</selectedValue>
 </item>
 <item><pluginName>SMB Use Domain SID to Enumerate Users</pluginName>
 <pluginId>10399</pluginId>
@@ -3907,13 +3899,21 @@
 <preferenceValues>1200</preferenceValues>
 <selectedValue>1200</selectedValue>
 </item>
-<item><pluginName>SMB Scope</pluginName>
-<pluginId>10917</pluginId>
-<fullName>SMB Scope[checkbox]:Request information about the domain</fullName>
-<preferenceName>Request information about the domain</preferenceName>
-<preferenceType>checkbox</preferenceType>
-<preferenceValues>yes</preferenceValues>
-<selectedValue>yes</selectedValue>
+<item><pluginName>SMB Use Host SID to Enumerate Local Users</pluginName>
+<pluginId>10860</pluginId>
+<fullName>SMB Use Host SID to Enumerate Local Users[entry]:Start UID :</fullName>
+<preferenceName>Start UID :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues>1000</preferenceValues>
+<selectedValue>1000</selectedValue>
+</item>
+<item><pluginName>SMB Use Host SID to Enumerate Local Users</pluginName>
+<pluginId>10860</pluginId>
+<fullName>SMB Use Host SID to Enumerate Local Users[entry]:End UID :</fullName>
+<preferenceName>End UID :</preferenceName>
+<preferenceType>entry</preferenceType>
+<preferenceValues>1200</preferenceValues>
+<selectedValue>1200</selectedValue>
 </item>
 <item><pluginName>SMTP settings</pluginName>
 <pluginId>11038</pluginId>
@@ -4347,46 +4347,6 @@
 <preferenceValues></preferenceValues>
 <selectedValue></selectedValue>
 </item>
-<item><pluginName>Unix Compliance Checks</pluginName>
-<pluginId>21157</pluginId>
-<fullName>Unix Compliance Checks[file]:Policy file #1 :</fullName>
-<preferenceName>Policy file #1 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Unix Compliance Checks</pluginName>
-<pluginId>21157</pluginId>
-<fullName>Unix Compliance Checks[file]:Policy file #2 :</fullName>
-<preferenceName>Policy file #2 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Unix Compliance Checks</pluginName>
-<pluginId>21157</pluginId>
-<fullName>Unix Compliance Checks[file]:Policy file #3 :</fullName>
-<preferenceName>Policy file #3 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Unix Compliance Checks</pluginName>
-<pluginId>21157</pluginId>
-<fullName>Unix Compliance Checks[file]:Policy file #4 :</fullName>
-<preferenceName>Policy file #4 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
-<item><pluginName>Unix Compliance Checks</pluginName>
-<pluginId>21157</pluginId>
-<fullName>Unix Compliance Checks[file]:Policy file #5 :</fullName>
-<preferenceName>Policy file #5 :</preferenceName>
-<preferenceType>file</preferenceType>
-<preferenceValues></preferenceValues>
-<selectedValue></selectedValue>
-</item>
 <item><pluginName>Unix File Contents Compliance Checks</pluginName>
 <pluginId>72095</pluginId>
 <fullName>Unix File Contents Compliance Checks[file]:Policy file #1 :</fullName>
@@ -4422,6 +4382,46 @@
 <item><pluginName>Unix File Contents Compliance Checks</pluginName>
 <pluginId>72095</pluginId>
 <fullName>Unix File Contents Compliance Checks[file]:Policy file #5 :</fullName>
+<preferenceName>Policy file #5 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Unix Compliance Checks</pluginName>
+<pluginId>21157</pluginId>
+<fullName>Unix Compliance Checks[file]:Policy file #1 :</fullName>
+<preferenceName>Policy file #1 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Unix Compliance Checks</pluginName>
+<pluginId>21157</pluginId>
+<fullName>Unix Compliance Checks[file]:Policy file #2 :</fullName>
+<preferenceName>Policy file #2 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Unix Compliance Checks</pluginName>
+<pluginId>21157</pluginId>
+<fullName>Unix Compliance Checks[file]:Policy file #3 :</fullName>
+<preferenceName>Policy file #3 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Unix Compliance Checks</pluginName>
+<pluginId>21157</pluginId>
+<fullName>Unix Compliance Checks[file]:Policy file #4 :</fullName>
+<preferenceName>Policy file #4 :</preferenceName>
+<preferenceType>file</preferenceType>
+<preferenceValues></preferenceValues>
+<selectedValue></selectedValue>
+</item>
+<item><pluginName>Unix Compliance Checks</pluginName>
+<pluginId>21157</pluginId>
+<fullName>Unix Compliance Checks[file]:Policy file #5 :</fullName>
 <preferenceName>Policy file #5 :</preferenceName>
 <preferenceType>file</preferenceType>
 <preferenceValues></preferenceValues>

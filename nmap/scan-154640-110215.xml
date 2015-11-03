@@ -1,0 +1,7 @@
+<?xml version="1.0"?>
+<!DOCTYPE nmaprun>
+<?xml-stylesheet href="file:///usr/bin/../share/nmap/nmap.xsl" type="text/xsl"?>
+<!-- Nmap 6.47 scan initiated Mon Nov  2 15:46:40 2015 as: nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml 172.16.203.128 -->
+<nmaprun scanner="nmap" args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml 172.16.203.128" start="1446497200" startstr="Mon Nov  2 15:46:40 2015" version="6.47" xmloutputversion="1.04">
+<scaninfo type="syn" protocol="tcp" numservices="65535" services="1-65535"/>
+<scaninfo type="udp" protocol="udp" numservices="65535" services="1-65535"/>
