@@ -1,6 +1,7 @@
 import sys
 from PyQt4 import QtGui, QtCore
 import subprocess
+import compareScan2
 
 class Window(QtGui.QMainWindow):
 
@@ -43,19 +44,13 @@ class Window(QtGui.QMainWindow):
 
     def home(self):
 
-        btnquitter = QtGui.QPushButton('Quitter', self)
-        btnquitter.setToolTip('Quitter')
-        btnquitter.clicked.connect(self.close_application)
-        btnquitter.resize(btnquitter.sizeHint())
-        btnquitter.move(50, 350)
-
         self.progress = QtGui.QProgressBar(self)
-        self.progress.setGeometry(150, 415, 650, 20)
+        self.progress.setGeometry(50, 380, 233, 15)
 
         self.btnlancer = QtGui.QPushButton('Lancer la recherche de vulnerabilites', self)
         self.btnlancer.setToolTip('Lancer la recherche')
         self.btnlancer.move(50, 50)
-        self.btnlancer.resize(200, 100)
+        self.btnlancer.resize(200, 270)
         self.btnlancer.clicked.connect(self.download)
 
         self.styleChoice = QtGui.QLabel('Windows Vista', self)
@@ -68,8 +63,8 @@ class Window(QtGui.QMainWindow):
         menuDeroulant.addItem('Cleanlooks')
         menuDeroulant.addItem('windowsvista')
 
-        menuDeroulant.move(50, 250)
-        self.styleChoice.move(50, 250)
+        menuDeroulant.move(450, 250)
+        self.styleChoice.move(450, 250)
         menuDeroulant.activated[str].connect(self.style_choice)
 
         self.show()
@@ -82,18 +77,18 @@ class Window(QtGui.QMainWindow):
         self.completed = 0
 
         while self.completed < 100:
-            self.completed += 0.0005
+            self.completed += 0.00015
             self.progress.setValue(self.completed)
 
         self.lancerNMap()
 
     def lancerNMap(self):
-        self.btnlancer.clicked.connect(lambda:self.run('C:\Users\Caroline\Desktop\Caro\s-curit-inm5001\s-curit-inm5001\sources\compareScan.py'))
+        compareScan2.main('scan-115007-102615.xml', 'scan-144848-101915.xml')
+        fichier = open('try1.txt', 'r')
+        fichier.read()
+        fichier.close()
 
-    def run(self, path):
-        scan1 = 'C:\Users\Caroline\Desktop\Caro\s-curit-inm5001\s-curit-inm5001\sources\scan-115007-102615.xml'
-        scan2 = 'C:\Users\Caroline\Desktop\Caro\s-curit-inm5001\s-curit-inm5001\sources\scan-144848-101915.xml'
-        subprocess.call(['pythonw', path, scan1, scan2])
+        text=open('try1.txt').read()
 
     def close_application(self):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
