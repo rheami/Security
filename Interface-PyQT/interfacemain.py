@@ -23,29 +23,18 @@ class Window(QtGui.QMainWindow):
 
         self.styleChoice = QtGui.QLabel('Plastique', self)
 
-        win = QtGui.QAction('&Windows', self)
-        win.setStatusTip('Changement de style vers Windows')
-        win.triggered.connect(self.style_choice)
-
-        plastique = QtGui.QAction('&Plastique', self)
-        plastique.setStatusTip('Changement de style vers Plastique')
-        plastique.triggered.connect(self.style_choice)
-
         self.statusBar()
 
         mainMenu = self.menuBar()
         fileMenu = mainMenu.addMenu('&Fichier')
         fileMenu.addAction(extractAction)
-        styleMenu = mainMenu.addMenu('&Style')
-        styleMenu.addAction(win)
-        styleMenu.addAction(plastique)
 
         self.home()
 
     def home(self):
 
         self.progress = QtGui.QProgressBar(self)
-        self.progress.setGeometry(50, 380, 233, 15)
+        self.progress.setGeometry(50, 380, 200, 15)
 
         self.btnlancer = QtGui.QPushButton('Lancer la recherche de vulnerabilites', self)
         self.btnlancer.setToolTip('Lancer la recherche')
@@ -53,22 +42,10 @@ class Window(QtGui.QMainWindow):
         self.btnlancer.resize(200, 270)
         self.btnlancer.clicked.connect(self.download)
 
-        self.styleChoice = QtGui.QLabel('Windows Vista', self)
-
-        menuDeroulant = QtGui.QComboBox(self)
-        menuDeroulant.addItem('motif')
-        menuDeroulant.addItem('Windows')
-        menuDeroulant.addItem('cde')
-        menuDeroulant.addItem('Plastique')
-        menuDeroulant.addItem('Cleanlooks')
-        menuDeroulant.addItem('windowsvista')
-
-        menuDeroulant.move(750, 250)
-        self.styleChoice.move(750, 250)
-        menuDeroulant.activated[str].connect(self.style_choice)
+        self.style_choice('plastique')
 
         self.boitetexte = QtGui.QTextEdit(self)
-        self.boitetexte.setGeometry(QtCore.QRect(350, 50, 270, 350))
+        self.boitetexte.setGeometry(QtCore.QRect(330, 50, 270, 350))
         self.boitetexte.setObjectName("Resultats NMap")
 
         self.show()
