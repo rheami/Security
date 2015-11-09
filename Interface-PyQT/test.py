@@ -39,17 +39,18 @@ class Form(QDialog):
     def updateUi(self):
         # for host in nrp.hosts: # si plusieurs hosts
         host = self.nessus_rapport.hosts[0]
-        VulnList = host.get_report_items
-        for report_item in VulnList:
-            self.browser.append(
-                "{0} = <b>{1}</b> <b>{2}</b> ".format(report_item.port, report_item.protocol, report_item.service))
+        vulnList = host.get_report_items
+        for report_item in vulnList:
+            self.browser.append("port {0} : <b>{1}</b> <b> service {2}</b><b>severity {3}</b> ".format(report_item.port, report_item.protocol, report_item.service, report_item.severity))
+            if report_item.severity != "0":
+                self.browser.append("{0} = <b>{1}</b>".format("risk", report_item.get_vuln_risk))
+
+"""         afficher les details sur selection de une vulnerabilite seulement et dans une autre vue
             self.browser.append("{0} = <b>{1}</b>".format(report_item.plugin_id, report_item.plugin_name))
             self.browser.append("{0} = <b>{1}</b>".format("xref", report_item.get_vuln_xref))
-            self.browser.append("{0} = <b>{1}</b>".format("xref", report_item.get_vuln_xref))
             self.browser.append("{0} = <b>{1}</b>".format("info", report_item.get_vuln_info))
-            self.browser.append("{0} = <b>{1}</b>".format("risk", report_item.get_vuln_risk))
             self.browser.append("{0} = <b>{1}</b>".format("description", report_item.get_vuln_description))
-
+"""
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
