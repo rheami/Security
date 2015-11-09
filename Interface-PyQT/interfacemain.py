@@ -40,6 +40,7 @@ class Window(QtGui.QMainWindow):
         self.btnlancer.setToolTip('Lancer la recherche')
         self.btnlancer.move(50, 50)
         self.btnlancer.resize(200, 270)
+        self.btnlancer.setStatusTip('Recherche de vulnerabilites')
         self.btnlancer.clicked.connect(self.download)
 
         self.style_choice('plastique')
