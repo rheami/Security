@@ -7,6 +7,7 @@ import sys
 from optparse import OptionParser
 from ndiff import Scan, ScanDiffXML, ScanDiffText, HostDiff
 from bs4 import BeautifulSoup
+import pickle
 
 class CompareScan(object):
     def __init__(self, scan_a, scan_b):
@@ -18,11 +19,6 @@ class CompareScan(object):
     def test_host_number(self):
         if len(self.scan_a.hosts) != len(self.scan_b.hosts):
             print("le nombre de host est différent")
-
-
-    def test_date(self):
-        if self.scan_b.end_date <= self.scan_a.end_date :
-            print("le deuxieme scan doit avoir lieu apres le scan d'origine", self.scan_a.end_date)
 
 
     def test_addresse(self):
@@ -77,7 +73,6 @@ def main(filename_a, filename_b):
 
     c = CompareScan(scan_a, scan_b)
     c.test_host_number()
-    c.test_date()
     c.test_addresse()
     c.test_hosts()
 
@@ -106,11 +101,11 @@ def main(filename_a, filename_b):
         print(port.get("portid"), port.get("protocol"), port.state)
     #print(port)
 
+    creerfichier(hostdiff, cost)
+
     f.close()
 
     print(u"L'indice de différence final est: %s" % cost)
-
-    creerfichier(map_a, cost)
 
 
     if cost == 0:
@@ -118,13 +113,17 @@ def main(filename_a, filename_b):
     else:
         return EXIT_DIFFERENT
 
-def creerfichier(map_a, cost):
-    print('Creating new text file')
+def creerfichier(hostdiff, cost):
 
-    fichier = open('try1.txt','w')   # Trying to create a new file or open one
+    print('Nouveau fichier créé')
+
+    fichier = open('resultatsnmap.txt','w')   # Trying to create a new file or open one
+    for port in hostdiff.findAll('port'):
+        str = ((port.get("portid"), port.get("protocol"), port.state))
+        fichier.write(repr(str))
+        fichier.write('\n')
     fichier.write("L'indice de différence final est : " + repr(cost))
     fichier.close()
-
 
 
 # Catch uncaught exceptions so they can produce an exit code of 2 (EXIT_ERROR),

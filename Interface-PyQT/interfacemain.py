@@ -2,6 +2,7 @@ import sys
 from PyQt4 import QtGui, QtCore
 import subprocess
 import compareScan2
+import pickle
 
 class Window(QtGui.QMainWindow):
 
@@ -84,11 +85,8 @@ class Window(QtGui.QMainWindow):
 
     def lancerNMap(self):
         compareScan2.main('scan-115007-102615.xml', 'scan-144848-101915.xml')
-        fichier = open('try1.txt', 'r')
-        fichier.read()
+        fichier = open('resultatsnmap.txt', 'r')
         fichier.close()
-
-        text=open('try1.txt').read()
 
     def close_application(self):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
