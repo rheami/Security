@@ -118,11 +118,15 @@ def creerfichier(hostdiff, cost):
     print('Nouveau fichier créé')
 
     fichier = open('resultatsnmap.txt','w')   # Trying to create a new file or open one
+    fichier.write("Resultats produits par NMap : ")
+    fichier.write("\n")
+    fichier.write("\n")
     for port in hostdiff.findAll('port'):
         str = ((port.get("portid"), port.get("protocol"), port.state))
         fichier.write(repr(str))
         fichier.write('\n')
-    fichier.write("L'indice de différence final est : " + repr(cost))
+    fichier.write("\n")
+    fichier.write("L'indice de difference final est : " + repr(cost))
     fichier.close()
 
 

@@ -1,12 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="16f66009-249a-4724-a535-1919b496380a" name="Default" comment="- Copie de compareScan , et des autres fichiers nécessaires au fonctionnement dans le meme repository que l'interface.&#10;-Modification de compareScan2 afin qu'il écrive dans un fichier">
-      <change type="DELETED" beforePath="C:\Users\Caroline\Desktop\Caro\s-curit-inm5001\s-curit-inm5001\Interface-PyQT\try1.txt" afterPath="" />
+    <list default="true" id="16f66009-249a-4724-a535-1919b496380a" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Interface-PyQT/compareScan2.py" afterPath="$PROJECT_DIR$/Interface-PyQT/compareScan2.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" afterPath="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/misc.xml" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/s-curit-inm5001.iml" afterPath="$PROJECT_DIR$/.idea/s-curit-inm5001.iml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="s-curit-inm5001.iws" />
@@ -37,11 +34,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf>
-      <file leaf-file-name="interfacemain.py" pinned="false" current-in-tab="false">
+      <file leaf-file-name="interfacemain.py" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Interface-PyQT/interfacemain.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0">
-              <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
+            <state vertical-scroll-proportion="0.6314363">
+              <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
               <folding>
                 <element signature="e#0#10#0" expanded="true" />
               </folding>
@@ -49,11 +46,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="compareScan2.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="compareScan2.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/Interface-PyQT/compareScan2.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.58536583">
-              <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="127" column="23" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
               <folding>
                 <element signature="e#37#74#0" expanded="true" />
               </folding>
@@ -121,8 +118,8 @@
         <option value="$PROJECT_DIR$/sources/nessus/nessus_download_all.py" />
         <option value="$PROJECT_DIR$/Interface-PyQT/test.py" />
         <option value="$PROJECT_DIR$/Interface-PyQT/compareScan2" />
-        <option value="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" />
         <option value="$PROJECT_DIR$/Interface-PyQT/compareScan2.py" />
+        <option value="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" />
       </list>
     </option>
   </component>
@@ -586,7 +583,13 @@
       <option name="project" value="LOCAL" />
       <updated>1445292424277</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="- Écrire les résultats complets produits par compareScan2 dans un fichier texte resultatsnmap.txt">
+      <created>1447098444215</created>
+      <option name="number" value="00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1447098444215</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TodoView">
@@ -604,6 +607,7 @@
     <layout>
       <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.16517857" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.31647635" sideWeight="0.49697885" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.10277325" sideWeight="0.5302115" order="7" side_tool="true" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32843137" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
@@ -614,7 +618,6 @@
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.16422765" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
@@ -665,7 +668,8 @@
     <MESSAGE value="parse nessus file" />
     <MESSAGE value="parse suite" />
     <MESSAGE value="test simon" />
-    <option name="LAST_COMMIT_MESSAGE" value="test simon" />
+    <MESSAGE value="- Écrire les résultats complets produits par compareScan2 dans un fichier texte resultatsnmap.txt" />
+    <option name="LAST_COMMIT_MESSAGE" value="- Écrire les résultats complets produits par compareScan2 dans un fichier texte resultatsnmap.txt" />
     <option name="UPDATE_GROUP_BY_PACKAGES" value="true" />
   </component>
   <component name="XDebuggerManager">
@@ -891,16 +895,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Interface-PyQT/interfacemain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0">
-          <caret line="88" column="23" selection-start-line="88" selection-start-column="23" selection-end-line="88" selection-end-column="23" />
-          <folding>
-            <element signature="e#0#10#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/Interface-PyQT/resultatsnmap.txt">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -911,10 +905,20 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Interface-PyQT/compareScan2.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.58536583">
-          <caret line="122" column="32" selection-start-line="122" selection-start-column="32" selection-end-line="122" selection-end-column="32" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="127" column="23" selection-start-line="127" selection-start-column="23" selection-end-line="127" selection-end-column="23" />
           <folding>
             <element signature="e#37#74#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface-PyQT/interfacemain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.6314363">
+          <caret line="66" column="31" selection-start-line="66" selection-start-column="31" selection-end-line="66" selection-end-column="31" />
+          <folding>
+            <element signature="e#0#10#0" expanded="true" />
           </folding>
         </state>
       </provider>

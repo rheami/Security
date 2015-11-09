@@ -40,7 +40,6 @@ class Window(QtGui.QMainWindow):
         styleMenu.addAction(win)
         styleMenu.addAction(plastique)
 
-
         self.home()
 
     def home(self):
@@ -64,9 +63,13 @@ class Window(QtGui.QMainWindow):
         menuDeroulant.addItem('Cleanlooks')
         menuDeroulant.addItem('windowsvista')
 
-        menuDeroulant.move(450, 250)
-        self.styleChoice.move(450, 250)
+        menuDeroulant.move(750, 250)
+        self.styleChoice.move(750, 250)
         menuDeroulant.activated[str].connect(self.style_choice)
+
+        self.boitetexte = QtGui.QTextEdit(self)
+        self.boitetexte.setGeometry(QtCore.QRect(350, 50, 270, 350))
+        self.boitetexte.setObjectName("Resultats NMap")
 
         self.show()
 
@@ -85,8 +88,10 @@ class Window(QtGui.QMainWindow):
 
     def lancerNMap(self):
         compareScan2.main('scan-115007-102615.xml', 'scan-144848-101915.xml')
-        fichier = open('resultatsnmap.txt', 'r')
-        fichier.close()
+
+        text = open('resultatsnmap.txt').read()
+        self.boitetexte.setPlainText(text)
+
 
     def close_application(self):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
