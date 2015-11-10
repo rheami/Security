@@ -1,0 +1,26 @@
+Resultats produits par NMap : 
+
+(u'123', u'udp', None)
+(u'123', u'udp', <state state="open|filtered"/>)
+(u'443', u'tcp', <state state="open"/>)
+(u'443', u'tcp', None)
+(u'902', u'tcp', <state state="open"/>)
+(u'902', u'tcp', None)
+(u'3767', u'udp', None)
+(u'3767', u'udp', <state state="open|filtered"/>)
+(u'6942', u'tcp', None)
+(u'6942', u'tcp', <state state="open"/>)
+(u'8307', u'tcp', <state state="open"/>)
+(u'8307', u'tcp', None)
+(u'35473', u'udp', <state state="open|filtered"/>)
+(u'35473', u'udp', None)
+(u'45079', u'tcp', <state state="open"/>)
+(u'45079', u'tcp', None)
+(u'45417', u'udp', None)
+(u'45417', u'udp', <state state="open|filtered"/>)
+(u'63342', u'tcp', None)
+(u'63342', u'tcp', <state state="open"/>)
+(u'65523', u'udp', <state state="open|filtered"/>)
+(u'65523', u'udp', None)
+
+L'indice de difference final est : 16

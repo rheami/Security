@@ -5168,43 +5168,6 @@ A series of worms (Sasser) are known to exploit this vulnerability in the wild.<
 <xref>OSVDB:5248</xref>
 <xref>MSFT:MS04-011</xref>
 </ReportItem>
-<ReportItem port="445" svc_name="cifs" protocol="tcp" severity="4" pluginID="34477" pluginName="MS08-067: Microsoft Windows Server Service Crafted RPC Request Handling Remote Code Execution (958644) (uncredentialed check)" pluginFamily="Windows">
-<bid>31874</bid>
-<canvas_package>CANVAS</canvas_package>
-<cpe>cpe:/o:microsoft:windows</cpe>
-<cve>CVE-2008-4250</cve>
-<cvss_base_score>10.0</cvss_base_score>
-<cvss_temporal_score>8.7</cvss_temporal_score>
-<cvss_temporal_vector>CVSS2#E:H/RL:OF/RC:C</cvss_temporal_vector>
-<cvss_vector>CVSS2#AV:N/AC:L/Au:N/C:C/I:C/A:C</cvss_vector>
-<cwe>94</cwe>
-<description>The remote host is vulnerable to a buffer overrun in the &apos;Server&apos; service that may allow an attacker to execute arbitrary code on the remote host with the &apos;System&apos; privileges.</description>
-<exploit_available>true</exploit_available>
-<exploit_framework_canvas>true</exploit_framework_canvas>
-<exploit_framework_core>true</exploit_framework_core>
-<exploit_framework_metasploit>true</exploit_framework_metasploit>
-<exploitability_ease>Exploits are available</exploitability_ease>
-<exploited_by_malware>true</exploited_by_malware>
-<fname>smb_kb958644.nasl</fname>
-<iava>2008-A-0081</iava>
-<metasploit_name>MS08-067 Microsoft Server Service Relative Path Stack Corruption</metasploit_name>
-<msft>MS08-067</msft>
-<osvdb>49243</osvdb>
-<plugin_modification_date>2015/06/18</plugin_modification_date>
-<plugin_name>MS08-067: Microsoft Windows Server Service Crafted RPC Request Handling Remote Code Execution (958644) (uncredentialed check)</plugin_name>
-<plugin_publication_date>2008/10/23</plugin_publication_date>
-<plugin_type>local</plugin_type>
-<risk_factor>Critical</risk_factor>
-<script_version>$Revision: 1.42 $</script_version>
-<see_also>http://technet.microsoft.com/en-us/security/bulletin/ms08-067</see_also>
-<solution>Microsoft has released a set of patches for Windows 2000, XP, 2003, Vista and 2008.</solution>
-<stig_severity>I</stig_severity>
-<synopsis>Arbitrary code can be executed on the remote host due to a flaw in the &apos;Server&apos; service.</synopsis>
-<xref>OSVDB:49243</xref>
-<xref>MSFT:MS08-067</xref>
-<xref>IAVA:2008-A-0081</xref>
-<xref>CWE:94</xref>
-</ReportItem>
 <ReportItem port="445" svc_name="cifs" protocol="tcp" severity="4" pluginID="18502" pluginName="MS05-027: Vulnerability in SMB Could Allow Remote Code Execution (896422) (uncredentialed check)" pluginFamily="Windows">
 <bid>13942</bid>
 <cpe>x-cpe:/a:microsoft:windows:smbsvr
