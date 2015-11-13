@@ -5,7 +5,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 from libnessus.parser import NessusParser
-from libnessus.objects.dictdiffer import DictDiffer
+
 import os
 import sys
 import argparse
@@ -39,34 +39,39 @@ class Nessus(object):
     def get_unchanged(self):
         # if set diff
         self.set_diff()
-        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['unchanged'])
-        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
-        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['unchanged'])
+        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        vulns_A = {x: self.get_VulnsA()[x] for x in keys}
         return vulns_A
 
     def get_added(self):
         # if set diff
         self.set_diff()
-        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['added'])
-        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
-        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
-        return vulns_A
+        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['added'])
+        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        vulns_B = {x: self.get_VulnsB()[x] for x in keys} 
+        return vulns_B
 
     def get_removed(self):
         # if set diff
         self.set_diff()
-        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['removed'])
-        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
-        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['removed'])
+        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        vulns_A = {x: self.get_VulnsA()[x] for x in keys}
         return vulns_A
 
     def get_changed(self):
         # if set diff
         self.set_diff()
-        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['changed'])
-        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
-        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['changed'])
+        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        vulns_A = {x: self.get_VulnsA()[x] for x in keys}
+        # todo : ajouter info sur le changement (from B)
+        vulns_B = {x: self.get_VulnsB()[x] for x in keys}
         return vulns_A
+
+    def getInfoA(self):
+        return self.get_VulnsA()
 
     def get_VulnsA(self):
         host = self.getHostA()
@@ -76,6 +81,9 @@ class Nessus(object):
             str = "port {0} : protocol {1} service {2} severity {3}".format(vuln.port, vuln.protocol, vuln.service, vuln.severity)
             vulnMap[vuln.plugin_id] = str
         return vulnMap
+
+    def getInfoB(self):
+        return self.get_VulnsB()
 
     def get_VulnsB(self):
         host = self.getHostA()
@@ -97,6 +105,8 @@ class Nessus(object):
         vA = self.get_VulnsA()
         for s in removed:
             print(vA[s])
+
+
 
 
 EXIT_EQUAL = 0
