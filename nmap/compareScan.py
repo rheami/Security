@@ -7,6 +7,8 @@ import sys
 from optparse import OptionParser
 from ndiff import Scan, ScanDiffXML, ScanDiffText, HostDiff
 from bs4 import BeautifulSoup
+import xml.etree.cElementTree as ET
+
 
 class CompareScan(object):
     def __init__(self, scan_a, scan_b):
@@ -37,16 +39,31 @@ class CompareScan(object):
         diff = HostDiff(hosta, hostb)
         if diff.cost > 0:
             if diff.state_changed:
+                pass
                 print ("state change : %s" % hostb.state)
             if diff.extraports_changed:
+                pass
                 print ("extraports change : %s" % hostb.extraports)
             if diff.os_changed:
+                pass
                 print ("os change : %s" % hostb.os)
             if diff.id_changed:
+                pass
                 print ("id change : %s" % hostb.get_id)
 
             print(u"L'indice de différence est: %s" % diff.cost)
 
+    def loadfiles(self):
+        pass
+
+    def parseA(self):
+        pass
+
+    def parseB(self):
+        pass
+
+    def compareAB(self):
+        pass
         # todo ici
 
 EXIT_EQUAL = 0
@@ -88,6 +105,11 @@ def main():
     c.test_addresse()
     c.test_hosts()
 
+    treea = ET.parse(filename_a)
+    # eleA = [{i.tag: i.text for i in ch} for ch in treea.findAll('port')]
+
+    print(treea)
+
     f = StringIO()
     scan_diff = ScanDiffXML(scan_a, scan_b, f)
     cost = scan_diff.output()
@@ -105,17 +127,17 @@ def main():
     port_a = [x for x in hostdiff.findAll('a')]
     #map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('port') }
 #    print(port_a)
-    print(map_a)
+    #print(map_a)
 #    port_b = [x for x in hostdiff.findAll('b')]
  #   print(port_b)
 
-    for port in hostdiff.findAll('port'):
-        print(port.get("portid"), port.get("protocol"), port.state)
+    #for port in hostdiff.findAll('port'):
+     #   print(port.get("portid"), port.get("protocol"), port.state)
     #print(port)
 
     f.close()
 
-    print(u"L'indice de différence final est: %s" % cost)
+    #print(u"L'indice de différence final est: %s" % cost)
     if cost == 0:
         return EXIT_EQUAL
     else:
