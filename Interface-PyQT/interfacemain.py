@@ -14,7 +14,6 @@ class Window(QtGui.QMainWindow):
         self.resize(950, 450)
         self.setWindowTitle('Detecteur de vulnerabilites')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
-
         self.createwidget()
         self.layoutwidget()
         self.createconnection()
