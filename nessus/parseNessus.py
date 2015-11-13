@@ -10,6 +10,8 @@ import os
 import sys
 import argparse
 
+REPORT_ITEM_ = "NessusReportItem::"
+
 
 class Nessus(object):
     def __init__(self, fileA, fileB):
@@ -18,6 +20,7 @@ class Nessus(object):
         self.nessusfileB = fileB
         self.nessus_rapportA = NessusParser.parse_fromfile(self.nessusfileA)
         self.nessus_rapportB = NessusParser.parse_fromfile(self.nessusfileB)
+        self.set_diff()
 
     def showDiffDict(self):
         a = {'a': 1, 'b': 1, 'c': 0}
@@ -36,31 +39,34 @@ class Nessus(object):
     def get_unchanged(self):
         # if set diff
         self.set_diff()
-        temp = self.diff['unchanged']
-        unchanged =  map(lambda x: x.strip('NessusReportItem::'), temp)
-        #print(unchanged)
-        vA = self.get_VulnsA()
-        #print(vA)
-        #uVa = {x: vA[x] for x in unchanged}
-        return unchanged
+        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['unchanged'])
+        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
+        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        return vulns_A
 
     def get_added(self):
         # if set diff
         self.set_diff()
-        temp = self.diff['added']
-        return map(lambda x: x.strip('NessusReportItem::'), temp)
+        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['added'])
+        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
+        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        return vulns_A
 
     def get_removed(self):
         # if set diff
         self.set_diff()
-        temp = self.diff['removed']
-        return map(lambda x: x.strip('NessusReportItem::'), temp) # todo if NessusReportItem:: found then add value
+        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['removed'])
+        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
+        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        return vulns_A
 
     def get_changed(self):
         # if set diff
         self.set_diff()
-        temp = self.diff['changed']
-        return map(lambda x: x.strip('NessusReportItem::'), temp)
+        temp = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['changed'])
+        temp = map(lambda x: x.strip(REPORT_ITEM_), temp)
+        vulns_A = {x: self.get_VulnsA()[x] for x in temp}
+        return vulns_A
 
     def get_VulnsA(self):
         host = self.getHostA()
@@ -122,8 +128,6 @@ def main():
     print(ne.get_changed())
     print("unchanged")
     print(ne.get_unchanged())
-    print(ne.get_VulnsA())
-    print(ne.get_VulnsB())
 
 # Catch uncaught exceptions so they can produce an exit code of 2 (EXIT_ERROR),
 # not 1 like they would by default.

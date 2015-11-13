@@ -2,27 +2,9 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="16f66009-249a-4724-a535-1919b496380a" name="Default" comment="">
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Interface-PyQT/parseNessus.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Interface-PyQT/test.py" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Interface-PyQT/xp_27.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Interface-PyQT/xp_27B.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/Readme" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/firstscan_pojcjp.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/firstscan_z3vyjn.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/machine virtuelle" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus avec parseby" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus-beautifulsoup" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/firstscan_20.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/firstscan_5.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/firstscan_diff.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/nulldiff.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/resultat" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/scan.xml" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/xp_27.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/xp_27B.nessus" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/nessus/xp_uq1dix.html" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/scanphilippe" afterPath="" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" afterPath="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nessus/interfaceTest.py" afterPath="$PROJECT_DIR$/nessus/interfaceTest.py" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/nessus/parseNessus.py" afterPath="$PROJECT_DIR$/nessus/parseNessus.py" />
     </list>
     <ignored path="s-curit-inm5001.iws" />
@@ -41,9 +23,10 @@
     <SUITE FILE_PATH="coverage/s-curit-inm5001$parseNessus__1_.coverage" NAME="parseNessus (1) Coverage Results" MODIFIED="1447139013099" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Interface-PyQT" />
     <SUITE FILE_PATH="coverage/s-curit-inm5001$Unittests_in_ndifftest.coverage" NAME="Unittests in ndifftest Coverage Results" MODIFIED="1445190281547" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sources" />
     <SUITE FILE_PATH="coverage/s-curit-inm5001$compareScan.coverage" NAME="compareScan Coverage Results" MODIFIED="1445294621915" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sources" />
-    <SUITE FILE_PATH="coverage/s-curit-inm5001$interfacemain.coverage" NAME="interfacemain Coverage Results" MODIFIED="1447131162938" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Interface-PyQT" />
+    <SUITE FILE_PATH="coverage/s-curit-inm5001$interfacemain.coverage" NAME="interfacemain Coverage Results" MODIFIED="1447389510900" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Interface-PyQT" />
+    <SUITE FILE_PATH="coverage/s-curit-inm5001$interfaceTest.coverage" NAME="interfaceTest Coverage Results" MODIFIED="1447389449226" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nessus" />
     <SUITE FILE_PATH="coverage/s-curit-inm5001$scanNessus.coverage" NAME="scanNessus Coverage Results" MODIFIED="1445293387189" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/sources/nessus" />
-    <SUITE FILE_PATH="coverage/s-curit-inm5001$parseNessus.coverage" NAME="parseNessus Coverage Results" MODIFIED="1447368840300" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nessus" />
+    <SUITE FILE_PATH="coverage/s-curit-inm5001$parseNessus.coverage" NAME="parseNessus Coverage Results" MODIFIED="1447388144066" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/nessus" />
     <SUITE FILE_PATH="coverage/s-curit-inm5001$test.coverage" NAME="test Coverage Results" MODIFIED="1447359294607" SOURCE_PROVIDER="com.intellij.coverage.DefaultCoverageFileProvider" RUNNER="coverage.py" COVERAGE_BY_TEST_ENABLED="true" COVERAGE_TRACING_ENABLED="false" WORKING_DIRECTORY="$PROJECT_DIR$/Interface-PyQT" />
   </component>
   <component name="CreatePatchCommitExecutor">
@@ -55,11 +38,21 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="interfaceTest.py" pinned="false" current-in-tab="true">
+      <file leaf-file-name="interfacemain.py" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/Interface-PyQT/interfacemain.py">
+          <provider selected="true" editor-type-id="text-editor">
+            <state vertical-scroll-proportion="0.4054054">
+              <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="interfaceTest.py" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/nessus/interfaceTest.py">
           <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.6081081">
-              <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+            <state vertical-scroll-proportion="0.0">
+              <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
               <folding>
                 <element signature="e#23#54#0" expanded="true" />
               </folding>
@@ -71,7 +64,7 @@
         <entry file="file://$PROJECT_DIR$/nessus/parseNessus.py">
           <provider selected="true" editor-type-id="text-editor">
             <state vertical-scroll-proportion="0.0">
-              <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+              <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
               <folding>
                 <element signature="e#23#54#0" expanded="true" />
               </folding>
@@ -118,11 +111,11 @@
         <option value="$PROJECT_DIR$/Interface-PyQT/compareScan2" />
         <option value="$PROJECT_DIR$/Interface-PyQT/xp_27.nessus" />
         <option value="$PROJECT_DIR$/Interface-PyQT/compareScan2.py" />
-        <option value="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" />
         <option value="$PROJECT_DIR$/Interface-PyQT/parseNessus.py" />
         <option value="$PROJECT_DIR$/Interface-PyQT/test.py" />
         <option value="$PROJECT_DIR$/nessus/parseNessus.py" />
         <option value="$PROJECT_DIR$/nessus/interfaceTest.py" />
+        <option value="$PROJECT_DIR$/Interface-PyQT/interfacemain.py" />
       </list>
     </option>
   </component>
@@ -313,25 +306,7 @@
       <recent name="C:\Users\Caroline\Desktop\Caro\s-curit-inm5001\s-curit-inm5001\nmap" />
     </key>
   </component>
-  <component name="RunManager" selected="Python.parseNessus">
-    <configuration default="false" name="compareScan" type="PythonConfigurationType" factoryName="Python" temporary="true">
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="PARENT_ENVS" value="true" />
-      <envs>
-        <env name="PYTHONUNBUFFERED" value="1" />
-      </envs>
-      <option name="SDK_HOME" value="" />
-      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/sources" />
-      <option name="IS_MODULE_SDK" value="true" />
-      <option name="ADD_CONTENT_ROOTS" value="true" />
-      <option name="ADD_SOURCE_ROOTS" value="true" />
-      <module name="s-curit-inm5001" />
-      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
-      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/sources/compareScan.py" />
-      <option name="PARAMETERS" value="scan-133950-101815.xml scan-144848-101915.xml" />
-      <option name="SHOW_COMMAND_LINE" value="false" />
-      <method />
-    </configuration>
+  <component name="RunManager" selected="Python.interfacemain">
     <configuration default="false" name="interfacemain" type="PythonConfigurationType" factoryName="Python" temporary="true">
       <option name="INTERPRETER_OPTIONS" value="" />
       <option name="PARENT_ENVS" value="true" />
@@ -400,6 +375,24 @@
       <module name="s-curit-inm5001" />
       <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
       <option name="SCRIPT_NAME" value="$PROJECT_DIR$/Interface-PyQT/parseNessus.py" />
+      <option name="PARAMETERS" value="" />
+      <option name="SHOW_COMMAND_LINE" value="false" />
+      <method />
+    </configuration>
+    <configuration default="false" name="interfaceTest" type="PythonConfigurationType" factoryName="Python" temporary="true">
+      <option name="INTERPRETER_OPTIONS" value="" />
+      <option name="PARENT_ENVS" value="true" />
+      <envs>
+        <env name="PYTHONUNBUFFERED" value="1" />
+      </envs>
+      <option name="SDK_HOME" value="" />
+      <option name="WORKING_DIRECTORY" value="$PROJECT_DIR$/nessus" />
+      <option name="IS_MODULE_SDK" value="true" />
+      <option name="ADD_CONTENT_ROOTS" value="true" />
+      <option name="ADD_SOURCE_ROOTS" value="true" />
+      <module name="s-curit-inm5001" />
+      <EXTENSION ID="PythonCoverageRunConfigurationExtension" enabled="false" sample_coverage="true" runner="coverage.py" />
+      <option name="SCRIPT_NAME" value="$PROJECT_DIR$/nessus/interfaceTest.py" />
       <option name="PARAMETERS" value="" />
       <option name="SHOW_COMMAND_LINE" value="false" />
       <method />
@@ -599,19 +592,19 @@
       <method />
     </configuration>
     <list size="5">
-      <item index="0" class="java.lang.String" itemvalue="Python.compareScan" />
-      <item index="1" class="java.lang.String" itemvalue="Python.interfacemain" />
-      <item index="2" class="java.lang.String" itemvalue="Python.test" />
-      <item index="3" class="java.lang.String" itemvalue="Python.parseNessus" />
-      <item index="4" class="java.lang.String" itemvalue="Python.parseNessus (1)" />
+      <item index="0" class="java.lang.String" itemvalue="Python.interfacemain" />
+      <item index="1" class="java.lang.String" itemvalue="Python.test" />
+      <item index="2" class="java.lang.String" itemvalue="Python.parseNessus" />
+      <item index="3" class="java.lang.String" itemvalue="Python.parseNessus (1)" />
+      <item index="4" class="java.lang.String" itemvalue="Python.interfaceTest" />
     </list>
     <recent_temporary>
       <list size="5">
-        <item index="0" class="java.lang.String" itemvalue="Python.parseNessus" />
-        <item index="1" class="java.lang.String" itemvalue="Python.test" />
-        <item index="2" class="java.lang.String" itemvalue="Python.parseNessus (1)" />
-        <item index="3" class="java.lang.String" itemvalue="Python.interfacemain" />
-        <item index="4" class="java.lang.String" itemvalue="Python.compareScan" />
+        <item index="0" class="java.lang.String" itemvalue="Python.interfacemain" />
+        <item index="1" class="java.lang.String" itemvalue="Python.interfaceTest" />
+        <item index="2" class="java.lang.String" itemvalue="Python.parseNessus" />
+        <item index="3" class="java.lang.String" itemvalue="Python.test" />
+        <item index="4" class="java.lang.String" itemvalue="Python.parseNessus (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -702,7 +695,7 @@
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Python Console" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.375817" sideWeight="0.46978852" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Run" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3496732" sideWeight="0.4939577" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.3496732" sideWeight="0.4939577" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32789558" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
@@ -794,7 +787,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -815,7 +808,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -836,7 +829,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="70" column="42" selection-start-line="70" selection-start-column="42" selection-end-line="70" selection-end-column="42" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -878,7 +871,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="42" column="64" selection-start-line="42" selection-start-column="64" selection-end-line="42" selection-end-column="64" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -906,7 +899,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -934,7 +927,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="10" selection-start-line="0" selection-start-column="10" selection-end-line="0" selection-end-column="10" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -944,7 +937,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -954,7 +947,7 @@
         <state vertical-scroll-proportion="0.0">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding>
-            <element signature="e#0#10#0" expanded="false" />
+            <element signature="e#38#48#0" expanded="false" />
           </folding>
         </state>
       </provider>
@@ -1072,16 +1065,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/Interface-PyQT/interfacemain.py">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.59322035">
-          <caret line="14" column="29" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
-          <folding>
-            <element signature="e#0#10#0" expanded="false" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/nmap/compareScan.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
@@ -1093,7 +1076,7 @@
     <entry file="file://$PROJECT_DIR$/nessus/parseNessus.py">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0">
-          <caret line="61" column="35" selection-start-line="61" selection-start-column="35" selection-end-line="61" selection-end-column="35" />
+          <caret line="127" column="27" selection-start-line="127" selection-start-column="27" selection-end-line="127" selection-end-column="27" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
@@ -1102,11 +1085,19 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/nessus/interfaceTest.py">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.6081081">
-          <caret line="15" column="74" selection-start-line="15" selection-start-column="74" selection-end-line="15" selection-end-column="74" />
+        <state vertical-scroll-proportion="0.0">
+          <caret line="58" column="0" selection-start-line="58" selection-start-column="0" selection-end-line="58" selection-end-column="0" />
           <folding>
             <element signature="e#23#54#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/Interface-PyQT/interfacemain.py">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4054054">
+          <caret line="15" column="51" selection-start-line="15" selection-start-column="51" selection-end-line="15" selection-end-column="51" />
+          <folding />
         </state>
       </provider>
     </entry>
