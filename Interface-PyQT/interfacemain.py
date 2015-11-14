@@ -73,10 +73,39 @@ class Window(QtGui.QMainWindow):
         # todo lancer le script nessus via le bouton
 
     def lancerNMap(self):
-        compareScan2.main('scan-115007-102615.xml', 'scan-144848-101915.xml')
+      groupBox 	 = QtGui.QGroupBox('Selectionnez les scans')
+      groupBox.setWindowTitle('selection')
+      groupBox.resize(450,450)
+      vBoxLayout = QtGui.QVBoxLayout()
+      button1 	 = QtGui.QCheckBox('scan1')
+      button2 	 = QtGui.QCheckBox('scan2')
+      button3 	 = QtGui.QCheckBox('scan3')
+      self.button4 = QtGui.QPushButton('Lancer', self)
 
-        text = open('resultatsnmap.txt').read()
-        self.boitetexte.setPlainText(text)
+      button1.setAutoExclusive(True)
+      button2.setAutoExclusive(True)
+      button3.setAutoExclusive(True)
+      self.button4.setAutoExclusive(True)
+
+      button1.setCheckable(True)
+      button2.setCheckable(True)
+      button3.setCheckable(True)
+      self.button4.setCheckable(True)
+
+      vBoxLayout.addWidget(button1)
+      vBoxLayout.addWidget(button2)
+      vBoxLayout.addWidget(button3)
+      vBoxLayout.addWidget(self.button4)
+
+      groupBox.setLayout(vBoxLayout)
+      groupBox.show()
+      return app.exec_()
+        
+        #compareScan2.main('scan-115007-102615.xml', 'scan-144848-101915.xml')
+
+        
+        #text = open('resultatsnmap.txt').read()
+        #self.boitetexte.setPlainText(text)
 
     def closeEvent(self, event):
         event.ignore()
