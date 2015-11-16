@@ -6,6 +6,9 @@ from PyQt4.QtCore import SIGNAL, SLOT
 import subprocess
 import compareScan2
 import pickle
+# todo ici clean import, reformat class
+
+
 class MyDialog(QtGui.QDialog):
     def __init__(self, parent=None):
         super(MyDialog, self).__init__(parent)
@@ -29,8 +32,6 @@ class MyDialog(QtGui.QDialog):
         self.boutonannuler.setText('annuler')
         self.boutonannuler.move (200,300)
 
-
-
     #   self.boutoncomparer.clicked.connect(self.comparer)
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
@@ -45,10 +46,7 @@ class MyDialog(QtGui.QDialog):
         self.showDialog()
     def ouvririnterface2(self):
         self.showDialog2()
-
-
-
-
+    # todo appel de fonction via bar de menu ou bouton import file
     def showDialog(self):
         fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 '/home')
@@ -61,6 +59,7 @@ class MyDialog(QtGui.QDialog):
 
         f = open(fname, 'r')
         self.fenetrescan2.append(fname)
+
 
 class Window(QtGui.QMainWindow):
     def __init__(self):
@@ -130,16 +129,9 @@ class Window(QtGui.QMainWindow):
         print 'lop'
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
-
-
-
-
-
-
+    # todo rework appel de fonction et link de script
        ## text = open('resultatsnmap.txt').read()
        ## self.boitetexte.setPlainText(text)
-
-
 
     def closeEvent(self, event):
         event.ignore()
