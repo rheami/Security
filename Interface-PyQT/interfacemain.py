@@ -9,50 +9,68 @@ import pickle
 class MyDialog(QtGui.QDialog):
     def __init__(self, parent=None):
         super(MyDialog, self).__init__(parent)
-        self.resize(250, 250)
-        self.pushButtonWindow = QtGui.QPushButton(self)
-        self.pushButtonWindow.move(50, 50)
-        self.pushButtonWindow.setText('ouvrir scan1')
-        self.pushButtonWindow2 = QtGui.QPushButton(self)
-        self.pushButtonWindow2.setText('ouvrir scan2')
-        self.pushButtonWindow2.move(50, 100)
+        self.resize(350, 350)
+        self.btnopenscan = QtGui.QPushButton(self)
+        self.btnopenscan.move(50, 50)
+        self.btnopenscan.setText('ouvrir scan1')
+        self.fenetrescan1 = QtGui.QTextEdit(self)
+        self.fenetrescan1.setGeometry(QtCore.QRect(100, 200, 150, 50))
+        self.fenetrescan1.move(50,100)
+        self.btnopenscan2 = QtGui.QPushButton(self)
+        self.btnopenscan2.setText('ouvrir scan2')
+        self.btnopenscan2.move(50, 150)
+        self.fenetrescan2 = QtGui.QTextEdit(self)
+        self.fenetrescan2.setGeometry(QtCore.QRect(50, 250,150, 50))
+        self.fenetrescan2.move(50,200)
         self.boutoncomparer = QtGui.QPushButton(self)
         self.boutoncomparer.setText('comparer')
-        self.boutoncomparer.move (50,200)
+        self.boutoncomparer.move (50,300)
+        self.boutonannuler = QtGui.QPushButton(self)
+        self.boutonannuler.setText('annuler')
+        self.boutonannuler.move (200,300)
 
-        self.textEdit = QtGui.QTextEdit( )
 
 
-        self.pushButtonWindow.clicked.connect(self.ouvririnterface)
+    #   self.boutoncomparer.clicked.connect(self.comparer)
+        self.boutonannuler.clicked.connect(self.annuler)
+        self.btnopenscan.clicked.connect(self.ouvririnterface)
+        self.btnopenscan2.clicked.connect(self.ouvririnterface2)
         self.show()
+    def comparer(self):
+        pass
+        #compare2scans
+    def annuler(self):
+        self.close()
     def ouvririnterface(self):
         self.showDialog()
+    def ouvririnterface2(self):
+        self.showDialog2()
 
 
 
 
     def showDialog(self):
-        print 'rewa'
         fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 '/home')
 
         f = open(fname, 'r')
-        self.textEdit.append(fname)
+        self.fenetrescan1.append(fname)
+    def showDialog2(self):
+        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+                '/home')
+
+        f = open(fname, 'r')
+        self.fenetrescan2.append(fname)
 
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
         self.resize(950, 450)
-        print 'asdf'
         self.setWindowTitle('Detecteur de vulnerabilites')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         self.createwidget()
         self.layoutwidget()
         self.createconnection()
-        print 'lol'
-
-        print 'pop'
-
     def createwidget(self):
         self.progress = QtGui.QProgressBar(self)
         self.statusBar()
@@ -90,6 +108,7 @@ class Window(QtGui.QMainWindow):
     def createconnection(self):
         self.extractAction.triggered.connect(self.close_application)
         self.btnlancer.clicked.connect(self.download)
+        self.btnnessus.clicked.connect(self.lancerNessus)
         # todo transformé les appels de fonction via des bouton en signals
         #self.connect(self.btnnessus, SIGNAL("clicked()"), self.lancerNessus())
 
@@ -104,8 +123,8 @@ class Window(QtGui.QMainWindow):
         # todo selection entre nmap et nessus
 
     def lancerNessus(self):
-        pass
-        # todo lancer le script nessus via le bouton
+        self.dialogTextBrowser = MyDialog(self)
+        self.dialogTextBrowser.exec_()
 
     def lancerNMap(self):
         print 'lop'
