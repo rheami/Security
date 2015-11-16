@@ -6,17 +6,52 @@ from PyQt4.QtCore import SIGNAL, SLOT
 import subprocess
 import compareScan2
 import pickle
+class MyDialog(QtGui.QDialog):
+    def __init__(self, parent=None):
+        super(MyDialog, self).__init__(parent)
+        self.resize(250, 250)
+        self.pushButtonWindow = QtGui.QPushButton(self)
+        self.pushButtonWindow.move(50, 50)
+        self.pushButtonWindow.setText('ouvrir scan1')
+        self.pushButtonWindow2 = QtGui.QPushButton(self)
+        self.pushButtonWindow2.setText('ouvrir scan2')
+        self.pushButtonWindow2.move(50, 100)
+        self.boutoncomparer = QtGui.QPushButton(self)
+        self.boutoncomparer.setText('comparer')
+        self.boutoncomparer.move (50,200)
 
+        self.textEdit = QtGui.QTextEdit( )
+
+
+        self.pushButtonWindow.clicked.connect(self.ouvririnterface)
+        self.show()
+    def ouvririnterface(self):
+        self.showDialog()
+
+
+
+
+    def showDialog(self):
+        print 'rewa'
+        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+                '/home')
+
+        f = open(fname, 'r')
+        self.textEdit.append(fname)
 
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
         self.resize(950, 450)
+        print 'asdf'
         self.setWindowTitle('Detecteur de vulnerabilites')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         self.createwidget()
         self.layoutwidget()
         self.createconnection()
+        print 'lol'
+
+        print 'pop'
 
     def createwidget(self):
         self.progress = QtGui.QProgressBar(self)
@@ -73,39 +108,19 @@ class Window(QtGui.QMainWindow):
         # todo lancer le script nessus via le bouton
 
     def lancerNMap(self):
-      groupBox 	 = QtGui.QGroupBox('Selectionnez les scans')
-      groupBox.setWindowTitle('selection')
-      groupBox.resize(450,450)
-      vBoxLayout = QtGui.QVBoxLayout()
-      button1 	 = QtGui.QCheckBox('scan1')
-      button2 	 = QtGui.QCheckBox('scan2')
-      button3 	 = QtGui.QCheckBox('scan3')
-      self.button4 = QtGui.QPushButton('Lancer', self)
+        print 'lop'
+        self.dialogTextBrowser = MyDialog(self)
+        self.dialogTextBrowser.exec_()
 
-      button1.setAutoExclusive(True)
-      button2.setAutoExclusive(True)
-      button3.setAutoExclusive(True)
-      self.button4.setAutoExclusive(True)
 
-      button1.setCheckable(True)
-      button2.setCheckable(True)
-      button3.setCheckable(True)
-      self.button4.setCheckable(True)
 
-      vBoxLayout.addWidget(button1)
-      vBoxLayout.addWidget(button2)
-      vBoxLayout.addWidget(button3)
-      vBoxLayout.addWidget(self.button4)
 
-      groupBox.setLayout(vBoxLayout)
-      groupBox.show()
-      return app.exec_()
-        
-        #compareScan2.main('scan-115007-102615.xml', 'scan-144848-101915.xml')
 
-        
-        #text = open('resultatsnmap.txt').read()
-        #self.boitetexte.setPlainText(text)
+
+       ## text = open('resultatsnmap.txt').read()
+       ## self.boitetexte.setPlainText(text)
+
+
 
     def closeEvent(self, event):
         event.ignore()
@@ -122,11 +137,13 @@ class Window(QtGui.QMainWindow):
             pass
 
 
-def main():
+if __name__ == "__main__":
+    import sys
+
     app = QtGui.QApplication(sys.argv)
-    gui = Window()
-    gui.show()
-    app.exec_()
+    app.setApplicationName('MyWindow')
 
-main()
+    main = Window()
+    main.show()
 
+    sys.exit(app.exec_())
