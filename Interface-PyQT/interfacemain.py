@@ -3,9 +3,11 @@
 import sys
 from PyQt4 import QtGui, QtCore
 from PyQt4.QtCore import SIGNAL, SLOT
-import subprocess
-import compareScan2
-import pickle
+import parseNessus
+import parseNmap
+# import subprocess
+# import compareScan2
+# import pickle
 # todo ici clean import, reformat class
 
 
@@ -37,25 +39,31 @@ class MyDialog(QtGui.QDialog):
         self.btnopenscan.clicked.connect(self.ouvririnterface)
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
         self.show()
+
     def comparer(self):
         pass
         #compare2scans
+
     def annuler(self):
         self.close()
+
     def ouvririnterface(self):
         self.showDialog()
+
     def ouvririnterface2(self):
         self.showDialog2()
     # todo appel de fonction via bar de menu ou bouton import file
+
     def showDialog(self):
-        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
-                '/home')
+        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', '/home')
 
         f = open(fname, 'r')
         self.fenetrescan1.append(fname)
+        f.close()
+        return fname
+
     def showDialog2(self):
-        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
-                '/home')
+        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', '/home')
 
         f = open(fname, 'r')
         self.fenetrescan2.append(fname)
@@ -64,31 +72,48 @@ class MyDialog(QtGui.QDialog):
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
+
+        self.nessusFileA = ""
+        self.nessusFileB = ""
+        self.NMapFileA = ""
+        self.NMapFileB = ""
+
         self.resize(950, 450)
         self.setWindowTitle('Detecteur de vulnerabilites')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
         self.createwidget()
         self.layoutwidget()
         self.createconnection()
+
     def createwidget(self):
         self.progress = QtGui.QProgressBar(self)
         self.statusBar()
 
         self.mainmenu = self.menuBar()
+        #self.mainmenu = QtGui.QMenuBar
 
         self.btnlancer = QtGui.QPushButton('Lancer NMap', self)
         self.btnnessus = QtGui.QPushButton('Lancer Nessus', self)
+        #self.openAction = QtGui.QAction('&Open', self)
         self.extractAction = QtGui.QAction('&Quitter', self)
-        self.boitetexte = QtGui.QTextEdit(self)
+        self.boitetexte = QtGui.QTextBrowser(self)
 
     def layoutwidget(self):
         self.setStyle(QtGui.QStyleFactory.create("plastique"))
 
         self.progress.setGeometry(50, 380, 200, 15)
 
+        #self.openAction.setShortcut('Ctrl+O')
+        #self.openAction.setStatusTip('Ouverture de fichier')
+        #fileMenu = QtGui.QMenu.addMenu('&Fichier')
+        #fileMenu.addActions([QtGui.QAction(), QtGui.Q])
+        #openMenu = self.mainmenu.addMenu('&Ouvrir')
+
         self.extractAction.setShortcut('Ctrl+Q')
         self.extractAction.setStatusTip('Fermeture')
         fileMenu = self.mainmenu.addMenu('&Fichier')
+
+        #openMenu.addAction(self.openAction)
         fileMenu.addAction(self.extractAction)
 
         self.btnnessus.setToolTip('Inspection et analyse des vuln') # érabilité')
@@ -105,6 +130,8 @@ class Window(QtGui.QMainWindow):
         self.boitetexte.setObjectName("Resultats NMap")
 
     def createconnection(self):
+        #todo faire en sorte que le myDialog devienne un openfile dialog
+        #self.openAction.triggered.connect(self.close_application)
         self.extractAction.triggered.connect(self.close_application)
         self.btnlancer.clicked.connect(self.download)
         self.btnnessus.clicked.connect(self.lancerNessus)
@@ -149,7 +176,6 @@ class Window(QtGui.QMainWindow):
 
 
 if __name__ == "__main__":
-    import sys
 
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('MyWindow')
@@ -158,3 +184,4 @@ if __name__ == "__main__":
     main.show()
 
     sys.exit(app.exec_())
+
