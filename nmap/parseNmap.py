@@ -76,9 +76,8 @@ class NMapScan(object):
         return portInfo
 
     def get_changed(self):
-        return self.diff.changed()
-        portInfoa = {x: self.port_a[x] for x in keys}
-        portInfob = {x: self.port_b[x] for x in keys}
+        keys = self.diff.changed()
+        portInfoa = {x: str(self.port_a[x]) + " -> " + str(self.port_b[x]) for x in keys}
         # todo : ajouter info de b pour voir les changements
         return portInfoa
 
