@@ -13,7 +13,7 @@ class Form(QDialog):
         super(Form, self).__init__(parent)
         nessusfile = "./scan/xp_27.nessus"
         nessusfileB = "./scan/xp_27B.nessus"
-        self.ne = Nessus(nessusfile, nessusfileB)
+        self.scan = Nessus(nessusfile, nessusfileB)
 
         self.create_widgets()
         self.layout_widgets()
@@ -46,20 +46,40 @@ class Form(QDialog):
 
     def showDiffHost(self):
         self.browser.clear()
-        self.browser.append("removed : {0}:".format(self.ne.get_removed()))
-        self.browser.append("added : {0} ".format(self.ne.get_added()))
-        self.browser.append("changed : {0}".format(self.ne.get_changed()))
-        self.browser.append("unchanged : {0}".format(self.ne.get_unchanged()))
+        self.showRemoved()
+        self.showAdded()
+        self.showChanged()
+        self.showUnchanged()
+
+    def showList(self, info_dict):
+            for key in info_dict:
+                 self.browser.append("{0} : {1}".format(key, info_dict[key]))
+
+    def showRemoved(self):
+        self.browser.append("removed :")
+        self.showList(self.scan.get_removed())
+
+    def showAdded(self):
+        self.browser.append("added :")
+        self.showList(self.scan.get_added())
+
+    def showChanged(self):
+        self.browser.append("changed :")
+        self.showList(self.scan.get_changed())
+
+    def showUnchanged(self):
+        self.browser.append("unchanged :")
+        self.showList(self.scan.get_unchanged())
 
     def showA(self):
         self.browser.clear()
-        infoList = self.ne.getInfoA()
+        infoList = self.scan.getInfoA()
         for key in infoList:
             self.browser.append("{0} : {1}".format(key, infoList[key]))
 
     def showB(self):
         self.browser.clear()
-        infoList = self.ne.getInfoB()
+        infoList = self.scan.getInfoB()
         for key in infoList:
             self.browser.append("{0} : {1}".format(key, infoList[key]))
 
