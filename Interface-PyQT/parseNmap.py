@@ -32,25 +32,27 @@ class NMapScan(object):
         soup = BeautifulSoup(xml, 'lxml-xml')
         f.close()
         hostdiff = soup.hostdiff
-        #map_a = { x.get("portid"): x.get("protocol") for x in hostdiff.findAll('a') }
-        #print(map_a)
 
         ha = hostdiff.findAll('a')
         hb = hostdiff.findAll('b')
 
         self.port_a = {}
         for a in ha:
-            if a.find('port') :
-                str = ((a.port.get("portid"), a.port.get("protocol"), a.port.state))
-                #print(str)
-                self.port_a[a.port.get("portid")] = str
+            if a.find('port'):
+                s = str(a.port.state)
+                state = s.partition('"')[-1].rpartition('"')[0]
+                state = "None" if state == "" else state
+                port_info = str("protocol: {0}, state: {1}".format(a.port.get("protocol"), state))
+                self.port_a[a.port.get("portid")] = port_info
 
         self.port_b = {}
         for b in hb:
-            if b.find('port') :
-                str = ((b.port.get("portid"), b.port.get("protocol"), b.port.state))
-                #print(str)
-                self.port_b[b.port.get("portid")] = str
+            if b.find('port'):
+                s = str(b.port.state)
+                state = s.partition('"')[-1].rpartition('"')[0]
+                state = "None" if state == "" else state
+                port_info = str("protocol: {0}, state: {1}".format(b.port.get("protocol"), state))
+                self.port_b[b.port.get("portid")] = port_info
 
         self.diff = DictDiffer(self.port_b, self.port_a)
 
@@ -76,10 +78,8 @@ class NMapScan(object):
         return portInfo
 
     def get_changed(self):
-        return self.diff.changed()
-        portInfoa = {x: self.port_a[x] for x in keys}
-        portInfob = {x: self.port_b[x] for x in keys}
-        # todo : ajouter info de b pour voir les changements
+        keys = self.diff.changed()
+        portInfoa = {x: str(self.port_a[x]) + " -> " + str(self.port_b[x]) for x in keys}
         return portInfoa
 
     def test_host_number(self):

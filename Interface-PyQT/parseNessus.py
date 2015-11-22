@@ -5,6 +5,7 @@ from __future__ import print_function
 from __future__ import unicode_literals
 
 from libnessus.parser import NessusParser
+from libnmap.diff import DictDiffer
 
 import os
 import sys
@@ -41,7 +42,7 @@ class Nessus(object):
         self.set_diff()
         keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['unchanged'])
         keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
-        vulns_A = {x: self.get_VulnsA()[x] for x in keys}
+        vulns_A = {x: self.getInfoA()[x] for x in keys}
         return vulns_A
 
     def get_added(self):
@@ -49,7 +50,7 @@ class Nessus(object):
         self.set_diff()
         keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['added'])
         keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
-        vulns_B = {x: self.get_VulnsB()[x] for x in keys} 
+        vulns_B = {x: self.getInfoB()[x] for x in keys}
         return vulns_B
 
     def get_removed(self):
@@ -57,7 +58,7 @@ class Nessus(object):
         self.set_diff()
         keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['removed'])
         keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
-        vulns_A = {x: self.get_VulnsA()[x] for x in keys}
+        vulns_A = {x: self.getInfoA()[x] for x in keys}
         return vulns_A
 
     def get_changed(self):
@@ -65,32 +66,24 @@ class Nessus(object):
         self.set_diff()
         keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['changed'])
         keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
-        vulns_A = {x: self.get_VulnsA()[x] for x in keys}
-        # todo : ajouter info sur le changement (from B)
-        vulns_B = {x: self.get_VulnsB()[x] for x in keys}
-        return vulns_A
+        vulns_Changed = {x: str(self.getInfoA()[x]) + " -> " + str(self.getInfoB()[x]) for x in keys}
+        return vulns_Changed
 
     def getInfoA(self):
-        return self.get_VulnsA()
-
-    def get_VulnsA(self):
         host = self.getHostA()
-        vulnList = host.get_report_items
-        vulnMap = {}
-        for vuln in vulnList:
-            str = "port {0} : protocol {1} service {2} severity {3}".format(vuln.port, vuln.protocol, vuln.service, vuln.severity)
-            vulnMap[vuln.plugin_id] = str
-        return vulnMap
+        return self.get_vulns_dict(host)
 
     def getInfoB(self):
-        return self.get_VulnsB()
+        host = self.getHostB()
+        return self.get_vulns_dict(host)
 
-    def get_VulnsB(self):
-        host = self.getHostA()
+    def get_vulns_dict(self, host):
         vulnList = host.get_report_items
         vulnMap = {}
         for vuln in vulnList:
-            str = "port {0} : protocol {1} service {2} severity {3}".format(vuln.port, vuln.protocol, vuln.service, vuln.severity)
+            str = "port {0} : protocol {1} service {2} severity {3} : {4}".format(vuln.port, vuln.protocol,
+                                                                                  vuln.service, vuln.severity,
+                                                                                  vuln.get_vuln_info.get('cve'))
             vulnMap[vuln.plugin_id] = str
         return vulnMap
 

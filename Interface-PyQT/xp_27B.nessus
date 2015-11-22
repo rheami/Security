@@ -6261,7 +6261,7 @@ Named pipe : keysvc
 An SMB server is running on this port.
 </plugin_output>
 </ReportItem>
-<ReportItem port="445" svc_name="cifs" protocol="tcp" severity="0" pluginID="11011" pluginName="Microsoft Windows SMB Service Detection" pluginFamily="Windows">
+<ReportItem port="445" svc_name="cifs" protocol="tcp" severity="10" pluginID="11011" pluginName="Microsoft Windows SMB Service Detection" pluginFamily="Windows">
 <description>The remote service understands the CIFS (Common Internet File System) or Server Message Block (SMB) protocol, used to provide shared access to files, printers, etc between nodes on a network.</description>
 <fname>cifs445.nasl</fname>
 <plugin_modification_date>2015/06/02</plugin_modification_date>
