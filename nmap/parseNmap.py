@@ -39,15 +39,19 @@ class NMapScan(object):
         self.port_a = {}
         for a in ha:
             if a.find('port'):
-                state = a.port.state
-
-                port_info = str("protocol: {0}, state: {1}".format(a.port.get("protocol"), repr(state)))
+                s = str(a.port.state)
+                state = s.partition('"')[-1].rpartition('"')[0]
+                state = "None" if state == "" else state
+                port_info = str("protocol: {0}, state: {1}".format(a.port.get("protocol"), state))
                 self.port_a[a.port.get("portid")] = port_info
 
         self.port_b = {}
         for b in hb:
             if b.find('port'):
-                port_info = str("protocol: {0}, state: {1}".format(b.port.get("protocol"), b.port.state))
+                s = str(b.port.state)
+                state = s.partition('"')[-1].rpartition('"')[0]
+                state = "None" if state == "" else state
+                port_info = str("protocol: {0}, state: {1}".format(b.port.get("protocol"), state))
                 self.port_b[b.port.get("portid")] = port_info
 
         self.diff = DictDiffer(self.port_b, self.port_a)
