@@ -34,7 +34,7 @@ class MyDialog(QtGui.QDialog):
         self.boutonannuler.setText('annuler')
         self.boutonannuler.move (200,300)
 
-    #   self.boutoncomparer.clicked.connect(self.comparer)
+        self.boutoncomparer.clicked.connect(self.comparer)
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
@@ -103,18 +103,21 @@ class Window(QtGui.QMainWindow):
 
         self.progress.setGeometry(50, 380, 200, 15)
 
-        #self.openAction.setShortcut('Ctrl+O')
-        #self.openAction.setStatusTip('Ouverture de fichier')
-        #fileMenu = QtGui.QMenu.addMenu('&Fichier')
-        #fileMenu.addActions([QtGui.QAction(), QtGui.Q])
-        #openMenu = self.mainmenu.addMenu('&Ouvrir')
-
+        self.apropos.setShortcut('Ctrl+H')
+        self.apropos.setStatusTip('A Propos')
         self.extractAction.setShortcut('Ctrl+Q')
         self.extractAction.setStatusTip('Fermeture')
+        self.ouvrirNmapmenu.setShortcut('Ctrl+N')
+        self.ouvrirNmapmenu.setStatusTip('Lancer un Scan avec NMap')
+        self.ouvrirNessusmenu.setShortcut('Ctrl+W')
+        self.ouvrirNessusmenu.setStatusTip('Lancer un Scan avec Nessus')
         fileMenu = self.mainmenu.addMenu('&Fichier')
+        AideMenu = self.mainmenu.addMenu('&Aide')
 
-        #openMenu.addAction(self.openAction)
+        AideMenu.addAction(self.apropos)
         fileMenu.addAction(self.extractAction)
+        fileMenu.addAction(self.ouvrirNmapmenu)
+        fileMenu.addAction(self.ouvrirNessusmenu)
 
         self.btnnessus.setToolTip('Inspection et analyse des vuln') # érabilité')
         self.btnnessus.move(50, 100)
@@ -133,6 +136,9 @@ class Window(QtGui.QMainWindow):
         #todo faire en sorte que le myDialog devienne un openfile dialog
         #self.openAction.triggered.connect(self.close_application)
         self.extractAction.triggered.connect(self.close_application)
+        self.ouvrirNmapmenu.triggered.connect(self.lancerNMap)
+        self.ouvrirNessusmenu.triggered.connect(self.lancerNessus)
+        self.apropos.triggered.connect(self.InterfaceApropos)
         self.btnlancer.clicked.connect(self.download)
         self.btnnessus.clicked.connect(self.lancerNessus)
         # todo transformé les appels de fonction via des bouton en signals
@@ -151,6 +157,10 @@ class Window(QtGui.QMainWindow):
     def lancerNessus(self):
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
+        
+    def InterfaceApropos(self):
+        propos = QtGui.QMessageBox.about(self, 'A Propos',
+            'Travail realise par les CHAMPS!  WOOHOO!!!')
 
     def lancerNMap(self):
         print 'lop'
