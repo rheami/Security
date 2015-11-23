@@ -80,10 +80,12 @@ class Form(QtGui.QWidget):
         self.layout_widgets()
         self.create_connections()
         self.setFixedHeight(450)
-        self.setFixedWidth(800)
+        self.setFixedWidth(950)
         self.setWindowTitle("ports ouverts nmap scan")
 
     def create_widgets(self):
+        self.boiteresultats = QtGui.QGroupBox('Resultats')
+        self.boitelancement = QtGui.QGroupBox('')
         self.browser = QtGui.QTextBrowser()
         self.buttonAnmap = QtGui.QPushButton("Scan 1 Nmap")
         self.buttonBnmap = QtGui.QPushButton("Scan 2 Nmap")
@@ -98,13 +100,15 @@ class Form(QtGui.QWidget):
 
         self.setStyle(QtGui.QStyleFactory.create("plastique"))
 
-        self.btnnessus.setToolTip('Inspection et analyse des vuln') # érabilité')
-        self.btnnessus.setGeometry(50, 100, 100, 150)
-        self.btnnessus.setStatusTip('Inspection et analyse des vuln') # érabilité')
+        self.boitelancement.setFixedSize(200, 430)
+        self.boiteresultats.setFixedSize(200, 430)
+
+        self.btnnessus.setToolTip('Inspection et analyse des vulnerabilites')
+        self.btnnessus.setStatusTip('Inspection et analyse des vulnerabilites')
 
         self.btnnmap.setToolTip('Inspection et analyse des ports')
-        self.btnnmap.setGeometry(50, 50, 100, 150)
         self.btnnmap.setStatusTip('Inspection et analyse des ports')
+
 
         buttonLayout = QtGui.QHBoxLayout()
         buttonLayout.addStretch()
@@ -120,9 +124,13 @@ class Form(QtGui.QWidget):
         gauche = QtGui.QVBoxLayout()
         gauche.addWidget(self.btnnmap)
         gauche.addWidget(self.btnnessus)
+        self.boitelancement.setLayout(gauche)
+        results = QtGui.QVBoxLayout()
+        results.addWidget(self.boiteresultats)
         tout = QtGui.QHBoxLayout()
-        tout.addLayout(gauche)
+        tout.addWidget(self.boitelancement)
         tout.addLayout(layout)
+        tout.addLayout(results)
         self.setLayout(tout)
 
     def create_connections(self):
