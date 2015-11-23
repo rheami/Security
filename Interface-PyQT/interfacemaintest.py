@@ -95,6 +95,9 @@ class Form(QtGui.QWidget):
         self.buttonDiffHostnessus = QtGui.QPushButton("Diff Nessus")
         self.btnnmap = QtGui.QPushButton('Lancer NMap', self)
         self.btnnessus = QtGui.QPushButton('Lancer Nessus', self)
+        self.image = QtGui.QLabel()
+        self.imagepx = QtGui.QPixmap('./000Lock.png').scaled(180, 180)
+        self.image.setPixmap(self.imagepx)
 
     def layout_widgets(self):
 
@@ -111,7 +114,6 @@ class Form(QtGui.QWidget):
 
 
         buttonLayout = QtGui.QHBoxLayout()
-        buttonLayout.addStretch()
         buttonLayout.addWidget(self.buttonAnmap)
         buttonLayout.addWidget(self.buttonBnmap)
         buttonLayout.addWidget(self.buttonDiffHostnmap)
@@ -126,11 +128,12 @@ class Form(QtGui.QWidget):
         gauche.addWidget(self.btnnessus)
         self.boitelancement.setLayout(gauche)
         results = QtGui.QVBoxLayout()
-        results.addWidget(self.boiteresultats)
+        results.addWidget(self.image)
+        self.boiteresultats.setLayout(results)
         tout = QtGui.QHBoxLayout()
         tout.addWidget(self.boitelancement)
         tout.addLayout(layout)
-        tout.addLayout(results)
+        tout.addWidget(self.boiteresultats)
         self.setLayout(tout)
 
     def create_connections(self):
@@ -194,13 +197,32 @@ class Form(QtGui.QWidget):
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
 
+        self.number = 5
+
+        if self.number < 3:
+            self.imagepx = QtGui.QPixmap('./greencheck2.png').scaled(180, 180)
+        elif self.number < 7:
+            self.imagepx = QtGui.QPixmap('./yellowcheck.png').scaled(180, 180)
+        else:
+            self.imagepx = QtGui.QPixmap('./redcheck.png').scaled(180, 180)
+
+        self.image.setPixmap(self.imagepx)
+
     def lancerNMap(self):
-        print 'lop'
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
 
-       ## text = open('resultatsnmap.txt').read()
-       ## self.boitetexte.setPlainText(text)
+        self.number = 1
+
+        if self.number < 3:
+            self.imagepx = QtGui.QPixmap('./greencheck2.png').scaled(180, 180)
+        elif self.number < 7:
+            self.imagepx = QtGui.QPixmap('./yellowcheck.png').scaled(180, 180)
+        else:
+            self.imagepx = QtGui.QPixmap('./redcheck.png').scaled(180, 180)
+
+        self.image.setPixmap(self.imagepx)
+
 
 class Window(QtGui.QMainWindow):
     def __init__(self):
