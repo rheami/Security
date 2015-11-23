@@ -84,7 +84,6 @@ class Form(QtGui.QWidget):
         self.setWindowTitle("ports ouverts nmap scan")
 
     def create_widgets(self):
-        self.progress = QtGui.QProgressBar(self)
         self.browser = QtGui.QTextBrowser()
         self.buttonAnmap = QtGui.QPushButton("Scan 1 Nmap")
         self.buttonBnmap = QtGui.QPushButton("Scan 2 Nmap")
@@ -98,7 +97,6 @@ class Form(QtGui.QWidget):
     def layout_widgets(self):
 
         self.setStyle(QtGui.QStyleFactory.create("plastique"))
-        self.progress.setGeometry(50, 380, 100, 15)
 
         self.btnnessus.setToolTip('Inspection et analyse des vuln') # érabilité')
         self.btnnessus.setGeometry(50, 100, 100, 150)
@@ -122,7 +120,6 @@ class Form(QtGui.QWidget):
         gauche = QtGui.QVBoxLayout()
         gauche.addWidget(self.btnnmap)
         gauche.addWidget(self.btnnessus)
-        gauche.addWidget(self.progress)
         tout = QtGui.QHBoxLayout()
         tout.addLayout(gauche)
         tout.addLayout(layout)
@@ -181,11 +178,6 @@ class Form(QtGui.QWidget):
             self.browser.append("{0} : {1}".format(key, infoList[key]))
 
     def download(self):
-        completed = 0
-
-        while completed < 100:
-            completed += 0.00015
-            self.progress.setValue(completed)
 
         self.lancerNMap()
         # todo selection entre nmap et nessus
