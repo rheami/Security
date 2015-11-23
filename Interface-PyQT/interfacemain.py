@@ -92,10 +92,15 @@ class Window(QtGui.QMainWindow):
         self.mainmenu = self.menuBar()
         #self.mainmenu = QtGui.QMenuBar
 
-        self.btnlancer = QtGui.QPushButton('Lancer NMap', self)
-        self.btnnessus = QtGui.QPushButton('Lancer Nessus', self)
-        #self.openAction = QtGui.QAction('&Open', self)
+        self.btnnessus = QtGui.QPushButton( self)
         self.extractAction = QtGui.QAction('&Quitter', self)
+        self.ouvrirNmapmenu = QtGui.QAction('&NMap', self)
+        self.ouvrirNessusmenu = QtGui.QAction('&Nessus', self)
+        self.apropos = QtGui.QAction('&A propos', self)
+        self.btnlancer.setIcon(QIcon('./nmap.png'))
+        self.btnlancer.setIconSize(QSize(60,60))
+        self.btnnessus.setIcon(QIcon('./nessus.png'))
+        self.btnnessus.setIconSize(QSize(60,60))
         self.boitetexte = QtGui.QTextBrowser(self)
 
     def layoutwidget(self):
