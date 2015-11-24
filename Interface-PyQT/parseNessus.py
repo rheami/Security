@@ -4,8 +4,8 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
+from libnessus.objects.dictdiffer import DictDiffer
 from libnessus.parser import NessusParser
-
 
 import os
 import sys
@@ -87,7 +87,7 @@ class Nessus(object):
             # todo formatter les cve pour qu'il affiche avec des balise <a> {4} </a> pour chaque code cve
             vulnMap[vuln.plugin_id] = str
         return vulnMap
-    # todo réception d'action sur le browser
+    # todo reception d'action sur le browser
 
     def getHostA(self):
         return self.nessus_rapportA.hosts[0]
