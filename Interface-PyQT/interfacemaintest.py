@@ -271,6 +271,9 @@ class Window(QtGui.QMainWindow):
         self.statusBar()
         self.mainmenu = self.menuBar()
         self.extractAction = QtGui.QAction('&Quitter', self)
+        self.nmap = QtGui.QAction('&NMap', self)
+        self.nessus = QtGui.QAction('&Nessus', self)
+        self.exe = QtGui.QAction('&.exe', self)
         self.fenetre = Form(self)
 
     def layoutwidget(self):
@@ -281,10 +284,18 @@ class Window(QtGui.QMainWindow):
 
         self.extractAction.setShortcut('Ctrl+Q')
         self.extractAction.setStatusTip('Fermeture')
+        self.nmap.setShortcut('Ctrl+M')
+        self.nmap.setStatusTip('NMap')
+        self.nessus.setShortcut('Ctrl+N')
+        self.nessus.setStatusTip('Nessus')
+        self.exe.setShortcut('Ctrl+E')
+        self.exe.setStatusTip('.exe')
         fileMenu = self.mainmenu.addMenu('&Fichier')
         fileMenu.addAction(self.extractAction)
+        fileMenu.addAction(self.nmap)
+        fileMenu.addAction(self.nessus)
+        fileMenu.addAction(self.exe)
 
-        self.fenetre.move(50, 50)
 
     def createconnection(self):
         self.extractAction.triggered.connect(self.close_application)
