@@ -80,8 +80,8 @@ class Form(QtGui.QWidget):
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
-        self.setFixedHeight(450)
-        self.setFixedWidth(950)
+        self.setFixedHeight(500)
+        self.setFixedWidth(1200)
         self.setWindowTitle("ports ouverts nmap scan")
 
     def create_widgets(self):
@@ -94,18 +94,23 @@ class Form(QtGui.QWidget):
         self.buttonAnessus = QtGui.QPushButton("Scan 1 Nessus")
         self.buttonBnessus = QtGui.QPushButton("Scan 2 Nessus")
         self.buttonDiffHostnessus = QtGui.QPushButton("Diff Nessus")
-        self.btnnmap = QtGui.QPushButton('Lancer NMap', self)
-        self.btnnessus = QtGui.QPushButton('Lancer Nessus', self)
+        self.btnnmap = QtGui.QPushButton('NMap', self)
+        self.btnnessus = QtGui.QPushButton('Nessus', self)
         self.image = QtGui.QLabel()
         self.imagepx = QtGui.QPixmap('./000Lock.png').scaled(180, 180)
         self.image.setPixmap(self.imagepx)
+        self.buttonHachage = QtGui.QPushButton('Executables', self)
+        self.buttonExe1 = QtGui.QPushButton('.exe 1')
+        self.buttonExe2 = QtGui.QPushButton('.exe 2')
+        self.buttonExeResult = QtGui.QPushButton('.exe resultat')
+
 
     def layout_widgets(self):
 
         self.setStyle(QtGui.QStyleFactory.create("plastique"))
 
-        self.boitelancement.setFixedSize(200, 430)
-        self.boiteresultats.setFixedSize(200, 430)
+        self.boitelancement.setFixedSize(200, 480)
+        self.boiteresultats.setFixedSize(200, 480)
 
         self.btnnessus.setToolTip('Inspection et analyse des vulnerabilites')
         self.btnnessus.setStatusTip('Inspection et analyse des vulnerabilites')
@@ -115,6 +120,9 @@ class Form(QtGui.QWidget):
 
 
         buttonLayout = QtGui.QHBoxLayout()
+        buttonLayout.addWidget(self.buttonExe1)
+        buttonLayout.addWidget(self.buttonExe2)
+        buttonLayout.addWidget(self.buttonExeResult)
         buttonLayout.addWidget(self.buttonAnmap)
         buttonLayout.addWidget(self.buttonBnmap)
         buttonLayout.addWidget(self.buttonDiffHostnmap)
@@ -127,6 +135,7 @@ class Form(QtGui.QWidget):
         gauche = QtGui.QVBoxLayout()
         gauche.addWidget(self.btnnmap)
         gauche.addWidget(self.btnnessus)
+        gauche.addWidget(self.buttonHachage)
         self.boitelancement.setLayout(gauche)
         results = QtGui.QVBoxLayout()
         results.addWidget(self.image)
@@ -146,6 +155,21 @@ class Form(QtGui.QWidget):
         self.buttonDiffHostnessus.clicked.connect(self.showDiffHostNessus)
         self.btnnmap.clicked.connect(self.download)
         self.btnnessus.clicked.connect(self.lancerNessus)
+        self.buttonExe1.clicked.connect(self.exe1)
+        self.buttonExe2.clicked.connect(self.exe2)
+        self.buttonExeResult.clicked.connect(self.exeResults)
+
+    def exe1(self):
+        self.browser.clear()
+    # todo
+
+    def exe2(self):
+        self.browser.clear()
+    # todo
+
+    def exeResults(self):
+        self.browser.clear()
+    # todo
 
     def showDiffHostNessus(self):
         self.scan = self.nessus_scan
