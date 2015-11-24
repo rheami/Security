@@ -6,8 +6,7 @@ from __future__ import absolute_import
 import argparse
 from StringIO import StringIO
 import sys
-from optparse import OptionParser
-from ndiff import Scan, ScanDiffXML, ScanDiffText, HostDiff
+from ndiff import Scan, ScanDiffXML, HostDiff
 from bs4 import BeautifulSoup
 from libnessus.objects.dictdiffer import DictDiffer
 
