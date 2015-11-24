@@ -58,6 +58,7 @@ class MyDialog(QtGui.QDialog):
 
         f = open(fname, 'r')
         self.fenetrescan1.append(fname)
+
     def showDialog2(self):
         fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 '/home')
@@ -68,13 +69,13 @@ class MyDialog(QtGui.QDialog):
 class Form(QtGui.QWidget):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        scanap_scan_file="scan-115007-102615.xml"
-        scanap_scan_file2="scan-144848-101915.xml"
-        self.scan = NMapScan(scanap_scan_file, scanap_scan_file2)
+        nmap_scan_fileA="scan-115007-102615.xml"
+        nmap_scan_fileB="scan-144848-101915.xml"
+        self.nmap_scan = NMapScan(nmap_scan_fileA, nmap_scan_fileB)
 
-        nessusfile = "xp_27.nessus"
+        nessusfileA = "xp_27.nessus"
         nessusfileB = "xp_27B.nessus"
-        self.ne = Nessus(nessusfile, nessusfileB)
+        self.nessus_scan = Nessus(nessusfileA, nessusfileB)
 
         self.create_widgets()
         self.layout_widgets()
@@ -139,54 +140,67 @@ class Form(QtGui.QWidget):
     def create_connections(self):
         self.buttonAnmap.clicked.connect(self.showANmap)
         self.buttonBnmap.clicked.connect(self.showBNmap)
-        self.buttonDiffHostnmap.clicked.connect(self.showDiffHostNmap)
+        self.buttonDiffHostnmap.clicked.connect(self.showDiffHostNMap)
         self.buttonAnessus.clicked.connect(self.showANessus)
         self.buttonBnessus.clicked.connect(self.showBNessus)
         self.buttonDiffHostnessus.clicked.connect(self.showDiffHostNessus)
         self.btnnmap.clicked.connect(self.download)
         self.btnnessus.clicked.connect(self.lancerNessus)
 
-    def showDiffHostNmap(self):
+    def showDiffHostNessus(self):
+        self.scan = self.nessus_scan
+        self.showDiffHost()
+
+    def showDiffHostNMap(self):
+        self.scan = self.nmap_scan
+        self.showDiffHost()
+
+    def showDiffHost(self):
         self.browser.clear()
-        self.browser.append("removed : {0}:".format(self.scan.get_removed()))
-        self.browser.append("added : {0} ".format(self.scan.get_added()))
-        self.browser.append("changed : {0}".format(self.scan.get_changed()))
-        self.browser.append("unchanged : {0}".format(self.scan.get_unchanged()))
+        self.showRemoved()
+        self.showAdded()
+        self.showChanged()
+        #self.showUnchanged()
+
+    def showRemoved(self):
+        self.browser.append("removed :")
+        self.showList(self.scan.get_removed())
+
+    def showAdded(self):
+        self.browser.append("added :")
+        self.showList(self.scan.get_added())
+
+    def showChanged(self):
+        self.browser.append("changed :")
+        self.showList(self.scan.get_changed())
+
+    def showUnchanged(self):
+        self.browser.append("unchanged :")
+        self.showList(self.scan.get_unchanged())
+
+    def showList(self, info_dict):
+        for key in info_dict:
+            self.browser.append("{0} : {1}".format(key, info_dict[key]))
 
     def showANmap(self):
+        self.scan = self.nmap_scan
         self.browser.clear()
-        infoList = self.scan.getInfoA()
-        for key in infoList:
-            self.browser.append("{0} : {1}".format(key, infoList[key]))
+        self.showList(self.scan.getInfoA())
 
     def showBNmap(self):
+        self.scan = self.nmap_scan
         self.browser.clear()
-        infoList = self.scan.getInfoB()
-        for key in infoList:
-            self.browser.append("{0} : {1}".format(key, infoList[key]))
-
-    def showDiffHostNessus(self):
-        self.browser.clear()
-        self.browser.clear()
-        self.browser.append("removed : {0}:".format(self.ne.get_removed()))
-        self.browser.append("added : {0} ".format(self.ne.get_added()))
-        self.browser.append("changed : {0}".format(self.ne.get_changed()))
-        self.browser.append("unchanged : {0}".format(self.ne.get_unchanged()))
-
+        self.showList(self.scan.getInfoB())
 
     def showANessus(self):
+        self.scan = self.nessus_scan
         self.browser.clear()
-        self.browser.clear()
-        infoList = self.ne.getInfoA()
-        for key in infoList:
-            self.browser.append("{0} : {1}".format(key, infoList[key]))
+        self.showList(self.scan.getInfoA())
 
     def showBNessus(self):
+        self.scan = self.nessus_scan
         self.browser.clear()
-        self.browser.clear()
-        infoList = self.ne.getInfoB()
-        for key in infoList:
-            self.browser.append("{0} : {1}".format(key, infoList[key]))
+        self.showList(self.scan.getInfoB())
 
     def download(self):
 
