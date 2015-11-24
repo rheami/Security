@@ -11,57 +11,99 @@ from parseNessus import Nessus
 
 class MyDialog(QtGui.QDialog):
     def __init__(self, parent=None):
+
         super(MyDialog, self).__init__(parent)
-        self.resize(350, 350)
-        self.btnopenscan = QtGui.QPushButton(self)
-        self.btnopenscan.move(50, 50)
-        self.btnopenscan.setText('ouvrir scan1')
+
+        self.number = 1
+        self.create_widgets()
+        self.layout_widgets()
+        self.create_connections()
+
+        self.show()
+
+    def create_widgets(self):
+        self.btnopenscan = QtGui.QPushButton('ouvrir scan1')
         self.fenetrescan1 = QtGui.QTextEdit(self)
-        self.fenetrescan1.setGeometry(QtCore.QRect(100, 200, 150, 50))
-        self.fenetrescan1.move(50,100)
-        self.btnopenscan2 = QtGui.QPushButton(self)
-        self.btnopenscan2.setText('ouvrir scan2')
-        self.btnopenscan2.move(50, 150)
+        self.btnopenscan2 = QtGui.QPushButton('ouvrir scan2')
         self.fenetrescan2 = QtGui.QTextEdit(self)
-        self.fenetrescan2.setGeometry(QtCore.QRect(50, 250,150, 50))
-        self.fenetrescan2.move(50,200)
-        self.boutoncomparer = QtGui.QPushButton(self)
-        self.boutoncomparer.setText('comparer')
-        self.boutoncomparer.move (50,300)
-        self.boutonannuler = QtGui.QPushButton(self)
-        self.boutonannuler.setText('annuler')
-        self.boutonannuler.move (200,300)
+        self.boutoncomparer = QtGui.QPushButton('comparer')
+        self.boutonannuler = QtGui.QPushButton('annuler')
+        self.boitescan1 = QtGui.QGroupBox('')
+        self.boitescan2 = QtGui.QGroupBox('')
 
 
+    def layout_widgets(self):
+        self.resize(300, 300)
+        self.boutonLayout = QtGui.QVBoxLayout()
+        self.verti1 = QtGui.QVBoxLayout()
+        self.verti1.addWidget(self.btnopenscan)
+        self.verti1.addWidget(self.fenetrescan1)
+        self.boitescan1.setLayout(self.verti1)
+        self.verti2 = QtGui.QVBoxLayout()
+        self.verti2.addWidget(self.btnopenscan2)
+        self.verti2.addWidget(self.fenetrescan2)
+        self.boitescan2.setLayout(self.verti2)
+        self.horiz = QtGui.QHBoxLayout()
+        self.horiz.addWidget(self.boutoncomparer)
+        self.horiz.addWidget(self.boutonannuler)
+        self.boutonLayout.addWidget(self.boitescan1)
+        self.boutonLayout.addWidget(self.boitescan2)
+        self.boutonLayout.addLayout(self.horiz)
+        self.setLayout(self.boutonLayout)
 
-    #   self.boutoncomparer.clicked.connect(self.comparer)
+        self.boitescan1.setStyleSheet("""
+        .QGroupBox {
+            border: 0px;
+            border-radius: 2px;
+            background-color: rgb(248, 248, 248);
+            }
+        """)
+
+        self.boitescan2.setStyleSheet("""
+        .QGroupBox {
+            border: 0px;
+            border-radius: 2px;
+            background-color: rgb(248, 248, 248);
+            }
+        """)
+
+    def create_connections(self):
+        #   self.boutoncomparer.clicked.connect(self.comparer)
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
-        self.show()
+
     def comparer(self):
         pass
         #compare2scans
+
     def annuler(self):
         self.close()
+
     def ouvririnterface(self):
-        self.showDialog()
+        self.showDialog(self.number)
+
     def ouvririnterface2(self):
-        self.showDialog2()
+        self.showDialog2(self.number)
 
-
-
-
-    def showDialog(self):
-        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
-                '/home')
+    def showDialog(self, number):
+        if number == 0:
+            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+                './scanNMap')
+        else:
+            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+                './scanNessus')
 
         f = open(fname, 'r')
         self.fenetrescan1.append(fname)
 
-    def showDialog2(self):
-        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
-                '/home')
+    def showDialog2(self, number):
+        if number == 0:
+            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+                './scanNMap')
+        else:
+            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+                './scanNessus')
 
         f = open(fname, 'r')
         self.fenetrescan2.append(fname)
@@ -83,6 +125,7 @@ class Form(QtGui.QWidget):
         self.setFixedHeight(500)
         self.setFixedWidth(1200)
         self.setWindowTitle("ports ouverts nmap scan")
+        self.number = 1
 
     def create_widgets(self):
         self.boiteresultats = QtGui.QGroupBox('Resultats')
@@ -244,7 +287,6 @@ class Form(QtGui.QWidget):
         self.showList(self.scan.getInfoB())
 
     def download(self):
-
         self.lancerNMap()
         # todo selection entre nmap et nessus
 
@@ -258,6 +300,7 @@ class Form(QtGui.QWidget):
 
 
     def lancerNMap(self):
+        self.number = 0
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
 
