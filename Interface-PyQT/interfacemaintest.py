@@ -109,6 +109,23 @@ class Form(QtGui.QWidget):
 
         self.setStyle(QtGui.QStyleFactory.create("plastique"))
 
+        self.boiteresultats.setStyleSheet("""
+        .QGroupBox {
+            border: 1px solid black;
+            color: gray;
+            border-radius: 2px;
+            background-color: rgb(248, 248, 248);
+            }
+        """)
+
+        self.boitelancement.setStyleSheet("""
+        .QGroupBox {
+            border: 1px solid black;
+            border-radius: 2px;
+            background-color: rgb(248, 248, 248);
+            }
+        """)
+
         self.boitelancement.setFixedSize(200, 480)
         self.boiteresultats.setFixedSize(200, 480)
 
@@ -239,6 +256,7 @@ class Form(QtGui.QWidget):
 
         self.afficherImage(self.scan.getMaxSeverity())
 
+
     def lancerNMap(self):
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
@@ -246,14 +264,54 @@ class Form(QtGui.QWidget):
     def afficherImage(self, number):
         if number == 0:
             self.imagepx = QtGui.QPixmap('./greencheck2.png').scaled(180, 180)
+            self.boiteresultats.setStyleSheet("""
+            .QGroupBox {
+                border: 1px solid black;
+                color: green;
+                border-radius: 2px;
+                background-color: rgb(240, 247, 234);
+                }
+            """)
         elif number == 1:
             self.imagepx = QtGui.QPixmap('./bluecheck.png').scaled(180, 180)
+            self.boiteresultats.setStyleSheet("""
+            .QGroupBox {
+                border: 1px solid black;
+                color: blue;
+                border-radius: 2px;
+                background-color: rgb(234, 239, 247);
+                }
+            """)
         elif number == 2:
             self.imagepx = QtGui.QPixmap('./yellowcheck.png').scaled(180, 180)
+            self.boiteresultats.setStyleSheet("""
+            .QGroupBox {
+                border: 1px solid black;
+                color: rgb(190, 201, 118);
+                border-radius: 2px;
+                background-color: rgb(245, 247, 234);
+                }
+            """)
         elif number == 3:
             self.imagepx = QtGui.QPixmap('./orangecheck.png').scaled(180, 180)
+            self.boiteresultats.setStyleSheet("""
+            .QGroupBox {
+                border: 1px solid black;
+                color: orange;
+                border-radius: 2px;
+                background-color: rgb(245, 237, 220);
+                }
+            """)
         else:
             self.imagepx = QtGui.QPixmap('./redcheck.png').scaled(180, 180)
+            self.boiteresultats.setStyleSheet("""
+            .QGroupBox {
+                border: 1px solid black;
+                color: red;
+                border-radius: 2px;
+                background-color: rgb(254, 230, 226);
+                }
+            """)
 
         self.image.setPixmap(self.imagepx)
 
