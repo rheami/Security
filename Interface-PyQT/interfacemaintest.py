@@ -69,12 +69,12 @@ class MyDialog(QtGui.QDialog):
 class Form(QtGui.QWidget):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        nmap_scan_fileA="scan-115007-102615.xml"
-        nmap_scan_fileB="scan-144848-101915.xml"
+        nmap_scan_fileA="./scanNMap/scan-115007-102615.xml"
+        nmap_scan_fileB="./scanNMap/scan-144848-101915.xml"
         self.nmap_scan = NMapScan(nmap_scan_fileA, nmap_scan_fileB)
 
-        nessusfileA = "xp_27.nessus"
-        nessusfileB = "xp_27B.nessus"
+        nessusfileA = "./scanNessus/xp_27.nessus"
+        nessusfileB = "./scanNessus/xp_27B.nessus"
         self.nessus_scan = Nessus(nessusfileA, nessusfileB)
 
         self.create_widgets()

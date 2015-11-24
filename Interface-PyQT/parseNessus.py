@@ -4,68 +4,46 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-from libnessus.objects.dictdiffer import DictDiffer
 from libnessus.parser import NessusParser
-
-import os
 import sys
 import argparse
 
 REPORT_ITEM_ = "NessusReportItem::"
 
-
 class Nessus(object):
     def __init__(self, fileA, fileB):
-
         self.nessusfileA = fileA
         self.nessusfileB = fileB
         self.nessus_rapportA = NessusParser.parse_fromfile(self.nessusfileA)
         self.nessus_rapportB = NessusParser.parse_fromfile(self.nessusfileB)
-        self.set_diff()
-
-    def showDiffDict(self):
-        a = {'a': 1, 'b': 1, 'c': 0}
-        b = {'a': 1, 'b': 2, 'd': 0}
-        return DictDiffer(b, a)
+        self._diff = None
+        self.set_diff(self.nessus_rapportA.hosts[0], self.nessus_rapportB.hosts[0])
 
     def get_diff(self):
-        self.set_diff()
-        return self.diff
+        return self._diff
 
-    def set_diff(self):
-        hosta = self.nessus_rapportA.hosts[0]
-        hostb = self.nessus_rapportB.hosts[0]
-        self.diff = hostb.diff(hosta)
+    def set_diff(self, hosta, hostb):
+        self._diff = hostb.diff(hosta)
+
+    diff = property(get_diff, set_diff, "I'm the 'diff' property.")
 
     def get_unchanged(self):
-        # if set diff
-        self.set_diff()
-        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['unchanged'])
-        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        keys = [key.strip(REPORT_ITEM_) for key in self._diff['unchanged'] if key.find(REPORT_ITEM_) != -1]
         vulns_A = {x: self.getInfoA()[x] for x in keys}
         return vulns_A
 
     def get_added(self):
-        # if set diff
-        self.set_diff()
-        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['added'])
-        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        keys = [key.strip(REPORT_ITEM_) for key in self._diff['added'] if key.find(REPORT_ITEM_) != -1]
         vulns_B = {x: self.getInfoB()[x] for x in keys}
         return vulns_B
 
     def get_removed(self):
-        # if set diff
-        self.set_diff()
-        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['removed'])
-        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        keys = [key.strip(REPORT_ITEM_) for key in self._diff['removed'] if key.find(REPORT_ITEM_) != -1]
         vulns_A = {x: self.getInfoA()[x] for x in keys}
         return vulns_A
 
     def get_changed(self):
-        # if set diff
-        self.set_diff()
-        keys = filter(lambda x: x.find(REPORT_ITEM_) != -1, self.diff['changed'])
-        keys = map(lambda x: x.strip(REPORT_ITEM_), keys)
+        keys = [key.strip(REPORT_ITEM_) for key in self._diff['changed'] if key.find(REPORT_ITEM_) != -1]
         vulns_Changed = {x: str(self.getInfoA()[x]) + " -> " + str(self.getInfoB()[x]) for x in keys}
         return vulns_Changed
 
@@ -81,7 +59,7 @@ class Nessus(object):
         vulnList = host.get_report_items
         vulnMap = {}
         for vuln in vulnList:
-            str = "port {0} : protocol {1} service {2} severity {3} : {4}".format(vuln.port, vuln.protocol,
+            str = "port {0} : protocol= {1}, service= {2}, severity= {3}, CVE list: {4}".format(vuln.port, vuln.protocol,
                                                                                   vuln.service, vuln.severity,
                                                                                   vuln.get_vuln_info.get('cve'))
             # todo formatter les cve pour qu'il affiche avec des balise <a> {4} </a> pour chaque code cve
@@ -95,13 +73,25 @@ class Nessus(object):
     def getHostB(self):
         return self.nessus_rapportB.hosts[0]
 
-    def afficheremoved(self):
-        removed = self.get_removed()
-        vA = self.get_VulnsA()
-        for s in removed:
-            print(vA[s])
+    def getMaxSeverity(self):
+        vulnMap = self.getSeverityDict()
 
+        keys = [key.strip(REPORT_ITEM_) for key in self._diff['added'] if key.find(REPORT_ITEM_) != -1]
+        keys += [key.strip(REPORT_ITEM_) for key in self._diff['changed'] if key.find(REPORT_ITEM_) != -1]
 
+        maxSeverity = 0
+        for x in keys:
+            y = int(vulnMap[x])
+            maxSeverity = max(maxSeverity, y)
+            # if maxSeverity == 4 break !
+        return maxSeverity
+
+    def getSeverityDict(self):
+        vulnList = self.getHostB().get_report_items
+        vulnMap = {}
+        for vuln in vulnList:
+            vulnMap[vuln.plugin_id] = vuln.severity
+        return vulnMap
 
 
 EXIT_EQUAL = 0
@@ -109,18 +99,15 @@ EXIT_DIFFERENT = 1
 EXIT_ERROR = 2
 
 
-
-
-
 def main():
     # parse args
     parser = argparse.ArgumentParser(
     description='This script parse .nessus file (XML)..')
     parser.add_argument('--firstscan',
-                    default="./scan/xp_27.nessus",
+                    default="./scanNessus/xp_27.nessus",
                     help="path to a nessusV2 xml")
     parser.add_argument('--secondscan',
-                    default="./scan/xp_27B.nessus",
+                    default="./scanNessus/xp_27B.nessus",
                     help="path to a nessusV2 xml")
     args = parser.parse_args()
 
@@ -133,6 +120,7 @@ def main():
     print(ne.get_changed())
     print("unchanged")
     print(ne.get_unchanged())
+    print("severity max is {0}".format(ne.getMaxSeverity()))
 
 # Catch uncaught exceptions so they can produce an exit code of 2 (EXIT_ERROR),
 # not 1 like they would by default.

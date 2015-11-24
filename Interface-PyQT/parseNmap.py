@@ -127,10 +127,10 @@ def main():
     parser = argparse.ArgumentParser(
     description='This script parse nmap scan file (XML)..')
     parser.add_argument('--firstscan',
-                    default="./scans/scan-origin.xml",
+                    default="./scanNMap/scan-115007-102615.xml",
                     help="path to a nmap xml")
     parser.add_argument('--secondscan',
-                    default="./scans/scan-212247-101415.xml",
+                    default="./scanNMap/scan-144848-101915.xml",
                     help="path to a nmap xml")
     args = parser.parse_args()
 
