@@ -84,8 +84,10 @@ class Nessus(object):
             str = "port {0} : protocol {1} service {2} severity {3} : {4}".format(vuln.port, vuln.protocol,
                                                                                   vuln.service, vuln.severity,
                                                                                   vuln.get_vuln_info.get('cve'))
+            # todo formatter les cve pour qu'il affiche avec des balise <a> {4} </a> pour chaque code cve
             vulnMap[vuln.plugin_id] = str
         return vulnMap
+    # todo réception d'action sur le browser
 
     def getHostA(self):
         return self.nessus_rapportA.hosts[0]
