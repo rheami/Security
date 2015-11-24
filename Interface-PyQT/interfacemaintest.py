@@ -235,32 +235,27 @@ class Form(QtGui.QWidget):
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
 
-        self.number = 5
+        self.scan = self.nessus_scan
 
-        if self.number < 3:
-            self.imagepx = QtGui.QPixmap('./greencheck2.png').scaled(180, 180)
-        elif self.number < 7:
-            self.imagepx = QtGui.QPixmap('./yellowcheck.png').scaled(180, 180)
-        else:
-            self.imagepx = QtGui.QPixmap('./redcheck.png').scaled(180, 180)
-
-        self.image.setPixmap(self.imagepx)
+        self.afficherImage(self.scan.getMaxSeverity())
 
     def lancerNMap(self):
         self.dialogTextBrowser = MyDialog(self)
         self.dialogTextBrowser.exec_()
 
-        self.number = 1
-
-        if self.number < 3:
+    def afficherImage(self, number):
+        if number == 0:
             self.imagepx = QtGui.QPixmap('./greencheck2.png').scaled(180, 180)
-        elif self.number < 7:
+        elif number == 1:
+            self.imagepx = QtGui.QPixmap('./bluecheck.png').scaled(180, 180)
+        elif number == 2:
             self.imagepx = QtGui.QPixmap('./yellowcheck.png').scaled(180, 180)
+        elif number == 3:
+            self.imagepx = QtGui.QPixmap('./orangecheck.png').scaled(180, 180)
         else:
             self.imagepx = QtGui.QPixmap('./redcheck.png').scaled(180, 180)
 
         self.image.setPixmap(self.imagepx)
-
 
 class Window(QtGui.QMainWindow):
     def __init__(self):
