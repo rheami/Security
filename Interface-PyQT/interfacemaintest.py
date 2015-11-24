@@ -15,6 +15,7 @@ class MyDialog(QtGui.QDialog):
         super(MyDialog, self).__init__(parent)
 
         self.number = 1
+        self.setWindowTitle('Scans a comparer')
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
