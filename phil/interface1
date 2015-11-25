@@ -12,7 +12,7 @@ from bs4 import BeautifulSoup
 
 
 class MyDialog(QtGui.QDialog):
-    def __init__(self, parent=None):
+    def __init__(self, parent):
 
         super(MyDialog, self).__init__(parent)
 
@@ -75,13 +75,14 @@ class MyDialog(QtGui.QDialog):
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
+        self.boutoncomparer.clicked.connect(self.comparer)
 
-    def comparer(self):
+    def comparer(self,number):
         if number== 1:
 
-          self.showDiffHostNessus(self)
+         self.paret().showDiffHostNessus()
         else:
-          self.showDiffHostNMap(self)
+         self.parent().showDiffHostNMap()
 
         self.close()
 
