@@ -2,15 +2,15 @@ import hashlib
 
 
 class exehash(object):
-    def __init__(self, filea, fileb):
+    def __init__(self, dirpath):
         pass
 
     def locatefile(self):
         pass
 
-    def getdocA(self):
+    def getmap(self):
         pass
 
-    def getdocB(self):
-        pass
 
+if __name__ == "__main__":
+    dirhash =

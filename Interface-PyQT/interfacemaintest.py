@@ -9,6 +9,7 @@ import pickle
 from parseNmap import NMapScan
 from parseNessus import Nessus
 
+
 class MyDialog(QtGui.QDialog):
     def __init__(self, parent=None):
 
@@ -31,7 +32,6 @@ class MyDialog(QtGui.QDialog):
         self.boutonannuler = QtGui.QPushButton('annuler')
         self.boitescan1 = QtGui.QGroupBox('')
         self.boitescan2 = QtGui.QGroupBox('')
-
 
     def layout_widgets(self):
         self.resize(300, 300)
@@ -97,6 +97,7 @@ class MyDialog(QtGui.QDialog):
 
         f = open(fname, 'r')
         self.fenetrescan1.append(fname)
+        f.close()
 
     def showDialog2(self, number):
         if number == 0:
@@ -108,6 +109,8 @@ class MyDialog(QtGui.QDialog):
 
         f = open(fname, 'r')
         self.fenetrescan2.append(fname)
+        f.close()
+
 
 class Form(QtGui.QWidget):
     def __init__(self, parent=None):
@@ -148,7 +151,6 @@ class Form(QtGui.QWidget):
         self.buttonExe2 = QtGui.QPushButton('.exe 2')
         self.buttonExeResult = QtGui.QPushButton('.exe resultat')
 
-
     def layout_widgets(self):
 
         self.setStyle(QtGui.QStyleFactory.create("plastique"))
@@ -178,7 +180,6 @@ class Form(QtGui.QWidget):
 
         self.btnnmap.setToolTip('Inspection et analyse des ports')
         self.btnnmap.setStatusTip('Inspection et analyse des ports')
-
 
         buttonLayout = QtGui.QHBoxLayout()
         buttonLayout.addWidget(self.buttonExe1)
@@ -293,17 +294,16 @@ class Form(QtGui.QWidget):
 
     def lancerNessus(self):
         self.dialogTextBrowser = MyDialog(self)
-        self.dialogTextBrowser.exec_()
+        # self.dialogTextBrowser.exec_()
 
         self.scan = self.nessus_scan
 
         self.afficherImage(self.scan.getMaxSeverity())
 
-
     def lancerNMap(self):
         self.number = 0
         self.dialogTextBrowser = MyDialog(self)
-        self.dialogTextBrowser.exec_()
+        # self.dialogTextBrowser.exec_()
 
     def afficherImage(self, number):
         if number == 0:
@@ -359,6 +359,7 @@ class Form(QtGui.QWidget):
 
         self.image.setPixmap(self.imagepx)
 
+
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
@@ -398,34 +399,32 @@ class Window(QtGui.QMainWindow):
         fileMenu.addAction(self.nessus)
         fileMenu.addAction(self.exe)
 
-
     def createconnection(self):
         self.extractAction.triggered.connect(self.close_application)
         # todo transformé les appels de fonction via des bouton en signals
         #self.connect(self.btnnessus, SIGNAL("clicked()"), self.lancerNessus())
 
     def closeEvent(self, event):
-        event.ignore()
-        self.close_application()
+        self.close_application(event)
 
-    def close_application(self):
+    def close_application(self, event):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
                                             'Etes-vous certain de vouloir quitter?',
                                             QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
         if choice == QtGui.QMessageBox.Yes:
             print('Fin normale du programme')
-            sys.exit()
         else:
+            event.ignore()
             pass
 
 
 if __name__ == "__main__":
-    import sys
 
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('MyWindow')
+    app.connect(app, SIGNAL("lastWindowClosed()"), app, SLOT("quit()"))
 
     main = Window()
     main.show()
-
-    sys.exit(app.exec_())
+    app.exec_()
+    sys.exit()
