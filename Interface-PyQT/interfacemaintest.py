@@ -35,7 +35,6 @@ class MyDialog(QtGui.QDialog):
         self.boitescan1 = QtGui.QGroupBox('')
         self.boitescan2 = QtGui.QGroupBox('')
 
-
     def layout_widgets(self):
         self.resize(300, 300)
         self.boutonLayout = QtGui.QVBoxLayout()
@@ -72,7 +71,6 @@ class MyDialog(QtGui.QDialog):
         """)
 
     def create_connections(self):
-        #   self.boutoncomparer.clicked.connect(self.comparer)
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
@@ -80,14 +78,13 @@ class MyDialog(QtGui.QDialog):
 
     def comparer(self,number):
 
-
         if self.parent().parent().nmapounessus== 1:
 
-            self.parent().scan = Nessus(self.fname,self.fname2)
+            self.parent().scan = Nessus(self.fname, self.fname2)
             self.parent().showDiffHost()
         else:
-         self.parent().scan =  NMapScan(str(self.fname),str(self.fname2))
-         self.parent().showDiffHost()
+            self.parent().scan = NMapScan(str(self.fname), str(self.fname2))
+            self.parent().showDiffHost()
 
         self.close()
 
@@ -108,11 +105,18 @@ class MyDialog(QtGui.QDialog):
         else:
             self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNessus')
+        try:
+            f = open(self.fname, 'r')
+            self.fenetrescan1.append(str(self.fname))
+            f.close()
+            print self.fname
 
-        f = open(self.fname, 'r')
-        self.fenetrescan1.append(str(self.fname))
-        print self.fname
-
+            if self.parent().number == 0:
+                self.parent().nmap_scan_fileA = self.fname
+            else:
+                self.parent().nessusfileA = self.fname
+        except IOError as e:
+            pass
 
     def showDialog2(self, number):
         if self.parent().number == 0:
@@ -123,19 +127,29 @@ class MyDialog(QtGui.QDialog):
             self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNessus')
 
-        f = open(self.fname2, 'r')
-        self.fenetrescan2.append(str(self.fname2))
+        try:
+            f = open(self.fname2, 'r')
+            self.fenetrescan2.append(str(self.fname2))
+            f.close()
+
+            if self.parent().number == 0:
+                self.parent().nmap_scan_fileB = self.fname2
+            else:
+                self.parent().nessusfileB = self.fname2
+        except IOError as e:
+            pass
+
 
 class Form(QtGui.QWidget):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        nmap_scan_fileA="./scanNMap/scan-115007-102615.xml"
-        nmap_scan_fileB="./scanNMap/scan-144848-101915.xml"
-        self.nmap_scan = NMapScan(nmap_scan_fileA, nmap_scan_fileB)
+        self.nmap_scan_fileA= ""  # "./scanNMap/scan-115007-102615.xml"
+        self.nmap_scan_fileB= ""  # "./scanNMap/scan-144848-101915.xml"
+        self.nmap_scan = ""  # NMapScan(nmap_scan_fileA, nmap_scan_fileB)
 
-        nessusfileA = "./scanNessus/xp_27.nessus"
-        nessusfileB = "./scanNessus/xp_27B.nessus"
-        self.nessus_scan = Nessus(nessusfileA, nessusfileB)
+        self.nessusfileA = ""  # "./scanNessus/xp_27.nessus"
+        self.nessusfileB = ""  # "./scanNessus/xp_27B.nessus"
+        self.nessus_scan = ""  # Nessus(nessusfileA, nessusfileB)
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
@@ -163,7 +177,6 @@ class Form(QtGui.QWidget):
         self.buttonExe1 = QtGui.QPushButton('.exe 1')
         self.buttonExe2 = QtGui.QPushButton('.exe 2')
         self.buttonExeResult = QtGui.QPushButton('.exe resultat')
-
 
     def layout_widgets(self):
 
@@ -194,7 +207,6 @@ class Form(QtGui.QWidget):
 
         self.btnnmap.setToolTip('Inspection et analyse des ports')
         self.btnnmap.setStatusTip('Inspection et analyse des ports')
-
 
         buttonLayout = QtGui.QHBoxLayout()
         buttonLayout.addWidget(self.buttonExe1)
@@ -230,7 +242,7 @@ class Form(QtGui.QWidget):
         self.buttonAnessus.clicked.connect(self.showANessus)
         self.buttonBnessus.clicked.connect(self.showBNessus)
         self.buttonDiffHostnessus.clicked.connect(self.showDiffHostNessus)
-        self.btnnmap.clicked.connect(self.download)
+        self.btnnmap.clicked.connect(self.lancerNMap)
         self.btnnessus.clicked.connect(self.lancerNessus)
         self.buttonExe1.clicked.connect(self.exe1)
         self.buttonExe2.clicked.connect(self.exe2)
@@ -249,19 +261,28 @@ class Form(QtGui.QWidget):
     # todo
 
     def showDiffHostNessus(self):
-        self.scan = self.nessus_scan
-        self.showDiffHost()
+        try:
+            self.scan = self.nessus_scan
+            self.showDiffHost()
+        except AttributeError as e:
+            pass
 
     def showDiffHostNMap(self):
-        self.scan = self.nmap_scan
-        self.showDiffHost()
+        try:
+            self.scan = self.nmap_scan
+            self.showDiffHost()
+        except AttributeError as e:
+            pass
 
     def showDiffHost(self):
-        self.browser.clear()
-        self.showRemoved()
-        self.showAdded()
-        self.showChanged()
-        #self.showUnchanged()
+        try:
+            self.browser.clear()
+            self.showRemoved()
+            self.showAdded()
+            self.showChanged()
+            #self.showUnchanged()
+        except AttributeError as e:
+            pass
 
     def showRemoved(self):
         self.browser.append("removed :")
@@ -284,47 +305,52 @@ class Form(QtGui.QWidget):
             self.browser.append("{0} : {1}".format(key, info_dict[key]))
 
     def showANmap(self):
-        self.scan = self.nmap_scan
-        self.browser.clear()
-        self.showList(self.scan.getInfoA())
+        try:
+            self.scan = self.nmap_scan
+            self.browser.clear()
+            self.showList(self.scan.getInfoA())
+        except AttributeError as e:
+            pass
 
     def showBNmap(self):
-        self.scan = self.nmap_scan
-        self.browser.clear()
-        self.showList(self.scan.getInfoB())
+        try:
+            self.scan = self.nmap_scan
+            self.browser.clear()
+            self.showList(self.scan.getInfoB())
+        except AttributeError as e:
+            pass
 
     def showANessus(self):
-        self.scan = self.nessus_scan
-        self.browser.clear()
-        self.showList(self.scan.getInfoA())
+        try:
+            self.scan = self.nessus_scan
+            self.browser.clear()
+            self.showList(self.scan.getInfoA())
+        except AttributeError as e:
+            pass
 
     def showBNessus(self):
-        self.scan = self.nessus_scan
-        self.browser.clear()
-        self.showList(self.scan.getInfoB())
-
-    def download(self):
-        self.lancerNMap()
-
-
-        # todo selection entre nmap et nessus
+        try:
+            self.scan = self.nessus_scan
+            self.browser.clear()
+            self.showList(self.scan.getInfoB())
+        except AttributeError as e:
+            pass
 
     def lancerNessus(self):
         self.number = 1
         self.parent().nmapounessus = 1
         self.dialogTextBrowser = MyDialog(self)
-        self.dialogTextBrowser.exec_()
 
         self.scan = self.nessus_scan
 
         self.afficherImage(self.scan.getMaxSeverity())
-
+        # todo suivre les meme modification de fonction en lien avec la gestion d'erreur et l'initialisation de donné
 
     def lancerNMap(self):
         self.number = 0
 
         self.dialogTextBrowser = MyDialog(self)
-        self.dialogTextBrowser.exec_()
+        # todo suivre les meme modification de fonction en lien avec la gestion d'erreur et l'initialisation de donné
 
     def afficherImage(self, number):
         if number == 0:
@@ -380,6 +406,7 @@ class Form(QtGui.QWidget):
 
         self.image.setPixmap(self.imagepx)
 
+
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
@@ -420,7 +447,6 @@ class Window(QtGui.QMainWindow):
         fileMenu.addAction(self.nessus)
         fileMenu.addAction(self.exe)
 
-
     def createconnection(self):
         self.extractAction.triggered.connect(self.close_application)
         # todo transformé les appels de fonction via des bouton en signals
@@ -442,7 +468,6 @@ class Window(QtGui.QMainWindow):
 
 
 if __name__ == "__main__":
-  
 
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('MyWindow')
@@ -452,6 +477,5 @@ if __name__ == "__main__":
     main.show()
 
     app.exec_()
-
     sys.exit()
 

@@ -1,4 +1,5 @@
 import hashlib
+import os
 
 
 class exehash(object):
@@ -13,4 +14,5 @@ class exehash(object):
 
 
 if __name__ == "__main__":
-    dirhash =
+    dirtohash = "/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/txt to hash/"
+    list = []
