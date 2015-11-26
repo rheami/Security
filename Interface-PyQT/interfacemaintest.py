@@ -14,7 +14,8 @@ class MyDialog(QtGui.QDialog):
     def __init__(self, parent=None):
 
         super(MyDialog, self).__init__(parent)
-
+        self.fname = ""
+        self.fname2 = ""
         self.number = 1
         self.setWindowTitle('Scans a comparer')
         self.create_widgets()
@@ -75,7 +76,18 @@ class MyDialog(QtGui.QDialog):
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
 
     def comparer(self):
-        pass
+        def comparer(self,number):
+        print number
+        self.number=1
+        if self.number== 1:
+
+            self.parent().scan = Nessus(self.fname,self.fname2)
+            self.parent().showDiffHost()
+        else:
+         self.parent().scan =  NMapScan(str(self.fname),str(self.fname2))
+         self.parent().showDiffHost()
+
+        self.close()
         #compare2scans
 
     def annuler(self):
@@ -88,28 +100,29 @@ class MyDialog(QtGui.QDialog):
         self.showDialog2(self.number)
 
     def showDialog(self, number):
+        print number
         if number == 0:
-            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+            self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNMap')
         else:
-            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+            self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNessus')
 
-        f = open(fname, 'r')
-        self.fenetrescan1.append(fname)
-        f.close()
+        f = open(self.fname, 'r')
+        self.fenetrescan1.append(str(self.fname))
+        print self.fname
+
 
     def showDialog2(self, number):
         if number == 0:
-            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+            self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNMap')
         else:
-            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
+            self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNessus')
 
-        f = open(fname, 'r')
-        self.fenetrescan2.append(fname)
-        f.close()
+        f = open(self.fname2, 'r')
+        self.fenetrescan2.append(str(self.fname2))
 
 
 class Form(QtGui.QWidget):
