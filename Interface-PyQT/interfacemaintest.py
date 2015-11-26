@@ -8,10 +8,11 @@ import compareScan2
 import pickle
 from parseNmap import NMapScan
 from parseNessus import Nessus
+from bs4 import BeautifulSoup
 
 
 class MyDialog(QtGui.QDialog):
-    def __init__(self, parent=None):
+    def __init__(self, parent):
 
         super(MyDialog, self).__init__(parent)
         self.fname = ""
@@ -33,6 +34,7 @@ class MyDialog(QtGui.QDialog):
         self.boutonannuler = QtGui.QPushButton('annuler')
         self.boitescan1 = QtGui.QGroupBox('')
         self.boitescan2 = QtGui.QGroupBox('')
+
 
     def layout_widgets(self):
         self.resize(300, 300)
@@ -74,9 +76,11 @@ class MyDialog(QtGui.QDialog):
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
         self.btnopenscan2.clicked.connect(self.ouvririnterface2)
+        self.boutoncomparer.clicked.connect(self.comparer)
 
-    def comparer(self):
-        def comparer(self,number):
+    def comparer(self,number):
+
+
         if self.parent().parent().nmapounessus== 1:
 
             self.parent().scan = Nessus(self.fname,self.fname2)
@@ -86,7 +90,6 @@ class MyDialog(QtGui.QDialog):
          self.parent().showDiffHost()
 
         self.close()
-        #compare2scans
 
     def annuler(self):
         self.close()
@@ -98,7 +101,7 @@ class MyDialog(QtGui.QDialog):
         self.showDialog2(self.parent().number)
 
     def showDialog(self, number):
-        
+        print self.parent().number
         if self.parent().number == 0:
             self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNMap')
@@ -113,6 +116,7 @@ class MyDialog(QtGui.QDialog):
 
     def showDialog2(self, number):
         if self.parent().number == 0:
+
             self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNMap')
         else:
@@ -121,7 +125,6 @@ class MyDialog(QtGui.QDialog):
 
         f = open(self.fname2, 'r')
         self.fenetrescan2.append(str(self.fname2))
-
 
 class Form(QtGui.QWidget):
     def __init__(self, parent=None):
@@ -133,7 +136,6 @@ class Form(QtGui.QWidget):
         nessusfileA = "./scanNessus/xp_27.nessus"
         nessusfileB = "./scanNessus/xp_27B.nessus"
         self.nessus_scan = Nessus(nessusfileA, nessusfileB)
-
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
@@ -161,6 +163,7 @@ class Form(QtGui.QWidget):
         self.buttonExe1 = QtGui.QPushButton('.exe 1')
         self.buttonExe2 = QtGui.QPushButton('.exe 2')
         self.buttonExeResult = QtGui.QPushButton('.exe resultat')
+
 
     def layout_widgets(self):
 
@@ -191,6 +194,7 @@ class Form(QtGui.QWidget):
 
         self.btnnmap.setToolTip('Inspection et analyse des ports')
         self.btnnmap.setStatusTip('Inspection et analyse des ports')
+
 
         buttonLayout = QtGui.QHBoxLayout()
         buttonLayout.addWidget(self.buttonExe1)
@@ -301,21 +305,26 @@ class Form(QtGui.QWidget):
 
     def download(self):
         self.lancerNMap()
+
+
         # todo selection entre nmap et nessus
 
     def lancerNessus(self):
-        self.number = 0
+        self.number = 1
+        self.parent().nmapounessus = 1
         self.dialogTextBrowser = MyDialog(self)
-        # self.dialogTextBrowser.exec_()
+        self.dialogTextBrowser.exec_()
 
         self.scan = self.nessus_scan
 
         self.afficherImage(self.scan.getMaxSeverity())
 
+
     def lancerNMap(self):
         self.number = 0
+
         self.dialogTextBrowser = MyDialog(self)
-        # self.dialogTextBrowser.exec_()
+        self.dialogTextBrowser.exec_()
 
     def afficherImage(self, number):
         if number == 0:
@@ -371,7 +380,6 @@ class Form(QtGui.QWidget):
 
         self.image.setPixmap(self.imagepx)
 
-
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
@@ -412,32 +420,34 @@ class Window(QtGui.QMainWindow):
         fileMenu.addAction(self.nessus)
         fileMenu.addAction(self.exe)
 
+
     def createconnection(self):
         self.extractAction.triggered.connect(self.close_application)
         # todo transformé les appels de fonction via des bouton en signals
         #self.connect(self.btnnessus, SIGNAL("clicked()"), self.lancerNessus())
 
     def closeEvent(self, event):
-        self.close_application(event)
+        event.ignore()
+        self.close_application()
 
-    def close_application(self, event):
+    def close_application(self):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
                                             'Etes-vous certain de vouloir quitter?',
                                             QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
         if choice == QtGui.QMessageBox.Yes:
             print('Fin normale du programme')
+            sys.exit()
         else:
-            event.ignore()
             pass
 
 
 if __name__ == "__main__":
+    import sys
 
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('MyWindow')
-    app.connect(app, SIGNAL("lastWindowClosed()"), app, SLOT("quit()"))
 
     main = Window()
     main.show()
-    app.exec_()
-    sys.exit()
+
+    sys.exit(app.exec_())
