@@ -77,9 +77,7 @@ class MyDialog(QtGui.QDialog):
 
     def comparer(self):
         def comparer(self,number):
-        print number
-        self.number=1
-        if self.number== 1:
+        if self.parent().parent().nmapounessus== 1:
 
             self.parent().scan = Nessus(self.fname,self.fname2)
             self.parent().showDiffHost()
@@ -94,14 +92,14 @@ class MyDialog(QtGui.QDialog):
         self.close()
 
     def ouvririnterface(self):
-        self.showDialog(self.number)
+        self.showDialog(self.parent().number)
 
     def ouvririnterface2(self):
-        self.showDialog2(self.number)
+        self.showDialog2(self.parent().number)
 
     def showDialog(self, number):
-        print number
-        if number == 0:
+        
+        if self.parent().number == 0:
             self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNMap')
         else:
@@ -114,7 +112,7 @@ class MyDialog(QtGui.QDialog):
 
 
     def showDialog2(self, number):
-        if number == 0:
+        if self.parent().number == 0:
             self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file',
                 './scanNMap')
         else:
@@ -142,7 +140,7 @@ class Form(QtGui.QWidget):
         self.setFixedHeight(500)
         self.setFixedWidth(1200)
         self.setWindowTitle("ports ouverts nmap scan")
-        self.number = 1
+        self.number = 0
 
     def create_widgets(self):
         self.boiteresultats = QtGui.QGroupBox('Resultats')
@@ -306,6 +304,7 @@ class Form(QtGui.QWidget):
         # todo selection entre nmap et nessus
 
     def lancerNessus(self):
+        self.number = 0
         self.dialogTextBrowser = MyDialog(self)
         # self.dialogTextBrowser.exec_()
 
@@ -376,6 +375,7 @@ class Form(QtGui.QWidget):
 class Window(QtGui.QMainWindow):
     def __init__(self):
         super(Window, self).__init__()
+        self.nmapounessus = 0
         self.resize(950, 450)
         self.setWindowTitle('Detecteur de vulnerabilites')
         self.setWindowIcon(QtGui.QIcon('logo.png'))
