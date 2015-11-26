@@ -8,7 +8,7 @@ import compareScan2
 import pickle
 from parseNmap import NMapScan
 from parseNessus import Nessus
-from bs4 import BeautifulSoup
+
 
 
 class MyDialog(QtGui.QDialog):
@@ -427,27 +427,31 @@ class Window(QtGui.QMainWindow):
         #self.connect(self.btnnessus, SIGNAL("clicked()"), self.lancerNessus())
 
     def closeEvent(self, event):
-        event.ignore()
-        self.close_application()
+       self.close_application(event)
 
-    def close_application(self):
+    def close_application(self, event):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
                                             'Etes-vous certain de vouloir quitter?',
                                             QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
         if choice == QtGui.QMessageBox.Yes:
             print('Fin normale du programme')
-            sys.exit()
+            
         else:
+            event.ignore()
             pass
 
 
 if __name__ == "__main__":
-    import sys
+  
 
     app = QtGui.QApplication(sys.argv)
     app.setApplicationName('MyWindow')
+    app.connect(app, SIGNAL("lastWindowClosed()"), app, SLOT("quit()"))
 
     main = Window()
     main.show()
 
-    sys.exit(app.exec_())
+    app.exec_()
+
+    sys.exit()
+
