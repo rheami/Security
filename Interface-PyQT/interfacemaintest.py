@@ -10,11 +10,10 @@ from parseNmap import NMapScan
 from parseNessus import Nessus
 
 
-
 class MyDialog(QtGui.QDialog):
     def __init__(self, parent):
 
-        super(MyDialog, self).__init__(parent)
+        super(MyDialog, self).__init__(parent)  # todo reformater super pour héritage
         self.fname = ""
         self.fname2 = ""
         self.number = 1
@@ -97,6 +96,7 @@ class MyDialog(QtGui.QDialog):
     def ouvririnterface2(self):
         self.showDialog2(self.parent().number)
 
+# todo remettre show dialog et ouvrir interface en 1 fonction
     def showDialog(self, number):
         print self.parent().number
         if self.parent().number == 0:
@@ -141,10 +141,11 @@ class MyDialog(QtGui.QDialog):
 
 
 class Form(QtGui.QWidget):
+
     def __init__(self, parent=None):
-        super(Form, self).__init__(parent)
-        self.nmap_scan_fileA= ""  # "./scanNMap/scan-115007-102615.xml"
-        self.nmap_scan_fileB= ""  # "./scanNMap/scan-144848-101915.xml"
+        super(Form, self).__init__(parent)  # todo reformater super pour héritage
+        self.nmap_scan_fileA = ""  # "./scanNMap/scan-115007-102615.xml"
+        self.nmap_scan_fileB = ""  # "./scanNMap/scan-144848-101915.xml"
         self.nmap_scan = ""  # NMapScan(nmap_scan_fileA, nmap_scan_fileB)
 
         self.nessusfileA = ""  # "./scanNessus/xp_27.nessus"
@@ -453,7 +454,7 @@ class Window(QtGui.QMainWindow):
         #self.connect(self.btnnessus, SIGNAL("clicked()"), self.lancerNessus())
 
     def closeEvent(self, event):
-       self.close_application(event)
+        self.close_application(event)
 
     def close_application(self, event):
         choice = QtGui.QMessageBox.question(self, 'Quitter',
@@ -461,7 +462,6 @@ class Window(QtGui.QMainWindow):
                                             QtGui.QMessageBox.Yes, QtGui.QMessageBox.No)
         if choice == QtGui.QMessageBox.Yes:
             print('Fin normale du programme')
-            
         else:
             event.ignore()
             pass
