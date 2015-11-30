@@ -4,7 +4,7 @@ from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
 
-#import simonscript here
+import hashingMap
 
 import os
 import sys
@@ -15,13 +15,24 @@ from libnessus.objects.dictdiffer import DictDiffer
 
 
 class DiffFiles(object):
+    filesDictA = {}
+    filesDictB = {}
+
     def __init__(self, SourceDir, CompareDir):
         self.sourceDir = SourceDir
         self.compareDir = CompareDir
-        #self.filesDictA = simonscript.getFileListWithHash(self.sourceDir)
-        self.filesDictA = {'file_a': 1234, 'file_b': 2344, 'file_c': 1235}
-        #self.filesDictB = simonscript.getFileListWithHash(self.compareDir)
-        self.filesDictB = {'file_a': 1234, 'file_b': 2544, 'file_d': 1235}
+        # objet A
+        self.reptohashA = hashingMap.ExeHash(SourceDir)
+        # map A
+        self.filesDictA = self.reptohashA.getmap()
+        print(self.filesDictA)
+        # self.filesDictA = {'file_a': 1234, 'file_b': 2344, 'file_c': 1235}
+        # objet B
+        self.reptohashB = hashingMap.ExeHash(CompareDir)
+        # map b
+        self.filesDictB = self.reptohashB.getmap()
+        print(self.filesDictB)
+        # self.filesDictB = {'file_a': 1234, 'file_b': 2544, 'file_d': 1235}
         self.set_diff()
 
     def get_diff(self):
@@ -75,7 +86,10 @@ def main():
                     help="path to a directory")
     args = parser.parse_args()
 
-    diff = DiffFiles(args.firstDir, args.secondDir)
+    args.firstDir = "/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/doc A/"
+    args.secondDir = "/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/doc B/"
+    # diff = DiffFiles(args.firstDir, args.secondDir)
+    diff = DiffFiles("/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/doc A/","/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/doc B/")
 
     print("added")
     print(diff.get_added())
