@@ -3,11 +3,10 @@ import os
 
 
 class ExeHash(object):
-    dirpath = ""
-    listedmap = []
-    hashedpath = {}
-
     def __init__(self, dirpath=""):
+
+        self.listedmap = []
+        self.hashedpath = {}
         try:
             self.dirpath = dirpath
             self.locatefiles()
@@ -32,12 +31,12 @@ class ExeHash(object):
     def getmap(self):
         return self.hashedpath
 
-#if __name__ == "__main__":
-#    dirtohash = "/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/doc A/"
+if __name__ == "__main__":
+    dirtohash = "/home/cid/SecuriteDev/s-curit-inm5001/diffFiles/doc A/"
 
-    #test1 = exeHash(dirtohash)
-    #hashedmap = test1.hashedpath
-    #print(hashedmap)
+    test1 = ExeHash(dirtohash)
+    hashedmap = test1.getmap()
+    print(hashedmap)
 
     # listedmap = []
     # hashedpath = {}
