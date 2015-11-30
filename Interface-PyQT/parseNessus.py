@@ -39,7 +39,7 @@ class Nessus(object):
 
     def get_removed(self):
         keys = [key.strip(REPORT_ITEM_) for key in self._diff['removed'] if key.find(REPORT_ITEM_) != -1]
-        vulns_A = {x: self.getInfoA()[x] for x in keys}
+        vulns_A = {x: self.getInfoA()[x] for x in keys} # todo keys = tupple plugginid, port
         return vulns_A
 
     def get_changed(self):
@@ -59,9 +59,13 @@ class Nessus(object):
         vulnList = host.get_report_items
         vulnMap = {}
         for vuln in vulnList:
-            str = "port {0} : protocol= {1}, service= {2}, severity= {3}, CVE list: {4}".format(vuln.port, vuln.protocol,
-                                                                                  vuln.service, vuln.severity,
-                                                                                  vuln.get_vuln_info.get('cve'))
+            str = "vuln info={}, port {} : protocol= {}, service= {}, severity= {}, CVE list: {}".format(
+                vuln.plugin_name, # nom de la vulnerabilite
+                vuln.port,
+                vuln.protocol,
+                vuln.service,
+                vuln.severity,
+                vuln.get_vuln_info.get('cve'))
             # todo formatter les cve pour qu'il affiche avec des balise <a> {4} </a> pour chaque code cve
             vulnMap[vuln.plugin_id] = str
         return vulnMap
