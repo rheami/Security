@@ -9,8 +9,8 @@ for p in pwd.getpwall():
 
 
 # la liste suivante compare 2 listes et affiche les ajouts et suppression entre 2 listes
-list1 = (open("./liste/liste1.txt").readlines())
-list2 = open("./liste/liste2.txt").readlines()
+list1 = (open("./liste1.txt").readlines())
+list2 = open("./liste2.txt").readlines()
 
 list1 = sorted(list1)
 list2 = sorted(list2)
