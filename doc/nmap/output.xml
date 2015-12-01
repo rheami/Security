@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8"?>
+<nmapdiff version="1"><scandiff><a><nmaprun args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost" scanner="nmap" start="1445189990" startstr="Sun Oct 18 13:39:50 2015" version="6.47"/>
+</a><b><nmaprun args="nmap -sS -sU -PN -p 1-65535 -oX scan-%T-%D.xml localhost" scanner="nmap" start="1445280528" startstr="Mon Oct 19 14:48:48 2015" version="6.47"/>
+</b><hostdiff>
+<host>
+<address addr="127.0.0.1" addrtype="ipv4"/>
+<hostnames>
+<hostname name="localhost"/>
+<hostname name="localhost.localdomain"/>
+</hostnames>
+<ports>
+<a>
+<extraports count="131057" state="closed"/>
+</a>
+<b>
+<extraports count="131059" state="closed"/>
+</b>
+<portdiff>
+<a>
+<port portid="3767" protocol="udp"/>
+</a>
+<b>
+<port portid="3767" protocol="udp">
+<state state="open|filtered"/>
+</port>
+</b>
+</portdiff>
+<portdiff>
+<a>
+<port portid="27103" protocol="udp">
+<state state="open|filtered"/>
+</port>
+</a>
+<b>
+<port portid="27103" protocol="udp"/>
+</b>
+</portdiff>
+<portdiff>
+<a>
+<port portid="45417" protocol="udp"/>
+</a>
+<b>
+<port portid="45417" protocol="udp">
+<state state="open|filtered"/>
+</port>
+</b>
+</portdiff>
+<portdiff>
+<a>
+<port portid="52285" protocol="tcp">
+<state state="open"/>
+</port>
+</a>
+<b>
+<port portid="52285" protocol="tcp"/>
+</b>
+</portdiff>
+<portdiff>
+<a>
+<port portid="54993" protocol="tcp">
+<state state="open"/>
+</port>
+</a>
+<b>
+<port portid="54993" protocol="tcp"/>
+</b>
+</portdiff>
+<portdiff>
+<a>
+<port portid="57476" protocol="udp">
+<state state="open|filtered"/>
+</port>
+</a>
+<b>
+<port portid="57476" protocol="udp"/>
+</b>
+</portdiff>
+</ports>
+</host>
+</hostdiff>
+</scandiff></nmapdiff>
