@@ -11,8 +11,8 @@ from parseNessus import Nessus
 class Form(QDialog):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        nessusfile = "./scan/xp_27.nessus"
-        nessusfileB = "./scan/xp_27B.nessus"
+        nessusfile = "./RapportsNessus/rapport-1_c9lthb.nessus"
+        nessusfileB = "./RapportsNessus/rapport-3_gdjv7m.nessus"
         self.scan = Nessus(nessusfile, nessusfileB)
 
         self.create_widgets()
@@ -73,15 +73,11 @@ class Form(QDialog):
 
     def showA(self):
         self.browser.clear()
-        infoList = self.scan.getInfoA()
-        for key in infoList:
-            self.browser.append("{0} : {1}".format(key, infoList[key]))
+        self.showList(self.scan.getInfoA())
 
     def showB(self):
         self.browser.clear()
-        infoList = self.scan.getInfoB()
-        for key in infoList:
-            self.browser.append("{0} : {1}".format(key, infoList[key]))
+        self.showList(self.scan.getInfoB())
 
 if __name__ == "__main__":
     app = QApplication(sys.argv)
