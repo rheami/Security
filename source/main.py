@@ -343,7 +343,10 @@ class Form(QtGui.QWidget):
 
         self.scan = self.nessus_scan
 
-        self.afficherImage(self.scan.getMaxSeverity())
+        # severity = self.scan.getMaxSeverity()
+        # severity = self.scan.getMaxSeverity()
+        # print(severity)
+        # self.afficherImage(severity)
         # todo suivre les meme modification de fonction en lien avec la gestion d'erreur et l'initialisation de donné
 
     def lancerNMap(self):
