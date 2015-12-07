@@ -70,20 +70,19 @@ class Nessus(object):
         Vulnerability = namedtuple("Vulnerability", ["plugin_id", "port"])
         vulnMap = {}
         for vuln in vulnList:
-            str = "vuln info={}, port {} : protocol= {}, service= {}, severity= {}, CVE list: {}".format(
-                vuln.plugin_name, # nom de la vulnerabilite
+            str = "<h4>vulnerability name={}</h4><p> port {} : protocol= {}, service= {}, <b>severity= {}</b></p>".format(
+                vuln.plugin_name,
                 vuln.port,
                 vuln.protocol,
                 vuln.service,
                 vuln.severity,
-                vuln.get_vuln_info.get('cve'))
-            # todo formatter les cve pour qu'il affiche avec des balise <a> {4} </a> pour chaque code cve
-            v = Vulnerability(plugin_id=vuln.plugin_id, port=vuln.port) # key = tuple plugin_id, port
-            # v = vuln.plugin_id + vuln.port
-            vulnMap[v]=str
-            # vulnMap[vuln.plugin_id] = str
+                )
+            if vuln.get_vuln_info.get('cve'):
+                str += ", CVE list: {}".format(vuln.get_vuln_info.get('cve'))
+
+            key = Vulnerability(plugin_id=vuln.plugin_id, port=vuln.port) # key = tuple plugin_id, port
+            vulnMap[key] = str
         return vulnMap
-    # todo reception d'action sur le browser
 
     def getHostA(self):
         return self.nessus_rapportA.hosts[0]
@@ -92,20 +91,13 @@ class Nessus(object):
         return self.nessus_rapportB.hosts[0]
 
     def getMaxSeverity(self):
-        vulnMap = self.getInfoB()
-
-        keys = list(self._diff.added())
-        keys += self._diff.changed()
-
-        maxSeverity = 0
-        for x in keys:
-            s = vulnMap[x]
-            pos = s.rfind('severity= ') + 10
-            y = int(s[pos])
-            maxSeverity = max(maxSeverity, y)
-            if maxSeverity == 4:
-                break
+        host = self.getHostB()
+        vulnList = host.get_report_items
+        severity_list = [vuln.severity for vuln in vulnList] # real max
+        #severity_list = [vuln.severity for vuln in vulnList if ...] # only if vuln in added (maybe higher in unchanged !)
+        maxSeverity = max(severity_list)
         return maxSeverity
+
 
 def showList(info_dict):
         for key in info_dict:
@@ -133,7 +125,9 @@ def main():
     showList(ne.getInfoA())
     print("liste de B = ", len(ne.getInfoB()))
     showList(ne.getInfoB())
-    print("added = ", len(ne.get_added()))
+    i = len(ne.get_added())
+    severity = ne.getMaxSeverity()
+    print("added = {}, max is {}".format(i, severity))
     showList(ne.get_added())
     print("removed = ", len(ne.get_removed()))
     showList(ne.get_removed())
@@ -141,11 +135,13 @@ def main():
     showList(ne.get_changed())
     print("severity max is {0}".format(ne.getMaxSeverity()))
 
+
 # Catch uncaught exceptions so they can produce an exit code of 2 (EXIT_ERROR),
 # not 1 like they would by default.
 def excepthook(type, value, tb):
     sys.__excepthook__(type, value, tb)
     sys.exit(EXIT_ERROR)
+
 
 if __name__ == "__main__":
     sys.excepthook = excepthook

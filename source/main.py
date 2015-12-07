@@ -80,6 +80,10 @@ class MyDialog(QtGui.QDialog):
 
             self.parent().scan = Nessus(self.fname, self.fname2)
             self.parent().showDiffHost()
+            severity = int(self.parent().getMaxSeverity())
+            print("severity =", severity)
+            self.parent().afficherImage(severity)  # ici
+            self.parent()
         else:
             self.parent().scan = NMapScan(str(self.fname), str(self.fname2))
             self.parent().showDiffHost()
@@ -285,19 +289,19 @@ class Form(QtGui.QWidget):
             pass
 
     def showRemoved(self):
-        self.browser.append("removed :")
+        self.browser.append("<h2>removed :</h2>")
         self.showList(self.scan.get_removed())
 
     def showAdded(self):
-        self.browser.append("added :")
+        self.browser.append("<h2>added :</h2>")
         self.showList(self.scan.get_added())
 
     def showChanged(self):
-        self.browser.append("changed :")
+        self.browser.append("<h2>changed :</h2>")
         self.showList(self.scan.get_changed())
 
     def showUnchanged(self):
-        self.browser.append("unchanged :")
+        self.browser.append("<h2>unchanged :</h2>")
         self.showList(self.scan.get_unchanged())
 
     def showList(self, info_dict):
@@ -342,12 +346,11 @@ class Form(QtGui.QWidget):
         self.dialogTextBrowser = MyDialog(self)
 
         self.scan = self.nessus_scan
-
-        # severity = self.scan.getMaxSeverity()
-        # severity = self.scan.getMaxSeverity()
-        # print(severity)
-        # self.afficherImage(severity)
         # todo suivre les meme modification de fonction en lien avec la gestion d'erreur et l'initialisation de donné
+
+    def getMaxSeverity(self):
+        # todo : check if scan is Nessus
+        return self.scan.getMaxSeverity()
 
     def lancerNMap(self):
         self.number = 0

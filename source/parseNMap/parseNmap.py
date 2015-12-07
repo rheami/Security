@@ -78,7 +78,7 @@ class NMapScan(object):
 
     def get_changed(self):
         keys = self.diff.changed()
-        portInfoa = {x: str(self.port_a[x]) + " -> " + str(self.port_b[x]) for x in keys}
+        portInfoa = {x: str(self.port_a[x]) + "<b> =>> </b>" + str(self.port_b[x]) for x in keys}
         return portInfoa
 
     def test_host_number(self):

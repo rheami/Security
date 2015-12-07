@@ -44,7 +44,7 @@ class Form(QDialog):
         self.buttonB.clicked.connect(self.showB)
         self.buttonDiffHost.clicked.connect(self.showDiffHost)
 
-    def showDiffHost(self):
+    def showDiffHost(self):self.parent().scan
         self.browser.clear()
         self.showRemoved()
         self.showAdded()
