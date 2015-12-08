@@ -6,10 +6,10 @@ from __future__ import absolute_import
 import argparse
 from StringIO import StringIO
 import sys
-from optparse import OptionParser
-from ndiff import Scan, ScanDiffXML, ScanDiffText, HostDiff
+from ndiff import Scan, ScanDiffXML, HostDiff
 from bs4 import BeautifulSoup
 from libnessus.objects.dictdiffer import DictDiffer
+
 
 class NMapScan(object):
     def __init__(self, fileA, fileB):
@@ -18,7 +18,7 @@ class NMapScan(object):
 
         try:
             scan_a = Scan()
-            scan_a.load_from_file(fileA)
+             
             scan_b = Scan()
             scan_b.load_from_file(fileB)
         except IOError as e:
@@ -69,23 +69,37 @@ class NMapScan(object):
 
     def get_added(self):
         keys = self.diff.added()
-        portInfo = {x: self.port_b[x] for x in keys}
-        return portInfo
+        portsInfo = {x: self.port_b[x] for x in keys}
+        return portsInfo
 
     def get_removed(self):
         keys = self.diff.removed()
-        portInfo = {x: self.port_a[x] for x in keys}
-        return portInfo
+        portsInfo = {x: self.port_a[x] for x in keys}
+        return portsInfo
 
     def get_changed(self):
         keys = self.diff.changed()
-        portInfoa = {x: str(self.port_a[x]) + " -> " + str(self.port_b[x]) for x in keys}
-        return portInfoa
+        portsInfo = {}
+        for port in keys:
+            valueA = self.port_a[port]
+            dictA = str_2_dict(valueA)
+
+            valueB = self.port_b[port]
+            dictB = str_2_dict(valueB)
+
+            port_diff = DictDiffer(dictB, dictA)
+
+            #portInfoa = {x: str(self.port_a[x]) + " >>>> " + str(self.port_b[x]) for x in keys}
+            # todo: more than one value may be changed
+            key_value_changed = port_diff.changed().pop()
+            new_value = dictB[key_value_changed]
+            portsInfo[port] = str(self.port_a[port] + "<b> >>>> : {} as change to {} </b>".format(key_value_changed, new_value))
+
+        return portsInfo
 
     def test_host_number(self):
         if len(self.scan_a.hosts) != len(self.scan_b.hosts):
             print("le nombre de host est différent")
-
 
     def test_date(self):
         if self.scan_b.end_date <= self.scan_a.end_date :
@@ -111,6 +125,14 @@ class NMapScan(object):
                 print ("os change : %s" % hostb.os)
             if diff.id_changed:
                 print ("id change : %s" % hostb.get_id)
+
+
+def str_2_dict(value):
+    liste = value.split()
+    it = iter(liste)
+    d = dict(zip(it, it))
+    return d
+
 
 EXIT_EQUAL = 0
 EXIT_DIFFERENT = 1

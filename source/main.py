@@ -82,7 +82,7 @@ class MyDialog(QtGui.QDialog):
             self.parent().showDiffHost()
             severity = int(self.parent().getMaxSeverity())
             print("severity =", severity)
-            self.parent().afficherImage(severity)  # ici
+            self.parent().afficherImage(severity)
             self.parent()
         else:
             self.parent().scan = NMapScan(str(self.fname), str(self.fname2))
@@ -284,7 +284,7 @@ class Form(QtGui.QWidget):
             self.showRemoved()
             self.showAdded()
             self.showChanged()
-            #self.showUnchanged()
+            self.showUnchanged()
         except AttributeError as e:
             pass
 
