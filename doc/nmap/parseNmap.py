@@ -4,113 +4,116 @@ from __future__ import print_function
 from __future__ import absolute_import
 
 import argparse
-from StringIO import StringIO
 import sys
-from optparse import OptionParser
-from ndiff import Scan, ScanDiffXML, ScanDiffText, HostDiff
-from bs4 import BeautifulSoup
-from libnessus.objects.dictdiffer import DictDiffer
+from libnmap.parser import NmapParser
 
 class NMapScan(object):
     def __init__(self, fileA, fileB):
-        """Create a ScanDiff from the "before" scan_a and the "after"
-        scan_b."""
 
         try:
-            scan_a = Scan()
-            scan_a.load_from_file(fileA)
-            scan_b = Scan()
-            scan_b.load_from_file(fileB)
+            scan_a = NmapParser.parse_fromfile(fileA)
+            scan_b = NmapParser.parse_fromfile(fileB)
         except IOError as e:
             print((sys.stderr, u"Can't open file: %s" % str(e)))
             sys.exit(EXIT_ERROR)
 
-        f = StringIO()
-        scan_diff = ScanDiffXML(scan_a, scan_b, f)
-        self.cost = scan_diff.output()
-        xml = f.getvalue()
-        soup = BeautifulSoup(xml, 'lxml-xml')
-        f.close()
-        hostdiff = soup.hostdiff
+        self.host_a = scan_a.hosts[0]
+        self.host_b = scan_b.hosts[0]
 
-        ha = hostdiff.findAll('a')
-        hb = hostdiff.findAll('b')
-
-        self.port_a = {}
-        for a in ha:
-            if a.find('port'):
-                s = str(a.port.state)
-                state = s.partition('"')[-1].rpartition('"')[0]
-                state = "None" if state == "" else state
-                port_info = str("protocol: {0}, state: {1}".format(a.port.get("protocol"), state))
-                self.port_a[a.port.get("portid")] = port_info
-
-        self.port_b = {}
-        for b in hb:
-            if b.find('port'):
-                s = str(b.port.state)
-                state = s.partition('"')[-1].rpartition('"')[0]
-                state = "None" if state == "" else state
-                port_info = str("protocol: {0}, state: {1}".format(b.port.get("protocol"), state))
-                self.port_b[b.port.get("portid")] = port_info
-
-        self.diff = DictDiffer(self.port_b, self.port_a)
+        self.diff = self.host_a.diff(self.host_b)
 
     def getInfoA(self):
-        return self.port_a
+        services = self.host_a.services
+        return self.get_services_info(services)
 
     def getInfoB(self):
-        return self.port_b
+        services = self.host_b.services
+        return self.get_services_info(services)
 
-    def get_unchanged(self):
-        keys = self.diff.unchanged()
-        portInfo = {x: self.port_a[x] for x in keys}
-        return portInfo
+    def get_services_info(self, services):
+        return {x.port: "protocol= {}, service= {}, state= {}".format(
+                x.protocol,
+                x.service,
+                x.state
+                ) for x in services}
+
+    def get_service_info_by_id(self, service_id, host):
+        x = host.get_service_byid(service_id)
+        s = "{}".format(x.port), \
+            " protocol= {}, service= {}, state= {}".format(
+            x.port,
+            x.protocol,
+            x.service,
+            x.state
+        )
+        return s
 
     def get_added(self):
-        keys = self.diff.added()
-        portInfo = {x: self.port_b[x] for x in keys}
-        return portInfo
+        services = self.host_b.services
+        added = self.get_diff_added(self.host_a, self.host_b, self.diff.added())
+        return added
 
     def get_removed(self):
-        keys = self.diff.removed()
-        portInfo = {x: self.port_a[x] for x in keys}
-        return portInfo
+        services = self.host_b.services
+        removed = self.get_diff_removed(self.host_a, self.host_b, self.diff.removed())
+        return removed
 
     def get_changed(self):
-        keys = self.diff.changed()
-        portInfoa = {x: str(self.port_a[x]) + " -> " + str(self.port_b[x]) for x in keys}
-        return portInfoa
+        changed = self.get_diff_changed(self.host_a, self.host_b, self.diff.changed())
+        return changed
 
-    def test_host_number(self):
-        if len(self.scan_a.hosts) != len(self.scan_b.hosts):
-            print("le nombre de host est différent")
+    def get_diff_added(self, obj1, obj2, added):
+        infolist = {}
+        for akey in added:
+            nested = nested_obj(akey)
+            if nested is not None:
+                if nested[0] == 'NmapService':
+                    s = self.get_service_info_by_id(nested[1], obj1)
+                    infolist[s[0]] = s[1]
+        return infolist
+
+    def get_diff_removed(self, obj1, obj2, removed):
+        infolist = {}
+        for rkey in removed:
+            nested = nested_obj(rkey)
+            if nested is not None:
+                if nested[0] == 'NmapService':
+                    s = self.get_service_info_by_id(nested[1], obj2)
+                    infolist[s[0]] = s[1]
+        return infolist
+
+    def get_diff_changed(self, obj1, obj2, changes):
+        infolist = {}
+        for mkey in changes:
+            nested = nested_obj(mkey)
+            if nested is not None:
+                if nested[0] == 'NmapService':
+                    subobj1 = obj1.get_service_byid(nested[1])
+                    subobj2 = obj2.get_service_byid(nested[1])
+                    infolist = self.get_subchanged(subobj1, subobj2)
+            else:
+                s = "protocol= {}, service= {}, state= {}".format(
+                    obj1.protocol,
+                    obj1.service,
+                    obj1.state)
+                infolist[obj1.port] = "{} <h4> change : {}: {} => {} </h4>".format(s, mkey,
+                                                     getattr(obj2, mkey),
+                                                     getattr(obj1, mkey))
+        return infolist
+
+    def get_subchanged(self, obj1, obj2):
+        ndiff = obj1.diff(obj2)
+        subchanged = self.get_diff_changed(obj1, obj2, ndiff.changed())
+        return subchanged
 
 
-    def test_date(self):
-        if self.scan_b.end_date <= self.scan_a.end_date :
-            print("le deuxieme scan doit avoir lieu apres le scan d'origine", self.scan_a.end_date)
+def nested_obj(objname):
+    rval = None
+    splitted = objname.split("::")
+    if len(splitted) == 2:
+        rval = splitted
+    return rval
 
-
-    def test_addresse(self):
-        hosta = self.scan_a.hosts[0]
-        hostb = self.scan_b.hosts[0]
-        if hosta.get_id() != hostb.get_id():
-            print(("pas la meme addresse ", hostb.get_id()))
-
-    def test_hosts(self):
-        hosta = self.scan_a.hosts[0]
-        hostb = self.scan_b.hosts[0]
-        diff = HostDiff(hosta, hostb)
-        if diff.cost > 0:
-            if diff.state_changed:
-                print ("state change : %s" % hostb.state)
-            if diff.extraports_changed:
-                print ("extraports change : %s" % hostb.extraports)
-            if diff.os_changed:
-                print ("os change : %s" % hostb.os)
-            if diff.id_changed:
-                print ("id change : %s" % hostb.get_id)
 
 EXIT_EQUAL = 0
 EXIT_DIFFERENT = 1
@@ -128,10 +131,10 @@ def main():
     parser = argparse.ArgumentParser(
     description='This script parse nmap scan file (XML)..')
     parser.add_argument('--firstscan',
-                    default="./scans/scan-origin.xml",
+                    default="./scans/scanXP-150419-102915.xml",
                     help="path to a nmap xml")
     parser.add_argument('--secondscan',
-                    default="./scans/scan-212247-101415.xml",
+                    default="./scans/scanXP-modified.xml",
                     help="path to a nmap xml")
     args = parser.parse_args()
 
@@ -139,15 +142,10 @@ def main():
     print("infoa", nm.getInfoA())
     print("infob", nm.getInfoB())
     print("changed : ", nm.get_changed())
-    print("added : ",nm.get_added())
-    print("removed : ",nm.get_removed())
-    print("unchanged : ",nm.get_unchanged())
+    print("added : ", nm.get_added())
+    print("removed : ", nm.get_removed())
 
-    print(u"L'indice de différence final est: %s" % nm.cost)
-    if nm.cost == 0:
-        return EXIT_EQUAL
-    else:
-        return EXIT_DIFFERENT
+    return
 
 
 # Catch uncaught exceptions so they can produce an exit code of 2 (EXIT_ERROR),

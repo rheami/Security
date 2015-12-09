@@ -11,8 +11,8 @@ from parseNmap import NMapScan
 class Form(QDialog):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        scanap_scan_file = "./scans/scan-origin.xml"
-        scanap_scan_file2 = "./scans/scan-212247-101415.xml"
+        scanap_scan_file = "./scans/scanXP-150419-102915.xml"
+        scanap_scan_file2 = "./scans/scanXP-modified.xml"
         self.scan = NMapScan(scanap_scan_file, scanap_scan_file2)
 
         self.create_widgets()
@@ -49,7 +49,6 @@ class Form(QDialog):
         self.showRemoved()
         self.showAdded()
         self.showChanged()
-        self.showUnchanged()
 
     def showList(self, info_dict):
         for key in info_dict:
@@ -66,11 +65,6 @@ class Form(QDialog):
     def showChanged(self):
         self.browser.append("changed :")
         self.showList(self.scan.get_changed())
-
-    def showUnchanged(self):
-        self.browser.append("unchanged :")
-        self.showList(self.scan.get_unchanged())
-
 
     def showA(self):
         self.browser.clear()
