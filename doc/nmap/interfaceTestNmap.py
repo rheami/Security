@@ -49,7 +49,6 @@ class Form(QDialog):
         self.showRemoved()
         self.showAdded()
         self.showChanged()
-        self.showUnchanged()
 
     def showList(self, info_dict):
         for key in info_dict:
@@ -66,11 +65,6 @@ class Form(QDialog):
     def showChanged(self):
         self.browser.append("changed :")
         self.showList(self.scan.get_changed())
-
-    def showUnchanged(self):
-        self.browser.append("unchanged :")
-        self.showList(self.scan.get_unchanged())
-
 
     def showA(self):
         self.browser.clear()
