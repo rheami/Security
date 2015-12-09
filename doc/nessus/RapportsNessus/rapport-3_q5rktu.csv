@@ -1,0 +1,54 @@
+Plugin ID,CVE,CVSS,Risk,Host,Protocol,Port,Name,Synopsis,Description,Solution,See Also,Plugin Output
+"19506","","","None","192.168.171.130","tcp","0","Nessus Scan Information","This plugin displays information about the Nessus scan.","This plugin displays, for each tested host, information about the
+scan itself :
+
+  - The version of the plugin set.
+  - The type of scanner (Nessus or Nessus Home).
+  - The version of the Nessus Engine.
+  - The port scanner(s) used.
+  - The port range scanned.
+  - Whether credentialed or third-party patch management
+    checks are possible.
+  - The date of the scan.
+  - The duration of the scan.
+  - The number of hosts scanned in parallel.
+  - The number of checks done in parallel.","n/a","","Information about this scan : 
+
+Nessus version : 6.5.3
+Plugin feed version : 201511301815
+Scanner edition used : Nessus
+Scan type : Normal
+Scan policy used : Advanced Scan
+Scanner IP : 192.168.171.1
+Port scanner(s) : nessus_syn_scanner 
+Port range : default
+Thorough tests : no
+Experimental tests : no
+Paranoia level : 1
+Report Verbosity : 1
+Safe checks : yes
+Optimize the test : yes
+Credentialed checks : no
+Patch management checks : None
+CGI scanning : disabled
+Web application tests : disabled
+Max hosts : 5
+Max checks : 5
+Recv timeout : 5
+Backports : None
+Allow post-scan editing: Yes
+Scan Start Date : 2015/11/30 23:25 Eastern Standard Time
+Scan duration : 529 sec
+"
+"20094","","","None","192.168.171.130","tcp","0","VMware Virtual Machine Detection","The remote host is a VMware virtual machine.","According to the MAC address of its network adapter, the remote host
+is a VMware virtual machine.","Since it is physically accessible through the network, ensure that its
+configuration matches your organization's security policy.","","
+The remote host is a VMware virtual machine.
+"
+"35716","","","None","192.168.171.130","tcp","0","Ethernet Card Manufacturer Detection","The manufacturer can be identified from the Ethernet OUI.","Each ethernet MAC address starts with a 24-bit Organizationally 
+Unique Identifier (OUI). These OUIs are registered by IEEE.","n/a","http://standards.ieee.org/faqs/regauth.html
+http://www.nessus.org/u?794673b4","
+The following card manufacturers were identified :
+
+00:0c:29:54:f7:b8 : VMware, Inc.
+"
