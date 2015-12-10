@@ -11,3 +11,25 @@ libnessus :
 $ git clone https://github.com/bmx0r/python-libnessus.git
 $ cd python-libnessus
 $ python setup.py install
+
+PyQt4 :
+
+    Ubuntu/Debian :
+
+        $ sudo apt-get install python-qt4
+
+    Windows OS :
+        $ download @ https://riverbankcomputing.com/software/pyqt/download
+        $ c:\path\to\PyQt4\python configure-ng.py
+        $ make
+        $ make install
+
+        Faire attention, PyQt4 tiens des dépendences avec SIP. À télécharger via :
+        https://riverbankcomputing.com/software/sip/download ;
+
+        Suivre les instructions d'installation via:
+        http://pyqt.sourceforge.net/Docs/sip4/installation.html
+
+        En cas de problème durant l'installation de PyQt4, suivez les étapes d'installation via:
+        http://pyqt.sourceforge.net/Docs/PyQt4/installation.html
+:

@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 # coding=utf-8
+
+#todo obsolete: a retirer
 from __future__ import print_function
 from __future__ import absolute_import
 from StringIO import StringIO

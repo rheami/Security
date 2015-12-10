@@ -15,10 +15,10 @@ from libnessus.objects.dictdiffer import DictDiffer
 
 
 class DiffFiles(object):
-    filesDictA = {}
-    filesDictB = {}
-
     def __init__(self, SourceDir, CompareDir):
+        self.filesDictA = {}
+        self.filesDictB = {}
+
         self.sourceDir = SourceDir
         self.compareDir = CompareDir
         # objet A

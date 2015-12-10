@@ -2,5 +2,4 @@
 
 from source import main
 
-main.Window.
-
+main.AnalyseVuln().exec_()
