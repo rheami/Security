@@ -3,30 +3,29 @@
 from __future__ import division
 from __future__ import print_function
 from __future__ import unicode_literals
-from math import *
 import sys
 from PyQt4.QtGui import (QApplication, QDialog, QTextBrowser, QVBoxLayout, QPushButton, QHBoxLayout)
-from parseNessus import Nessus
+
+from source.diffFiles.diffFiles import DiffFiles
+
 
 class Form(QDialog):
     def __init__(self, parent=None):
         super(Form, self).__init__(parent)
-        nessusfile = "./scan/xp_27.nessus"
-        nessusfileB = "./scan/xp_27B.nessus"
-        self.scan = Nessus(nessusfile, nessusfileB)
+        self.scan = DiffFiles("./doc A/","./doc B/")
 
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
         self.setFixedHeight(600)
         self.setFixedWidth(800)
-        self.setWindowTitle("Vulnerabilite trouvees par Nessus")
+        self.setWindowTitle("test difffile")
 
     def create_widgets(self):
         self.browser = QTextBrowser()
         self.buttonA = QPushButton("show A")
         self.buttonB = QPushButton("show B")
-        self.buttonDiffHost = QPushButton("Show diff host")
+        self.buttonDiffHost = QPushButton("Show diff")
 
     def layout_widgets(self):
         buttonLayout = QHBoxLayout()
@@ -44,7 +43,7 @@ class Form(QDialog):
         self.buttonB.clicked.connect(self.showB)
         self.buttonDiffHost.clicked.connect(self.showDiffHost)
 
-    def showDiffHost(self):self.parent().scan
+    def showDiffHost(self):
         self.browser.clear()
         self.showRemoved()
         self.showAdded()
@@ -73,6 +72,7 @@ class Form(QDialog):
 
     def showA(self):
         self.browser.clear()
+
         infoList = self.scan.getInfoA()
         for key in infoList:
             self.browser.append("{0} : {1}".format(key, infoList[key]))
