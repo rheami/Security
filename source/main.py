@@ -6,19 +6,19 @@ import os
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
 
-from diffFiles import diffFiles
 from parseNMap.parseNmap import NMapScan
 from parseNessus.parseNessus import Nessus
+from diffFiles.diffFiles import DiffFiles
 
 
 class MyDialog(QtGui.QDialog):
-    def __init__(self, parent):
+    def __init__(self, parent, default_dir="."):
         super(QtGui.QDialog, self).__init__(parent)
 
         self.fname = ""
         self.fname2 = ""
+        self.default_dir = default_dir
         self.setWindowTitle('Scans a comparer')
-
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
@@ -85,14 +85,11 @@ class MyDialog(QtGui.QDialog):
         self.close()
 
     def ouvririnterface(self):
-        self.showDialog(self.parent().number)
+        self.showDialog()
 
-    def showDialog(self, number):
-        print("showDialog", self.sender())
-        if number == 0:
-            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNMap')
-        else:
-            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNessus')
+    def showDialog(self):
+        fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', self.default_dir)
+
         try:
             f = open(fname, 'r')
             if self.sender() is self.btnopenscan:
@@ -111,19 +108,19 @@ class Form(QtGui.QWidget):
     def __init__(self):
         super(QtGui.QWidget, self).__init__()
 
-        self.scan = None
+        self.diff_type = None
 
         self.nmap_scan_fileA = ""
         self.nmap_scan_fileB = ""
-        self.nmap_scan = None
+        self.nmap_report = None
 
         self.nessusfileA = ""
         self.nessusfileB = ""
-        self.nessus_scan = None
+        self.nessus_report = None
 
-        self.exe_scanA = "" # try here
-        self.exe_scanB = ""
-        self.exe_compare = None
+        self.exe_scanA = "./doc A/" # try here
+        self.exe_scanB = "./doc B/"
+        self.hash_report = None
 
         self.create_widgets()
         self.layout_widgets()
@@ -132,8 +129,6 @@ class Form(QtGui.QWidget):
         self.setFixedHeight(500)
         self.setFixedWidth(1200)
         self.setWindowTitle("ports ouverts nmap scan")
-
-        self.number = -1
 
     def create_widgets(self):
         self.boiteresultats = QtGui.QGroupBox('Resultats')
@@ -150,8 +145,8 @@ class Form(QtGui.QWidget):
         self.btnnessus = QtGui.QPushButton('Nessus', self)
 
         self.buttonHachage = QtGui.QPushButton('Executables', self)
-        self.buttonExe1 = QtGui.QPushButton('.exe 1')
-        self.buttonExe2 = QtGui.QPushButton('.exe 2')
+        self.buttonAHachage = QtGui.QPushButton('.exe 1')
+        self.buttonBHachage = QtGui.QPushButton('.exe 2')
         self.buttonExeResult = QtGui.QPushButton('.exe resultat')
 
         self.image = QtGui.QLabel()
@@ -189,8 +184,8 @@ class Form(QtGui.QWidget):
         self.btnnmap.setStatusTip('Inspection et analyse des ports')
 
         buttonLayout = QtGui.QHBoxLayout()
-        buttonLayout.addWidget(self.buttonExe1)
-        buttonLayout.addWidget(self.buttonExe2)
+        buttonLayout.addWidget(self.buttonAHachage)
+        buttonLayout.addWidget(self.buttonBHachage)
         buttonLayout.addWidget(self.buttonExeResult)
         buttonLayout.addWidget(self.buttonAnmap)
         buttonLayout.addWidget(self.buttonBnmap)
@@ -218,16 +213,19 @@ class Form(QtGui.QWidget):
     def create_connections(self):
         self.buttonAnmap.clicked.connect(self.showANmap)
         self.buttonBnmap.clicked.connect(self.showBNmap)
-        self.buttonDiffHostnmap.clicked.connect(self.showDiffHostNMap)
+        self.buttonDiffHostnmap.clicked.connect(self.show_diff_nmap)
+
         self.buttonAnessus.clicked.connect(self.showANessus)
         self.buttonBnessus.clicked.connect(self.showBNessus)
-        self.buttonDiffHostnessus.clicked.connect(self.showDiffHostNessus)
+        self.buttonDiffHostnessus.clicked.connect(self.show_diff_nessus)
+
         self.btnnmap.clicked.connect(self.lancerNMap)
         self.btnnessus.clicked.connect(self.lancerNessus)
         self.buttonHachage.clicked.connect(self.lancerHachage)
-        self.buttonExe1.clicked.connect(self.exe1)
-        self.buttonExe2.clicked.connect(self.exe2)
-        self.buttonExeResult.clicked.connect(self.exeResults)
+
+        self.buttonAHachage.clicked.connect(self.showA_hash)
+        self.buttonBHachage.clicked.connect(self.showB_hash)
+        self.buttonExeResult.clicked.connect(self.show_diff_hash)
 
     def exe1(self):
         self.browser.clear()
@@ -237,33 +235,35 @@ class Form(QtGui.QWidget):
         self.browser.clear()
     # todo
 
-    def exeResults(self):
+    def show_diff_hash(self):
         try:
-            self.browser.clear()
+            self.diff_type = self.hash_report
+            if self.diff_type is None:
+                return
+            self.show_diff()
         except AttributeError as e:
             pass
-    # todo
 
-    def showDiffHostNessus(self):
+    def show_diff_nessus(self):
         try:
-            self.scan = self.nessus_scan
-            if self.scan is None:
+            self.diff_type = self.nessus_report
+            if self.diff_type is None:
                 return
-            self.showDiffHost()
+            self.show_diff()
             self.afficherImage(self.getMaxSeverity())
         except AttributeError as e:
             pass
 
-    def showDiffHostNMap(self):
+    def show_diff_nmap(self):
         try:
-            self.scan = self.nmap_scan
-            if self.scan is None:
+            self.diff_type = self.nmap_report
+            if self.diff_type is None:
                 return
-            self.showDiffHost()
+            self.show_diff()
         except AttributeError as e:
             pass
 
-    def showDiffHost(self):
+    def show_diff(self):
         try:
             self.browser.clear()
             self.showRemoved()
@@ -274,15 +274,15 @@ class Form(QtGui.QWidget):
 
     def showRemoved(self):
         self.browser.append("<h2>removed :</h2>")
-        self.showList(self.scan.get_removed())
+        self.showList(self.diff_type.get_removed())
 
     def showAdded(self):
         self.browser.append("<h2>added :</h2>")
-        self.showList(self.scan.get_added())
+        self.showList(self.diff_type.get_added())
 
     def showChanged(self):
         self.browser.append("<h2>changed :</h2>")
-        self.showList(self.scan.get_changed())
+        self.showList(self.diff_type.get_changed())
 
     # def showUnchanged(self):
     #     self.browser.append("<h2>unchanged :</h2>")
@@ -295,68 +295,94 @@ class Form(QtGui.QWidget):
     def showANmap(self):
         try:
             self.browser.clear()
-            self.showList(self.nmap_scan.getInfoA())
+            self.showList(self.nmap_report.getInfoA())
         except AttributeError as e:
             pass
 
     def showBNmap(self):
         try:
             self.browser.clear()
-            self.showList(self.nmap_scan.getInfoB())
+            self.showList(self.nmap_report.getInfoB())
         except AttributeError as e:
             pass
 
     def showANessus(self):
         try:
             self.browser.clear()
-            self.showList(self.nessus_scan.getInfoA())
+            self.showList(self.nessus_report.getInfoA())
         except AttributeError as e:
             pass
 
     def showBNessus(self):
         try:
             self.browser.clear()
-            self.showList(self.nessus_scan.getInfoB())
+            self.showList(self.nessus_report.getInfoB())
         except AttributeError as e:
             pass
 
+    def showA_hash(self):
+        try:
+            self.browser.clear()
+            self.showList(self.hash_report.getInfoA())
+        except AttributeError as e:
+            pass
+
+    def showB_hash(self):
+        try:
+            self.browser.clear()
+            self.showList(self.hash_report.getInfoB())
+        except AttributeError as e:
+            pass
+
+    def getMaxSeverity(self):
+        try:
+            return self.diff_type.getMaxSeverity()
+        except AttributeError as e:
+            print(e)
+
     def lancerNessus(self):
         try:
-            self.number = 1
+            start_dir = "./scanNessus"
 
-            dialog = MyDialog(self)
+            dialog = MyDialog(self, start_dir)
             dialog.exec_()
 
             self.nessusfileA = dialog.fname
             self.nessusfileB = dialog.fname2
 
-            self.scan = self.nessus_scan = Nessus(self.nessusfileA, self.nessusfileB)
+            self.diff_type = self.nessus_report = Nessus(self.nessusfileA, self.nessusfileB)
             self.afficherImage(self.getMaxSeverity())
-            self.showDiffHost()
+            self.show_diff()
         except AttributeError as e:
             print(e)
 
     def lancerHachage(self):
-        pass
-
-    def getMaxSeverity(self):
         try:
-            return self.scan.getMaxSeverity()
+            start_dir = "./diffFiles"
+
+            # dialog = MyDialog(self, start_dir)
+            # dialog.exec_()
+
+            dir_A = "./diffFiles/doc A/"
+            dir_B = "./diffFiles/doc B/"
+
+            self.diff_type = self.hash_report = DiffFiles(dir_A, dir_B)
+            self.show_diff()
         except AttributeError as e:
             print(e)
 
     def lancerNMap(self):
         try:
-            self.number = 0
+            start_dir = "./scanNMap"
 
-            dialog = MyDialog(self)
+            dialog = MyDialog(self, start_dir)
             dialog.exec_()
 
             self.nmap_scan_fileA = dialog.fname
             self.nmap_scan_fileB = dialog.fname2
 
-            self.scan = self.nmap_scan = NMapScan(self.nmap_scan_fileA, self.nmap_scan_fileB)
-            self.showDiffHost()
+            self.diff_type = self.nmap_report = NMapScan(self.nmap_scan_fileA, self.nmap_scan_fileB)
+            self.show_diff()
         except AttributeError as e:
             print(e)
 
