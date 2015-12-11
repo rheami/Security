@@ -21,7 +21,7 @@
 <port protocol="tcp" portid="445"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="microsoft-ds" method="table" conf="3"/></port>
 <port protocol="tcp" portid="1025"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="NFS-or-IIS" method="table" conf="3"/></port>
 <port protocol="tcp" portid="5000"><state state="open" reason="syn-ack" reason_ttl="128"/><service name="upnp" method="table" conf="3"/></port>
-<port protocol="udp" portid="123"><state state="open" reason="udp-response" reason_ttl="128"/><service name="ntp" method="table" conf="3"/></port>
+<port protocol="udp" portid="123"><state state="open|filtered" reason="udp-response" reason_ttl="128"/><service name="ntp" method="table" conf="3"/></port>
 <port protocol="udp" portid="135"><state state="open" reason="udp-response" reason_ttl="128"/><service name="msrpc" method="table" conf="3"/></port>
 <port protocol="udp" portid="137"><state state="open" reason="udp-response" reason_ttl="128"/><service name="netbios-ns" method="table" conf="3"/></port>
 <port protocol="udp" portid="138"><state state="open|filtered" reason="no-response" reason_ttl="0"/><service name="netbios-dgm" method="table" conf="3"/></port>
