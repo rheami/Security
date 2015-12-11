@@ -275,7 +275,6 @@ class Form(QtGui.QWidget):
             pass
 
     def showDiffHost(self):
-        print(self.scan)
         try:
             self.browser.clear()
             self.showRemoved()
