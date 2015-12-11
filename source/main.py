@@ -122,15 +122,15 @@ class Form(QtGui.QWidget):
     def __init__(self):
         super(QtGui.QWidget, self).__init__()
 
-        self.scan = ""
+        self.scan = None
 
         self.nmap_scan_fileA = ""  # "./scanNMap/scan-115007-102615.xml"
         self.nmap_scan_fileB = ""  # "./scanNMap/scan-144848-101915.xml"
-        self.nmap_scan = ""  # NMapScan(nmap_scan_fileA, nmap_scan_fileB)
+        self.nmap_scan = None  # NMapScan(nmap_scan_fileA, nmap_scan_fileB)
 
         self.nessusfileA = ""  # "./scanNessus/xp_27.nessus"
         self.nessusfileB = ""  # "./scanNessus/xp_27B.nessus"
-        self.nessus_scan = ""  # Nessus(nessusfileA, nessusfileB)
+        self.nessus_scan = None  # Nessus(nessusfileA, nessusfileB)
 
         self.exe_scanA = ""
         self.exe_scanB = ""
@@ -258,25 +258,29 @@ class Form(QtGui.QWidget):
     def showDiffHostNessus(self):
         try:
             self.scan = self.nessus_scan
-            self.afficherImage(self.getMaxSeverity())
+            if self.scan is None:
+                return
             self.showDiffHost()
+            self.afficherImage(self.getMaxSeverity())
         except AttributeError as e:
             pass
 
     def showDiffHostNMap(self):
         try:
             self.scan = self.nmap_scan
+            if self.scan is None:
+                return
             self.showDiffHost()
         except AttributeError as e:
             pass
 
     def showDiffHost(self):
+        print(self.scan)
         try:
             self.browser.clear()
             self.showRemoved()
             self.showAdded()
             self.showChanged()
-            self.showUnchanged()
         except AttributeError as e:
             pass
 
@@ -292,9 +296,9 @@ class Form(QtGui.QWidget):
         self.browser.append("<h2>changed :</h2>")
         self.showList(self.scan.get_changed())
 
-    def showUnchanged(self):
-        self.browser.append("<h2>unchanged :</h2>")
-        self.showList(self.scan.get_unchanged())
+    # def showUnchanged(self):
+    #     self.browser.append("<h2>unchanged :</h2>")
+    #     self.showList(self.scan.get_unchanged())
 
     def showList(self, info_dict):
         for key in info_dict:
