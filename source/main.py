@@ -134,7 +134,7 @@ class Form(QtGui.QWidget):
 
         self.exe_scanA = ""
         self.exe_scanB = ""
-        self.exe_compare = ""
+        self.exe_compare = None
 
         self.create_widgets()
         self.layout_widgets()

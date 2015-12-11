@@ -24,8 +24,8 @@ class ExeHash(object):
         try:
             for path in self.listedmap:
                 hash = hashlib.md5(open(path, 'rb').read()).hexdigest()
-                #path =
-                self.hashedpath[str(path)] = str(hash)
+                filename = os.path.basename(path)
+                self.hashedpath[str(filename)] = str(hash)
         except IOError as e:
             pass
 
