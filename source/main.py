@@ -71,7 +71,7 @@ class MyDialog(QtGui.QDialog):
     def create_connections(self):
         self.boutonannuler.clicked.connect(self.annuler)
         self.btnopenscan.clicked.connect(self.ouvririnterface)
-        self.btnopenscan2.clicked.connect(self.ouvririnterface2)
+        self.btnopenscan2.clicked.connect(self.ouvririnterface)
         self.boutoncomparer.clicked.connect(self.comparer)
 
     def comparer(self):
@@ -87,31 +87,20 @@ class MyDialog(QtGui.QDialog):
     def ouvririnterface(self):
         self.showDialog(self.parent().number)
 
-    def ouvririnterface2(self):
-        self.showDialog2(self.parent().number)
-
     def showDialog(self, number):
+        print("showDialog", self.sender())
         if number == 0:
-            self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNMap')
+            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNMap')
         else:
-            self.fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNessus')
+            fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNessus')
         try:
-            f = open(self.fname, 'r')
-            self.fenetrescan1.append(str(self.fname))
-            f.close()
-        except IOError as e:
-            print(e)
-
-    def showDialog2(self, number):
-        if number == 0:
-
-            self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNMap')
-        else:
-            self.fname2 = QtGui.QFileDialog.getOpenFileName(self, 'Open file', './scanNessus')
-
-        try:
-            f = open(self.fname2, 'r')
-            self.fenetrescan2.append(str(self.fname2))
+            f = open(fname, 'r')
+            if self.sender() is self.btnopenscan:
+                self.fenetrescan1.append(str(fname))
+                self.fname = fname
+            else:
+                self.fenetrescan2.append(str(fname))
+                self.fname2 = fname
             f.close()
         except IOError as e:
             print(e)
@@ -124,15 +113,15 @@ class Form(QtGui.QWidget):
 
         self.scan = None
 
-        self.nmap_scan_fileA = ""  # "./scanNMap/scan-115007-102615.xml"
-        self.nmap_scan_fileB = ""  # "./scanNMap/scan-144848-101915.xml"
-        self.nmap_scan = None  # NMapScan(nmap_scan_fileA, nmap_scan_fileB)
+        self.nmap_scan_fileA = ""
+        self.nmap_scan_fileB = ""
+        self.nmap_scan = None
 
-        self.nessusfileA = ""  # "./scanNessus/xp_27.nessus"
-        self.nessusfileB = ""  # "./scanNessus/xp_27B.nessus"
-        self.nessus_scan = None  # Nessus(nessusfileA, nessusfileB)
+        self.nessusfileA = ""
+        self.nessusfileB = ""
+        self.nessus_scan = None
 
-        self.exe_scanA = ""
+        self.exe_scanA = "" # try here
         self.exe_scanB = ""
         self.exe_compare = None
 
