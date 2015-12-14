@@ -5,7 +5,8 @@ import os
 
 from PyQt4 import QtGui
 from PyQt4.QtCore import SIGNAL, SLOT
-
+from diff_user.user_generator import generateur
+from diff_user.diff_user2 import Diff_user2
 from parseNMap.parseNmap import NMapScan
 from parseNessus.parseNessus import Nessus
 from diffFiles.diffFiles import DiffFiles
@@ -160,6 +161,7 @@ class Form(QtGui.QWidget):
         self.buttonBnessus = QtGui.QPushButton("Scan 2 Nessus")
         self.buttonDiffHostnessus = QtGui.QPushButton("Diff Nessus")
         self.btnnmap = QtGui.QPushButton('NMap', self)
+        self.btnuser = QtGui.QPushButton('Utilisateurs', self)
 
         self.btnnessus = QtGui.QPushButton('Nessus', self)
 
@@ -218,6 +220,7 @@ class Form(QtGui.QWidget):
         gauche = QtGui.QVBoxLayout()
         gauche.addWidget(self.btnnmap)
         gauche.addWidget(self.btnnessus)
+        gauche.addWidget(self.btnuser)
         gauche.addWidget(self.buttonHachage)
         self.boitelancement.setLayout(gauche)
         results = QtGui.QVBoxLayout()
@@ -241,6 +244,7 @@ class Form(QtGui.QWidget):
         self.btnnmap.clicked.connect(self.lancerNMap)
         self.btnnessus.clicked.connect(self.lancerNessus)
         self.buttonHachage.clicked.connect(self.lancerHachage)
+        self.btnuser.clicked.connect(self.show_user)
 
         self.buttonAHachage.clicked.connect(self.showA_hash)
         self.buttonBHachage.clicked.connect(self.showB_hash)
@@ -257,6 +261,17 @@ class Form(QtGui.QWidget):
     def show_diff_hash(self):
         try:
             self.diff_type = self.hash_report
+            if self.diff_type is None:
+                return
+            self.show_diff()
+            severity = self.getIndiceOfChange()
+            self.afficherImage(severity)
+        except AttributeError as e:
+            pass
+
+    def show_diff_user(self):
+        try:
+            self.diff_type = self.user_report
             if self.diff_type is None:
                 return
             self.show_diff()
@@ -376,6 +391,21 @@ class Form(QtGui.QWidget):
 
             self.diff_type = self.nessus_report = Nessus(self.nessusfileA, self.nessusfileB)
             self.show_diff_nessus()
+        except AttributeError as e:
+            print(e)
+
+    def show_user(self):
+        try:
+            start_dir = "./source"
+
+            generateur()
+            dialog = MyDialog(self, start_dir)
+            dialog.exec_()
+            userA = dialog.fname
+            userB = dialog.fname2
+
+            self.diff_type =self.user_report= Diff_user2(userA,userB)
+            self.show_diff_user()
         except AttributeError as e:
             print(e)
 
