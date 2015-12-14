@@ -25,13 +25,13 @@ class DiffFiles(object):
         self.reptohashA = hashingMap.ExeHash(SourceDir)
         # map A
         self.filesDictA = self.reptohashA.getmap()
-        print(self.filesDictA)
+        # print(self.filesDictA)
         # self.filesDictA = {'file_a': 1234, 'file_b': 2344, 'file_c': 1235}
         # objet B
         self.reptohashB = hashingMap.ExeHash(CompareDir)
         # map b
         self.filesDictB = self.reptohashB.getmap()
-        print(self.filesDictB)
+        # print(self.filesDictB)
         # self.filesDictB = {'file_a': 1234, 'file_b': 2544, 'file_d': 1235}
         self.set_diff()
 
