@@ -18,15 +18,18 @@ class MyDialog(QtGui.QDialog):
         self.fname = ""
         self.fname2 = ""
         self.default_dir = default_dir
-        self.setWindowTitle('Scans a comparer')
+
+        self.sentby = parent.sender().text()
+
+        self.setWindowTitle(u'rapport(dossier) à comparer')
         self.create_widgets()
         self.layout_widgets()
         self.create_connections()
 
     def create_widgets(self):
-        self.btnopenscan = QtGui.QPushButton('ouvrir scan1')
+        self.btnopenscan = QtGui.QPushButton('choisir rapport original')
         self.fenetrescan1 = QtGui.QTextEdit(self)
-        self.btnopenscan2 = QtGui.QPushButton('ouvrir scan2')
+        self.btnopenscan2 = QtGui.QPushButton('choisir rapport nouveau')
         self.fenetrescan2 = QtGui.QTextEdit(self)
         self.boutoncomparer = QtGui.QPushButton('comparer')
         self.boutonannuler = QtGui.QPushButton('annuler')
@@ -85,7 +88,15 @@ class MyDialog(QtGui.QDialog):
         self.close()
 
     def ouvririnterface(self):
-        self.showDialog()
+
+        if self.sentby == 'NMap':
+            self.showDialog()
+
+        if self.sentby == 'Nessus':
+            self.showDialog()
+
+        if self.sentby == 'Executables':
+            self.showOpenFolderDialog()
 
     def showDialog(self):
         fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', self.default_dir)
@@ -102,6 +113,20 @@ class MyDialog(QtGui.QDialog):
         except IOError as e:
             print(e)
 
+    def showOpenFolderDialog(self):
+        dir = QtGui.QFileDialog.getExistingDirectory(self, 'Select Directory', self.default_dir)
+
+        try:
+            if self.sender() is self.btnopenscan:
+                self.fenetrescan1.append(str(dir))
+                self.fname = str(dir) + "/"
+            else:
+                self.fenetrescan2.append(str(dir))
+                self.fname2 = str(dir) + "/"
+        except IOError as e:
+            pass
+
+
 
 class Form(QtGui.QWidget):
 
@@ -110,16 +135,10 @@ class Form(QtGui.QWidget):
 
         self.diff_type = None
 
-        self.nmap_scan_fileA = ""
-        self.nmap_scan_fileB = ""
         self.nmap_report = None
 
-        self.nessusfileA = ""
-        self.nessusfileB = ""
         self.nessus_report = None
 
-        self.exe_scanA = "./doc A/" # try here
-        self.exe_scanB = "./doc B/"
         self.hash_report = None
 
         self.create_widgets()
@@ -241,6 +260,8 @@ class Form(QtGui.QWidget):
             if self.diff_type is None:
                 return
             self.show_diff()
+            severity = self.getIndiceOfChange()
+            self.afficherImage(severity)
         except AttributeError as e:
             pass
 
@@ -250,7 +271,8 @@ class Form(QtGui.QWidget):
             if self.diff_type is None:
                 return
             self.show_diff()
-            self.afficherImage(self.getMaxSeverity())
+            severity = int(self.getMaxSeverity())
+            self.afficherImage(severity)
         except AttributeError as e:
             pass
 
@@ -260,8 +282,14 @@ class Form(QtGui.QWidget):
             if self.diff_type is None:
                 return
             self.show_diff()
+            severity = self.getIndiceOfChange()
+            self.afficherImage(severity)
         except AttributeError as e:
             pass
+
+    def getIndiceOfChange(self):
+        severity = len(self.diff_type.get_removed()) + len(self.diff_type.get_changed()) + len(self.diff_type.get_added())
+        return severity
 
     def show_diff(self):
         try:
@@ -283,10 +311,6 @@ class Form(QtGui.QWidget):
     def showChanged(self):
         self.browser.append("<h2>changed :</h2>")
         self.showList(self.diff_type.get_changed())
-
-    # def showUnchanged(self):
-    #     self.browser.append("<h2>unchanged :</h2>")
-    #     self.showList(self.scan.get_unchanged())
 
     def showList(self, info_dict):
         for key in info_dict:
@@ -351,8 +375,7 @@ class Form(QtGui.QWidget):
             self.nessusfileB = dialog.fname2
 
             self.diff_type = self.nessus_report = Nessus(self.nessusfileA, self.nessusfileB)
-            self.afficherImage(self.getMaxSeverity())
-            self.show_diff()
+            self.show_diff_nessus()
         except AttributeError as e:
             print(e)
 
@@ -360,14 +383,15 @@ class Form(QtGui.QWidget):
         try:
             start_dir = "./diffFiles"
 
-            # dialog = MyDialog(self, start_dir)
-            # dialog.exec_()
+            dialog = MyDialog(self, start_dir)
+            dialog.exec_()
 
-            dir_A = "./diffFiles/doc A/"
-            dir_B = "./diffFiles/doc B/"
+            exe_scanA = dialog.fname
+            exe_scanB = dialog.fname2
 
-            self.diff_type = self.hash_report = DiffFiles(dir_A, dir_B)
-            self.show_diff()
+            self.diff_type = self.hash_report = DiffFiles(exe_scanA, exe_scanB)
+            self.show_diff_hash()
+
         except AttributeError as e:
             print(e)
 
@@ -382,7 +406,7 @@ class Form(QtGui.QWidget):
             self.nmap_scan_fileB = dialog.fname2
 
             self.diff_type = self.nmap_report = NMapScan(self.nmap_scan_fileA, self.nmap_scan_fileB)
-            self.show_diff()
+            self.show_diff_nmap()
         except AttributeError as e:
             print(e)
 
