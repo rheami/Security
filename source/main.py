@@ -98,6 +98,9 @@ class MyDialog(QtGui.QDialog):
 
         if self.sentby == 'Executables':
             self.showOpenFolderDialog()
+        else:
+             self.showDialog()
+
 
     def showDialog(self):
         fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', self.default_dir)
@@ -396,15 +399,15 @@ class Form(QtGui.QWidget):
 
     def show_user(self):
         try:
-            start_dir = "./source"
+            start_dir = "./diff_user"
 
-            generateur()
+            #generateur()
             dialog = MyDialog(self, start_dir)
             dialog.exec_()
-            userA = dialog.fname
-            userB = dialog.fname2
+            self.userA = dialog.fname
+            self.userB = dialog.fname2
 
-            self.diff_type =self.user_report= Diff_user2(userA,userB)
+            self.diff_type =self.user_report= Diff_user2(self.userA,self.userB)
             self.show_diff_user()
         except AttributeError as e:
             print(e)
