@@ -90,14 +90,10 @@ class MyDialog(QtGui.QDialog):
 
     def ouvririnterface(self):
 
-        if self.sentby == 'NMap':
-            self.showDialog()
-
-        if self.sentby == 'Nessus':
-            self.showDialog()
 
         if self.sentby == 'Executables':
             self.showOpenFolderDialog()
+
         else:
              self.showDialog()
 
