@@ -18,9 +18,6 @@ class MyDialog(QtGui.QDialog):
         self.fname = ""
         self.fname2 = ""
         self.default_dir = default_dir
-
-        self.sentby = parent.sender().text()
-
         self.setWindowTitle('Scans a comparer')
         self.create_widgets()
         self.layout_widgets()
@@ -88,16 +85,7 @@ class MyDialog(QtGui.QDialog):
         self.close()
 
     def ouvririnterface(self):
-        # self.showDialog()
-
-        if self.sentby == 'NMap':
-            self.showDialog()
-
-        if self.sentby == 'Nessus':
-            self.showDialog()
-
-        if self.sentby == 'Executables':
-            self.showOpenFolderDialog()
+        self.showDialog()
 
     def showDialog(self):
         fname = QtGui.QFileDialog.getOpenFileName(self, 'Open file', self.default_dir)
@@ -113,19 +101,6 @@ class MyDialog(QtGui.QDialog):
             f.close()
         except IOError as e:
             print(e)
-
-    def showOpenFolderDialog(self):
-        dir = QtGui.QFileDialog.getExistingDirectory(self, 'Select Directory', self.default_dir)
-
-        try:
-            if self.sender() is self.btnopenscan:
-                self.fenetrescan1.append(str(dir))
-                self.fname = str(dir) + "/"
-            else:
-                self.fenetrescan2.append(str(dir))
-                self.fname2 = str(dir) + "/"
-        except IOError as e:
-            pass
 
 
 class Form(QtGui.QWidget):
@@ -143,8 +118,8 @@ class Form(QtGui.QWidget):
         self.nessusfileB = ""
         self.nessus_report = None
 
-        self.exe_scanA = ""
-        self.exe_scanB = ""
+        self.exe_scanA = "./doc A/" # try here
+        self.exe_scanB = "./doc B/"
         self.hash_report = None
 
         self.create_widgets()
@@ -309,6 +284,10 @@ class Form(QtGui.QWidget):
         self.browser.append("<h2>changed :</h2>")
         self.showList(self.diff_type.get_changed())
 
+    # def showUnchanged(self):
+    #     self.browser.append("<h2>unchanged :</h2>")
+    #     self.showList(self.scan.get_unchanged())
+
     def showList(self, info_dict):
         for key in info_dict:
             self.browser.append("{0} : {1}".format(key, info_dict[key]))
@@ -381,13 +360,13 @@ class Form(QtGui.QWidget):
         try:
             start_dir = "./diffFiles"
 
-            dialog = MyDialog(self, start_dir)
-            dialog.exec_()
+            # dialog = MyDialog(self, start_dir)
+            # dialog.exec_()
 
-            self.exe_scanA = dialog.fname
-            self.exe_scanB = dialog.fname2
+            dir_A = "./diffFiles/doc A/"
+            dir_B = "./diffFiles/doc B/"
 
-            self.diff_type = self.hash_report = DiffFiles(self.exe_scanA, self.exe_scanB)
+            self.diff_type = self.hash_report = DiffFiles(dir_A, dir_B)
             self.show_diff()
         except AttributeError as e:
             print(e)
